@@ -11,7 +11,7 @@ import java.sql.Driver;
 public class OnlinerExampleScreen {
     private final Label onlinerTitleLable = new Label(By.xpath("//img[@class='onliner_logo']"));
 
-    private final Button catalogButton = new Button(By.xpath(S)
+    //private final Button catalogButton = new Button("//span[@class=\"b-main-navigation__text\" and contains(text(),'Каталог')]")
     public void navigateToOnlinerPage() {
         WebDriverManager.currentSession().getWebDriver().navigate();
 
@@ -22,7 +22,7 @@ public class OnlinerExampleScreen {
 
     public void clicksOnCatalog(String str) {
         String xpath = "//span[@class=\"b-main-navigation__text\" and contains(text(),'" + str + "')]";
-
+        Button catalogButton = new Button(By.xpath(str));
         catalogButton.click();
     }
 }

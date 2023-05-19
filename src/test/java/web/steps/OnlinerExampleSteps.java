@@ -24,6 +24,16 @@ public class OnlinerExampleSteps {
 
     @When("the user clicks on Catalog section {string}")
     public void theUserClicksOnCatalogSection(String str) {
-        exampleScreen.clicksOnCatalog("Каталог");
+        exampleScreen.clicksOnCatalog(str);
     }
+    @Then("the user asserts Catalog section {string}")
+    public void assertsCatalogSection(String str){
+        Assert.assertTrue(exampleScreen::getsScreenTitle);
+    }
+
+    @When ("the user clicks on Section Item Catalog {string}")
+    public void clicksOnSectionItemCatalog(String str){
+
+    }
+
 }

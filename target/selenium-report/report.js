@@ -131,7 +131,7 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.assertScreens()"
+  "location": "web.steps.OnlinerNavigationSteps.assertScreens()"
 });
 formatter.result({
   "status": "passed"
@@ -141,7 +141,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.theUserAssertsOninerWebsite()"
+  "location": "web.steps.OnlinerNavigationSteps.theUserAssertsOninerWebsite()"
 });
 formatter.result({
   "status": "passed"
@@ -151,7 +151,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.theUserClicksOnCatalogSection(java.lang.String)"
+  "location": "web.steps.OnlinerNavigationSteps.theUserClicksOnCatalogSection(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -161,7 +161,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.assertsCatalogSection()"
+  "location": "web.steps.OnlinerNavigationSteps.assertsCatalogSection()"
 });
 formatter.result({
   "status": "passed"
@@ -171,7 +171,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.clicksOnCatalogClassifier(java.lang.String)"
+  "location": "web.steps.OnlinerNavigationSteps.clicksOnCatalogClassifier(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -181,7 +181,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.theUserAssertsCatalogClassifier(java.lang.String)"
+  "location": "web.steps.OnlinerNavigationSteps.theUserAssertsCatalogClassifier(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -191,7 +191,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.clicksOnSectionItemCatalog(java.lang.String)"
+  "location": "web.steps.OnlinerNavigationSteps.clicksOnSectionItemCatalog(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -201,7 +201,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.assertOnSectionItemCatalog()"
+  "location": "web.steps.OnlinerNavigationSteps.assertOnSectionItemCatalog()"
 });
 formatter.result({
   "status": "passed"
@@ -211,7 +211,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.clickOnProductLink(java.lang.String)"
+  "location": "web.steps.OnlinerNavigationSteps.clickOnProductLink(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -221,7 +221,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.assertOnProductLink(java.lang.String)"
+  "location": "web.steps.OnlinerNavigationSteps.assertOnProductLink(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -231,7 +231,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.clickOnPriceItemOffer(java.lang.String)"
+  "location": "web.steps.OnlinerNavigationSteps.clickOnPriceItemOffer(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -241,7 +241,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.assertOnPriceItemOffer(java.lang.String)"
+  "location": "web.steps.OnlinerNavigationSteps.assertOnPriceItemOffer(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -251,7 +251,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.clickOnnPriceByCount(int)"
+  "location": "web.steps.OnlinerBasketPageSteps.clickOnnPriceByCount(int)"
 });
 formatter.result({
   "status": "passed"
@@ -261,7 +261,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.assertPrice()"
+  "location": "web.steps.OnlinerBasketPageSteps.assertPrice()"
 });
 formatter.result({
   "status": "passed"
@@ -271,7 +271,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.theUserClicksOnBasketButton()"
+  "location": "web.steps.OnlinerBasketPageSteps.theUserClicksOnBasketButton()"
 });
 formatter.result({
   "status": "passed"
@@ -281,7 +281,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.assertBasketPage()"
+  "location": "web.steps.OnlinerBasketPageSteps.assertBasketPage()"
 });
 formatter.result({
   "status": "passed"
@@ -291,7 +291,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.OnlinerExampleSteps.assertsProductInBasket(java.lang.String)"
+  "location": "web.steps.OnlinerBasketPageSteps.assertsProductInBasket(java.lang.String)"
 });
 formatter.result({
   "status": "passed"

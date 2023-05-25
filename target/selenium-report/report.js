@@ -1,7 +1,7 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/projectMorozova/OnlinerExample.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/projectMorozova/Onliner.feature");
 formatter.feature({
-  "name": "As an user",
-  "description": "  I want to get ability to add any good in basket",
+  "name": "Add some product in Cart in application Onliner",
+  "description": "   As a user\n   I want to add a product in Cart in application Onliner\n   So that the product is successfully added",
   "keyword": "Feature",
   "tags": [
     {
@@ -13,77 +13,21 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "name": "Add good in basket",
+  "name": "Add some product in Cart in application Onliner",
   "description": "",
   "keyword": "Scenario Outline"
 });
 formatter.step({
-  "name": "the user opens Onliner website",
+  "name": "I am on screen Onliner in application Onliner",
   "keyword": "Given "
 });
 formatter.step({
-  "name": "the user asserts Oniner website",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "the user clicks on Catalog section \"Каталог\"",
+  "name": "I navigate to Каталог on screen Onliner in application Onliner",
   "keyword": "When "
 });
 formatter.step({
-  "name": "the user asserts Catalog section",
+  "name": "I assert I am on screen Каталог Onlíner in application Onliner",
   "keyword": "Then "
-});
-formatter.step({
-  "name": "the user clicks on Catalog Classifier \"Электроника\"",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "the user asserts Catalog Classifier \"Электроника\"",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "the user clicks on Section Item Catalog \"Аудиотехника\"",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "the user asserts on Section Item Catalog",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "the user clicks on Product Link \"Наушники\"",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "the user asserts on Product Link \"Наушники\"",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "the user clicks on Price Item Offer \"AirPods 2 в зарядном футляре\"",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "the user asserts on Price Item Offer \"AirPods 2 в зарядном футляре\"",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "the user clicks on Add in Basket by First 1 Price",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "the user asserts on Price",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "the user clicks on Basket button",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "the user asserts on Basket page",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "the user asserts that the product is in Basket \"Наушники Apple AirPods 2 в зарядном футляре\"",
-  "keyword": "When "
 });
 formatter.examples({
   "name": "",
@@ -92,26 +36,18 @@ formatter.examples({
   "rows": [
     {
       "cells": [
-        "username",
-        "ap name",
-        "ap group id",
-        "ap artifact id",
-        "ap version id"
+        ""
       ]
     },
     {
       "cells": [
-        "admin",
-        "TEST Automation Process",
-        "com.iba.samples.ap",
-        "kanclerrpa-invoiceplane-ap",
-        "2.6.0-SNAPSHOT"
+        ""
       ]
     }
   ]
 });
 formatter.scenario({
-  "name": "Add good in basket",
+  "name": "Add some product in Cart in application Onliner",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
@@ -127,171 +63,31 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user opens Onliner website",
+  "name": "I am on screen Onliner in application Onliner",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.assertScreens()"
+  "location": "web.steps.NavigationsStepsOnliner.assertScreenInApplication(java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user asserts Oniner website",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.theUserAssertsOninerWebsite()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user clicks on Catalog section \"Каталог\"",
+  "name": "I navigate to Каталог on screen Onliner in application Onliner",
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.theUserClicksOnCatalogSection(java.lang.String)"
+  "location": "web.steps.NavigationsStepsOnliner.navigateSection(java.lang.String,java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user asserts Catalog section",
+  "name": "I assert I am on screen Каталог Onlíner in application Onliner",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.assertsCatalogSection()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user clicks on Catalog Classifier \"Электроника\"",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.clicksOnCatalogClassifier(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user asserts Catalog Classifier \"Электроника\"",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.theUserAssertsCatalogClassifier(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user clicks on Section Item Catalog \"Аудиотехника\"",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.clicksOnSectionItemCatalog(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user asserts on Section Item Catalog",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.assertOnSectionItemCatalog()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user clicks on Product Link \"Наушники\"",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.clickOnProductLink(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user asserts on Product Link \"Наушники\"",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.assertOnProductLink(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user clicks on Price Item Offer \"AirPods 2 в зарядном футляре\"",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.clickOnPriceItemOffer(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user asserts on Price Item Offer \"AirPods 2 в зарядном футляре\"",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "web.steps.OnlinerNavigationSteps.assertOnPriceItemOffer(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user clicks on Add in Basket by First 1 Price",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "web.steps.OnlinerBasketPageSteps.clickOnnPriceByCount(int)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user asserts on Price",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "web.steps.OnlinerBasketPageSteps.assertPrice()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user clicks on Basket button",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "web.steps.OnlinerBasketPageSteps.theUserClicksOnBasketButton()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user asserts on Basket page",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "web.steps.OnlinerBasketPageSteps.assertBasketPage()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user asserts that the product is in Basket \"Наушники Apple AirPods 2 в зарядном футляре\"",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "web.steps.OnlinerBasketPageSteps.assertsProductInBasket(java.lang.String)"
+  "location": "web.steps.NavigationsStepsOnliner.assertSection(java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"

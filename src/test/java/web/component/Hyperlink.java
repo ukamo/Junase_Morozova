@@ -46,24 +46,5 @@ public class Hyperlink extends WebComponent implements Control {
         return (Hyperlink) super.scrollToElement();
     }
 
-    public static Hyperlink getDisplayedContentByTitle() {
-        return Wait.functionPassed(() -> {
-            List<WebElement> windows = getWebDriver().findElements(By.xpath("//title"));
-            return new Hyperlink(getDisplayed((windows)));
-        });
-    }
 
-
-    public String getContent() {
-        return getElement().findElement(By.xpath("//title")).getAttribute("textContent");
-    }
-
-    public static WebElement getDisplayed(List<WebElement> webElements) {
-        for (WebElement webElement : webElements) {
-            if (!webElement.getAttribute("textContent").isEmpty() || webElement.isDisplayed()){
-                return webElement;
-            }
-        }
-        throw new IllegalStateException("Cannot find web element on the page.");
-    }
 }

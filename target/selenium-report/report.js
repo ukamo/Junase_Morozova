@@ -18,15 +18,31 @@ formatter.scenarioOutline({
   "keyword": "Scenario Outline"
 });
 formatter.step({
-  "name": "I am on screen Onliner in application Onliner",
+  "name": "I am on screen Onlíner in application Onliner",
   "keyword": "Given "
 });
 formatter.step({
-  "name": "I navigate to Каталог on screen Onliner in application Onliner",
+  "name": "I navigate to Каталог section on screen Onliner in application Onliner",
   "keyword": "When "
 });
 formatter.step({
   "name": "I assert I am on screen Каталог Onlíner in application Onliner",
+  "keyword": "Then "
+});
+formatter.step({
+  "name": "I navigate 3 sections Электроника -\u003e Аудиотехника -\u003e Наушники on screen Kaталог Onliner in application Onliner",
+  "keyword": "When "
+});
+formatter.step({
+  "name": "I assert I am on screen Наушники купить в Минске in application Onliner",
+  "keyword": "Then "
+});
+formatter.step({
+  "name": "I click button Сравнение Предложений for HONOR Choice Moecen Earbuds on screen Наушники Купить в Минске in application Onliner",
+  "keyword": "When "
+});
+formatter.step({
+  "name": "I assert I am on screen HONOR Choice Moecen Earbuds X3 Lite (международная версия) купить в рассрочку онлайн in application Onliner",
   "keyword": "Then "
 });
 formatter.examples({
@@ -63,21 +79,21 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "I am on screen Onliner in application Onliner",
+  "name": "I am on screen Onlíner in application Onliner",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "web.steps.NavigationsStepsOnliner.assertScreenInApplication(java.lang.String,java.lang.String)"
+  "location": "web.steps.NavigationSteps.assertScreenInApplication(java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I navigate to Каталог on screen Onliner in application Onliner",
+  "name": "I navigate to Каталог section on screen Onliner in application Onliner",
   "keyword": "When "
 });
 formatter.match({
-  "location": "web.steps.NavigationsStepsOnliner.navigateSection(java.lang.String,java.lang.String,java.lang.String)"
+  "location": "web.steps.NavigationSteps.navigateSection(java.lang.String,java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -87,7 +103,47 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "web.steps.NavigationsStepsOnliner.assertSection(java.lang.String,java.lang.String)"
+  "location": "web.steps.NavigationSteps.assertScreenInApplication(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I navigate 3 sections Электроника -\u003e Аудиотехника -\u003e Наушники on screen Kaталог Onliner in application Onliner",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "web.steps.NavigationSteps.navigateTabs(java.lang.String,java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I assert I am on screen Наушники купить в Минске in application Onliner",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "web.steps.NavigationSteps.assertScreenInApplication(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I click button Сравнение Предложений for HONOR Choice Moecen Earbuds on screen Наушники Купить в Минске in application Onliner",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "web.steps.BuyProductSteps.clickCompareOrdersByProductName(java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I assert I am on screen HONOR Choice Moecen Earbuds X3 Lite (международная версия) купить в рассрочку онлайн in application Onliner",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "web.steps.NavigationSteps.assertScreenInApplication(java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"

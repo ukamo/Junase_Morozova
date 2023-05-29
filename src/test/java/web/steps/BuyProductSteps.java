@@ -33,10 +33,10 @@ public class BuyProductSteps {
     }
 
 
-    /*@And("^I assert item price on screen (.*) in application (.*)$")
+    @And("^I assert item price on screen (.*) in application (.*)$")
     public void assertPriceOnScreen( String screen, String app) {
         Assert.assertTrue(() -> buyProductScreen.assertPrice(priceByNumber));
     }
 
-     */
+
 }

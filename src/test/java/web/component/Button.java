@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import web.util.Wait;
 
+import java.util.List;
+
 /**
  * Button - a model.component for buttons.
  */
@@ -55,4 +57,29 @@ public class Button extends WebComponent implements Control {
     public Button scrollToElement() {
         return (Button) super.scrollToElement();
     }
+
+
+    public void findOffersByName(String nameOfButton, String productName) {
+        Wait.functionPassed(() -> {
+            List<WebElement> listOfElements = getElement().findElements(By.xpath("./a"));
+            for (WebElement element : listOfElements) {
+                if (element.getAttribute("title").equals(nameOfButton + " на " + productName)) {
+                    element.click();
+                    return;
+                }
+            }
+        });
+    }
+
+    public void findPriceByNumber(int numberOfButton) {
+        Wait.functionPassed(() -> {
+            List<WebElement> listOfElements = getElement().findElements(By.xpath("//a[contains(@class,' button-style_expletive')]"));
+            for (WebElement element : listOfElements) {
+                listOfElements.get(numberOfButton).click();
+                return;
+            }
+        });
+    }
+
+
 }

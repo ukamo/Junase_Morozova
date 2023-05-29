@@ -6,6 +6,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import web.util.Wait;
 
+import java.util.List;
+
 /**
  * Input - a model.component for inputs and text areas. Allows to set random values.
  */
@@ -67,4 +69,15 @@ public class Input extends WebComponent {
     public Input scrollToElement() {
         return (Input) super.scrollToElement();
     }
+
+    public String gatherPriceByNumber(int numberOfButton) {
+            List<WebElement> listOfElements = getElement().findElements(By.xpath("./a[contains(@class,' button-style_expletive')]"));
+            for (WebElement element : listOfElements) {
+                return listOfElements.get(numberOfButton).getText();
+            }
+
+        return null;
+    }
+
+
 }

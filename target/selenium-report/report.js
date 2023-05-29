@@ -38,11 +38,23 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.step({
-  "name": "I click button Сравнение Предложений for HONOR Choice Moecen Earbuds on screen Наушники Купить в Минске in application Onliner",
+  "name": "I click button Сравнение предложений for HONOR Choice Moecen Earbuds X3 Lite (международная версия) on screen Наушники Купить в Минске in application Onliner",
   "keyword": "When "
 });
 formatter.step({
   "name": "I assert I am on screen HONOR Choice Moecen Earbuds X3 Lite (международная версия) купить в рассрочку онлайн in application Onliner",
+  "keyword": "Then "
+});
+formatter.step({
+  "name": "I gather price of item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "keyword": "When "
+});
+formatter.step({
+  "name": "I click button В корзину by item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "keyword": "And "
+});
+formatter.step({
+  "name": "I assert Товар добавлен в корзину is presented on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
   "keyword": "Then "
 });
 formatter.examples({
@@ -129,7 +141,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I click button Сравнение Предложений for HONOR Choice Moecen Earbuds on screen Наушники Купить в Минске in application Onliner",
+  "name": "I click button Сравнение предложений for HONOR Choice Moecen Earbuds X3 Lite (международная версия) on screen Наушники Купить в Минске in application Onliner",
   "keyword": "When "
 });
 formatter.match({
@@ -144,6 +156,36 @@ formatter.step({
 });
 formatter.match({
   "location": "web.steps.NavigationSteps.assertScreenInApplication(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I gather price of item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "web.steps.BuyProductSteps.gatherPriceByNumber(int,java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I click button В корзину by item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "web.steps.BuyProductSteps.clickInBasketByPriceNumber(java.lang.String,int,java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I assert Товар добавлен в корзину is presented on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "web.steps.BuyProductSteps.assertMessageTextOnScreen(java.lang.String,java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"

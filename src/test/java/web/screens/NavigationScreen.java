@@ -17,9 +17,6 @@ public class NavigationScreen {
     public String getScreenTitle(){
         return driver.getTitle();
     }
-    private List<WebElement> getElements(By locator) {
-        return driver.findElements(locator);
-    }
     public void navigateToSection(String name) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElement(By.className("b-top-navigation")).findElements(By.className("b-main-navigation__link"));

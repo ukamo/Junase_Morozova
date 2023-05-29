@@ -57,6 +57,10 @@ formatter.step({
   "name": "I assert Товар добавлен в корзину is presented on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
   "keyword": "Then "
 });
+formatter.step({
+  "name": "I assert item price on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "keyword": "And "
+});
 formatter.examples({
   "name": "",
   "description": "",
@@ -190,8 +194,14 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
-formatter.embedding("image/png", "embedded0.png", null);
-formatter.after({
-  "status": "passed"
+formatter.step({
+  "name": "I assert item price on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "keyword": "And "
 });
+formatter.match({
+  "location": "web.steps.BuyProductSteps.assertPriceOnScreen(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "error_message": "java.lang.AssertionError\r\n\tat org.junit.Assert.fail(Assert.java:86)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat org.junit.Assert.assertTrue(Assert.java:52)\r\n\tat eu.ibagroup.junase.model.util.Assert.lambda$assertTrue$10(Assert.java:201)\r\n\tat eu.ibagroup.junase.model.util.Assert$1.apply(Assert.java:1195)\r\n\tat eu.ibagroup.junase.model.util.Assert$1.apply(Assert.java:1191)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)\r\n\tat eu.ibagroup.junase.model.util.Assert.assertCondition(Assert.java:1191)\r\n\tat eu.ibagroup.junase.model.util.Assert.assertTrue(Assert.java:201)\r\n\tat web.steps.BuyProductSteps.assertPriceOnScreen(BuyProductSteps.java:38)\r\n\tat ✽.I assert item price on screen Наушники HONOR Choice Moecen Earbuds in application Onliner(file:///C:/Users/MOROZOVA_JK/IdeaProjects/Junase_Morozova_Project/src/test/resources/features/projectMorozova/Onliner.feature:19)\r\n",
+  "status": "failed"
 });

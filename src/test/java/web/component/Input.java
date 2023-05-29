@@ -71,12 +71,11 @@ public class Input extends WebComponent {
     }
 
     public String gatherPriceByNumber(int numberOfButton) {
-            List<WebElement> listOfElements = getElement().findElements(By.xpath("./a[contains(@class,' button-style_expletive')]"));
+            List<WebElement> listOfElements = getElement().findElements(By.xpath("//div[contains(@class,'offers-list__description_alter-other')]"));
             for (WebElement element : listOfElements) {
-                return listOfElements.get(numberOfButton).getText();
+                return listOfElements.get(numberOfButton-1).getText();
             }
-
-        return null;
+        return "";
     }
 
 

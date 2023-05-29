@@ -18,20 +18,25 @@ public class BuyProductSteps {
     }
 
     @When("^I gather price of item (.*) on screen (.*) in application (.*)$")
-
     public void gatherPriceByNumber(int numberOfButton, String screen, String app) {
         priceByNumber = buyProductScreen.gatherPriceByNumber(numberOfButton);
     }
 
-    @And("I click button (.*) by item (.*) on screen (.*) in application (.*)$")
+    @And("^I click button (.*) by item (.*) on screen (.*) in application (.*)$")
     public void clickInBasketByPriceNumber(String button, int numberOfButton, String screen, String app) {
         buyProductScreen.clickPriceByNumber(numberOfButton);
     }
 
-    @Then("I assert (.*) is presented on screen (.*) in application (.*)$")
+    @Then("^I assert (.*) is presented on screen (.*) in application (.*)$")
     public void assertMessageTextOnScreen(String messageText, String screen, String app) {
         Assert.assertTrue(() -> buyProductScreen.assertMessageText(messageText));
     }
 
 
+    /*@And("^I assert item price on screen (.*) in application (.*)$")
+    public void assertPriceOnScreen( String screen, String app) {
+        Assert.assertTrue(() -> buyProductScreen.assertPrice(priceByNumber));
+    }
+
+     */
 }

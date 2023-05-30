@@ -8,13 +8,11 @@ import web.screens.BuyProductScreen;
 
 public class BuyProductSteps {
     BuyProductScreen buyProductScreen = new BuyProductScreen();
-
     String priceByNumber;
 
-    @When("^I click button (.*) for (.*) on screen (.*) in application (.*)$")
+    @When("^I click on button (.*) for (.*) on screen (.*) in application (.*)$")
     public void clickCompareOrdersByProductName(String nameOfButton, String productName, String screen, String app) {
-        // buyProductScreen.clickCompareOrdersByProductName(nameOfButton, productName);
-        buyProductScreen.clickByProductName(nameOfButton, productName);
+      buyProductScreen.clickByProductName(nameOfButton, productName);
     }
 
     @When("^I gather price of item (.*) on screen (.*) in application (.*)$")
@@ -22,21 +20,29 @@ public class BuyProductSteps {
         priceByNumber = buyProductScreen.gatherPriceByNumber(numberOfButton);
     }
 
-    @And("^I click button (.*) by item (.*) on screen (.*) in application (.*)$")
+    @And("^I click on button with name (.*) by item number (.*) on screen (.*) in application (.*)$")
     public void clickInBasketByPriceNumber(String button, int numberOfButton, String screen, String app) {
         buyProductScreen.clickPriceByNumber(numberOfButton);
     }
 
     @Then("^I assert (.*) is presented on screen (.*) in application (.*)$")
     public void assertMessageTextOnScreen(String messageText, String screen, String app) {
-        Assert.assertTrue(() -> buyProductScreen.assertMessageText(messageText));
+        Assert.assertEquals(messageText, buyProductScreen::assertMessageText);
     }
-
 
     @And("^I assert item price on screen (.*) in application (.*)$")
-    public void assertPriceOnScreen( String screen, String app) {
-        Assert.assertTrue(() -> buyProductScreen.assertPrice(priceByNumber));
+    public void assertPriceOnScreen(String screen, String app) {
+        priceByNumber = priceByNumber.substring(0, priceByNumber.indexOf(" "));
+        Assert.assertEquals(priceByNumber, buyProductScreen::assertPrice);
     }
 
+    @When("^I click button (.*) on screen (.*) in application (.*)$")
+    public void clickButtonOnBasket(String button, String screen, String app) {
+        buyProductScreen.navigateToBasketButton();
+    }
 
+    @And("I assert label (.*) is present on screen (.*) in application (.*)$")
+    public void assertLabel(String label, String screen, String app) {
+        Assert.assertEquals(label, buyProductScreen::assertLabel);
+    }
 }

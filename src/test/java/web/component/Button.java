@@ -74,10 +74,7 @@ public class Button extends WebComponent implements Control {
     public void findPriceByNumber(int numberOfButton) {
         Wait.functionPassed(() -> {
             List<WebElement> listOfElements = getElement().findElements(By.xpath("//a[contains(@class,' button-style_expletive')]"));
-            for (WebElement element : listOfElements) {
-                listOfElements.get(numberOfButton).click();
-                return;
-            }
+            listOfElements.get(numberOfButton).click();
         });
     }
 

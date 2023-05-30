@@ -1,6 +1,5 @@
 package web.screens;
 
-import eu.ibagroup.junase.web.test.WebDriverManager;
 import org.openqa.selenium.By;
 import web.component.Button;
 import web.component.Input;
@@ -11,32 +10,34 @@ public class BuyProductScreen {
     private static final Input inputPriceByCount = new Input(By.xpath("//div[contains(@class,'offers-list__group')]"));
     private static final Input inputMessageText = new Input(By.cssSelector(".product-recommended__subheader"));
     private static final Input inputPrice = new Input(By.xpath("//div[contains(@class,'product-recommended__link_primary')]/span"));
+    private final Button navigateToBasketButton = new Button(By.xpath("//a[contains(@class,'button-style_another button-style_base-alter product-recommended__button')]"));
+    private static final Input inputLabelText = new Input(By.xpath("//div[contains(@class,'cart-form__description_font-weight_semibold')]/a[contains(@class,'cart-form__link_primary')]"));
 
     public void clickByProductName(String nameOfButton, String productName) {
         buttonOffers.findOffersByName(nameOfButton, productName);
     }
 
     public String gatherPriceByNumber(int numberOfButton) {
-        String price = inputPriceByCount.gatherPriceByNumber(numberOfButton);
-        return price;
+        return inputPriceByCount.gatherPriceByNumber(numberOfButton);
     }
 
     public void clickPriceByNumber(int numberOfButton) {
         buttonPriceByCount.findPriceByNumber(numberOfButton);
     }
 
-    public boolean assertMessageText(String messageText) {
-        return inputMessageText.getText().equals(messageText);
-    };
+    public String assertMessageText() {
+        return inputMessageText.getText();
+    }
 
+    public String assertPrice() {
+        return inputPrice.getText();
+    }
 
-    public boolean assertPrice(String priceByNumber) {
-        priceByNumber = priceByNumber.substring(0, priceByNumber.indexOf(" "));
-        return inputPrice.getText().equals(priceByNumber);
-    };
+    public void navigateToBasketButton() {
+        navigateToBasketButton.click();
+    }
 
-
-
-
-
+    public String assertLabel() {
+        return inputLabelText.getText();
+    }
 }

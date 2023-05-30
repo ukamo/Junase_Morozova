@@ -15,7 +15,12 @@ public class BuyProductSteps {
       buyProductScreen.clickByProductName(nameOfButton, productName);
     }
 
-    @When("^I gather price of item (.*) on screen (.*) in application (.*)$")
+    @When("I click on expanding window on screen (.*) in application (.*)$")
+    public void clickExpandingWindow(String screen, String app) {
+        buyProductScreen.clickExpandingWindow();
+    }
+
+    @And("^I gather price of item (.*) on screen (.*) in application (.*)$")
     public void gatherPriceByNumber(int numberOfButton, String screen, String app) {
         priceByNumber = buyProductScreen.gatherPriceByNumber(numberOfButton);
     }
@@ -45,4 +50,6 @@ public class BuyProductSteps {
     public void assertLabel(String label, String screen, String app) {
         Assert.assertEquals(label, buyProductScreen::assertLabel);
     }
+
+
 }

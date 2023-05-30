@@ -46,8 +46,12 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.step({
-  "name": "I gather price of item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "name": "I click on expanding window on screen Наушники купить в Минске in application Onliner",
   "keyword": "When "
+});
+formatter.step({
+  "name": "I gather price of item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "keyword": "And "
 });
 formatter.step({
   "name": "I click on button with name В корзину by item number 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
@@ -177,8 +181,18 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I gather price of item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "name": "I click on expanding window on screen Наушники купить в Минске in application Onliner",
   "keyword": "When "
+});
+formatter.match({
+  "location": "web.steps.BuyProductSteps.clickExpandingWindow(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I gather price of item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner",
+  "keyword": "And "
 });
 formatter.match({
   "location": "web.steps.BuyProductSteps.gatherPriceByNumber(int,java.lang.String,java.lang.String)"

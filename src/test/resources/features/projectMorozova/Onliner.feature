@@ -14,7 +14,8 @@
      Then I assert I am on screen Наушники купить в Минске in application Onliner
      When I click on button Сравнение предложений for HONOR Choice Moecen Earbuds X3 Lite (международная версия) on screen Наушники Купить в Минске in application Onliner
      Then I assert I am on screen HONOR Choice Moecen Earbuds X3 Lite (международная версия) купить в рассрочку онлайн in application Onliner
-     When I gather price of item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
+     When I click on expanding window on screen Наушники купить в Минске in application Onliner
+     And I gather price of item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
      And I click on button with name В корзину by item number 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
      Then I assert Товар добавлен в корзину is presented on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
      And I assert item price on screen Наушники HONOR Choice Moecen Earbuds in application Onliner

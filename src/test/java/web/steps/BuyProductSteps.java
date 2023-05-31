@@ -47,8 +47,8 @@ public class BuyProductSteps {
     }
 
     @And("I assert label (.*) is present on screen (.*) in application (.*)$")
-    public void assertLabel(String label, String screen, String app) {
-        Assert.assertEquals(label, buyProductScreen::assertLabel);
+    public void assertLabelInBasket(String label, String screen, String app) {
+        Assert.assertEquals(label, buyProductScreen::assertLabelInBasket);
     }
 
 

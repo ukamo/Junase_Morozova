@@ -22,7 +22,7 @@
      When I click button Перейти в корзину on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
      Then I assert I am on screen Корзина заказов in application Onliner
      And I assert label Наушники HONOR Choice Moecen Earbuds X3 Lite (международная версия) is present on screen Корзина заказов in application Onliner
-    Examples:
+     Examples:
 
-      |  |
-      |   |
+       |  |
+       |  |

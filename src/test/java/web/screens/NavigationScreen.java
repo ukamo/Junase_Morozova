@@ -4,6 +4,7 @@ import eu.ibagroup.junase.web.test.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import web.component.Input;
 import web.util.Wait;
 
 import java.util.List;
@@ -11,12 +12,16 @@ import java.util.List;
 
 public class NavigationScreen {
     public static WebDriver driver;
-   public NavigationScreen() {
+    private static final Input inputSearch = new Input(By.xpath("//div[contains(@class,'b-top-wrapper')]"));
+
+    public NavigationScreen() {
         driver = WebDriverManager.currentSession().getWebDriver();
-}
-    public String getScreenTitle(){
+    }
+
+    public String getScreenTitle() {
         return driver.getTitle();
     }
+
     public void navigateToSection(String name) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElement(By.className("b-top-navigation")).findElements(By.className("b-main-navigation__link"));
@@ -40,6 +45,7 @@ public class NavigationScreen {
             }
         });
     }
+
     public void navigateToSecondLevel(String name) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.xpath("//div[contains(@class,'catalog-navigation-list__aside-title')]"));
@@ -51,6 +57,7 @@ public class NavigationScreen {
             }
         });
     }
+
     public void navigateToThirdLevel(String name) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.xpath("//div[contains(@class, 'aside-item_active')]//div[contains(@class, 'dropdown-list')]/a[contains(@href, 'onliner')]//span[contains(@class, 'title')]"));
@@ -62,6 +69,7 @@ public class NavigationScreen {
             }
         });
     }
+
 
 
 }

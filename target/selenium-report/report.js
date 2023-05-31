@@ -255,7 +255,7 @@ formatter.step({
   "keyword": "And "
 });
 formatter.match({
-  "location": "web.steps.BuyProductSteps.assertLabel(java.lang.String,java.lang.String,java.lang.String)"
+  "location": "web.steps.BuyProductSteps.assertLabelInBasket(java.lang.String,java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"

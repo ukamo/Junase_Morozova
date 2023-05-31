@@ -1,6 +1,7 @@
 package testRunner;
 
 import eu.ibagroup.junase.desktop.test.DesktopDriverManager;
+import eu.ibagroup.junase.web.test.WebDriverSession;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -11,6 +12,7 @@ import org.openqa.selenium.TakesScreenshot;
 import eu.ibagroup.junase.sap.test.SapDriverManager;
 import eu.ibagroup.junase.model.util.FileUtil;
 import eu.ibagroup.junase.web.test.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,9 +32,10 @@ public class Hook {
             if (scenario.getSourceTagNames().contains(item)) {
                 switch (item) {
                     case "@web":
-                        WebDriverManager.newSession();
+                        WebDriverSession webDriverSession = WebDriverManager.newSession();
+                        WebDriver webDriver = webDriverSession.getWebDriver();
                         break;
-                    case "@desktop":
+                    /*case "@desktop":
                         DesktopDriverManager.newSession();
                         break;
                     case "@mobile":
@@ -41,9 +44,12 @@ public class Hook {
                     case "@sap":
                         SapDriverManager.newSession();
                         break;
+
+
                     case "@java":
                         JavaDriverManager.newSession();
                         break;
+                         */
                 }
                 break;
             }
@@ -66,7 +72,7 @@ public class Hook {
                         FileUtil.deleteTempDirectory();
                         WebDriverManager.closeSession();
                         break;
-                    case "@desktop":
+                    /*case "@desktop":
                         screenshot = DesktopDriverManager.currentSession().getWindowsDriver().getScreenshotAs(OutputType.BYTES);
                         scenario.embed(screenshot, "image/png");
                         DesktopDriverManager.closeSession();
@@ -86,6 +92,10 @@ public class Hook {
                         scenario.embed(screenshot, "image/png");
                         JavaDriverManager.closeSession();
                         break;
+
+
+                     */
+
                 }
                 break;
             }

@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import web.util.Wait;
 
+import java.util.List;
+
 /**
  * Hyperlink - a model.component for hyperlinks.
  */
@@ -43,4 +45,6 @@ public class Hyperlink extends WebComponent implements Control {
     public Hyperlink scrollToElement() {
         return (Hyperlink) super.scrollToElement();
     }
+
+
 }

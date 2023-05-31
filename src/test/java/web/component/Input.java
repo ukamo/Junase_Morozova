@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import web.util.Wait;
 
+
 /**
  * Input - a model.component for inputs and text areas. Allows to set random values.
  */
@@ -67,4 +68,14 @@ public class Input extends WebComponent {
     public Input scrollToElement() {
         return (Input) super.scrollToElement();
     }
+
+
+    public void click() {
+        Wait.functionPassed(() -> {
+            Wait.elementToBeClickable(getLocator());
+            getElement().click();
+        });
+    }
+
+
 }

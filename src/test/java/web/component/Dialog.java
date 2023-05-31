@@ -29,4 +29,9 @@ public class Dialog extends WebComponent {
     public String getMessage() {
         return getElement().findElement(By.id("confirm-modal-description")).getText();
     }
+
+    public void clickButtonById() {
+        WebElement element = getElement().findElement(By.xpath("//div[contains(@class,'offers-form__control_condensed-alter')]//span[contains(@class,'offers-form__button')]"));
+        element.click();
+    }
 }

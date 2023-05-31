@@ -32,5 +32,48 @@ public class NavigationSteps {
 
     }
 
+    @When("I navigate to (.*) search on screen (.*) in application (.*)$")
+    public void navigateToSearch(String nameOfSearch, String screen, String app) {
+        navigationScreen.navigateToSearch();
+    }
 
+
+    @Then("I assert I am on (.*) search on screen (.*) in application (.*)$")
+    public void assertSeacrhInApp(String nameOfSearch, String screen, String app) {
+        Assert.assertEquals(nameOfSearch, navigationScreen::assertSeacrhInApp);
+    }
+
+    @When("I type (.*) in search (.*) on screen (.*) in application (.*)$")
+    public void typeInSearch(String text, String nameOfSearch, String screen, String app) {
+        navigationScreen.typeInSearch(text);
+
+    }
+    @When("I switch to iframe on screen (.*) in application (.*)$")
+    public void swithToIFrame(String screen, String app) {
+        navigationScreen.swithOnIFrameFieldSearching();
+    }
+
+    @Then("I assert I typed (.*) on screen (.*) in application (.*)$")
+    public void assertTypedText(String text, String screen, String app) {
+        Assert.assertEquals(text, navigationScreen::assertTypedText);
+    }
+
+    @When("I navigate (.*) section on iframe on screen (.*) in application (.*)$")
+    public void navigateOnSectionInSearch(String section, String screen, String app) {
+        //navigationScreen.swithOnIFrameFieldSearching();
+        navigationScreen.navigateOnSectionInSearch(section);
+    }
+
+    @Then("I assert I am on (.*) section on screen (.*) in application (.*)$")
+    public void assertCursorIsOnSection(String section, String screen, String app) {
+        Assert.assertEquals(section, navigationScreen::assertCursorIsOnSection);
+    }
+
+
+    /*@When("I navigate on (.*) topic on screen (.*) in application (.*)$")
+    public void navigateToTopicByNumber(int numberOfTopic, String screen, String app) {
+        navigationScreen.navigateToTopicByNumber(numberOfTopic);
+    }
+
+     */
 }

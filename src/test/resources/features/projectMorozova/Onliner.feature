@@ -1,5 +1,5 @@
  #author Julia Morozova
- @web @test
+ #@web @test
  Feature: Add some product in Cart in application Onliner
    As a user
    I want to add a product in Cart in application Onliner

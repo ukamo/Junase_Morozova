@@ -46,5 +46,9 @@ public class Hyperlink extends WebComponent implements Control {
         return (Hyperlink) super.scrollToElement();
     }
 
+    public void navigateToTopicByNumber(int numberOfButton) {
+        List<WebElement> listOfElements = getElement().findElements(By.xpath("//li[contains(@class,'search__result')]"));
+        listOfElements.get(numberOfButton - 1).click();
+    }
 
 }

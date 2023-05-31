@@ -19,14 +19,12 @@ public class NavigationSteps {
 
     @When("I navigate to (.*) section on screen (.*) in application (.*)$")
     public void navigateSection(String section, String screen, String app) throws InterruptedException {
-     //   Thread.sleep(200);
         navigationScreen.navigateToSection(section);
     }
 
 
     @When("I navigate 3 sections (.*) on screen (.*) in application (.*)$")
     public void navigateTabs(String tabs, String screen, String app) {
-        //List<String> listOfTabs = List.of(tabs.split(DELIMITER));
         String[] menuItems = tabs.split(DELIMITER);
         navigationScreen.navigateToFirstLevel(menuItems[0]);
         navigationScreen.navigateToSecondLevel(menuItems[1]);

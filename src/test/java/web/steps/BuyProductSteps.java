@@ -12,7 +12,7 @@ public class BuyProductSteps {
 
     @When("^I click on button (.*) for (.*) on screen (.*) in application (.*)$")
     public void clickCompareOrdersByProductName(String nameOfButton, String productName, String screen, String app) {
-      buyProductScreen.clickByProductName(nameOfButton, productName);
+        buyProductScreen.clickByProductName(nameOfButton, productName);
     }
 
     @When("I click on expanding window on screen (.*) in application (.*)$")

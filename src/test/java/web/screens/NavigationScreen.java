@@ -4,7 +4,6 @@ import eu.ibagroup.junase.web.test.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import web.component.Input;
 import web.util.Wait;
 
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.List;
 
 public class NavigationScreen {
     public static WebDriver driver;
-    private static final Input inputSearch = new Input(By.xpath("//div[contains(@class,'b-top-wrapper')]"));
 
     public NavigationScreen() {
         driver = WebDriverManager.currentSession().getWebDriver();
@@ -69,7 +67,6 @@ public class NavigationScreen {
             }
         });
     }
-
 
 
 }

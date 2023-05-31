@@ -70,7 +70,6 @@ public class Input extends WebComponent {
     }
 
 
-
     public void click() {
         Wait.functionPassed(() -> {
             Wait.elementToBeClickable(getLocator());

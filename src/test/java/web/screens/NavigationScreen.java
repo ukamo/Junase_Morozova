@@ -11,19 +11,12 @@ import web.component.Label;
 import web.util.Wait;
 
 import java.util.List;
-
-import static com.sun.tools.internal.xjc.util.DOMUtils.getElement;
-
-
 public class NavigationScreen {
     public static WebDriver driver;
     private static final Input inputSearch = new Input(By.xpath("//input[contains(@class,'fast-search__input')]"));
     private static final Input inputSearchInIframe = new Input(By.xpath("//div[contains(@class,'search__suggest-match')]/span[contains(@class,'text_match')]"));
-    private static final Label searchTabsList = new Label (By.xpath("//div[contains(@class, 'search__tabs-list')]"));
     private static final String iframeSearch = "//iframe[contains(@class,'modal-iframe')]";
     private static final Hyperlink topicByHyperlink = new Hyperlink(By.xpath("//ul[contains(@class,'search__results')]"));
-    private static final Label topicByLabel = new Label(By.xpath("//ul[contains(@class,'search__results')]"));
-
     public NavigationScreen() {
         driver = WebDriverManager.currentSession().getWebDriver();
     }

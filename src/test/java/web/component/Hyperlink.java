@@ -46,9 +46,16 @@ public class Hyperlink extends WebComponent implements Control {
         return (Hyperlink) super.scrollToElement();
     }
 
-    public void navigateToTopicByNumber(int numberOfButton) {
-        List<WebElement> listOfElements = getElement().findElements(By.xpath("//li[contains(@class,'search__result')]"));
-        listOfElements.get(numberOfButton - 1).click();
+    public String getTopicByNumber(int numberOfButton) {
+        return Wait.functionPassed(() -> getElement().findElements
+                        (By.xpath("//div[contains(@class,'result__item')]/div[contains(@class,'forum__title')]/a[@target='_parent']"))
+                .get(numberOfButton - 1).getText());
     }
 
+    public void navigateTopicByNumber(int numberOfButton) {
+        Wait.functionPassed(() -> {
+            List<WebElement> listOfElements = getElement().findElements(By.xpath("//div[contains(@class,'result__item')]/div[contains(@class,'forum__title')]/a[@target='_parent']"));
+            listOfElements.get(numberOfButton-1).click();
+        });
+    }
 }

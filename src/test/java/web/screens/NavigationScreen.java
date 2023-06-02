@@ -12,6 +12,8 @@ import web.util.Wait;
 
 import java.util.List;
 
+import static com.sun.tools.internal.xjc.util.DOMUtils.getElement;
+
 
 public class NavigationScreen {
     public static WebDriver driver;
@@ -19,8 +21,9 @@ public class NavigationScreen {
     private static final Input inputSearchInIframe = new Input(By.xpath("//div[contains(@class,'search__suggest-match')]/span[contains(@class,'text_match')]"));
     private static final Label searchTabsList = new Label (By.xpath("//div[contains(@class, 'search__tabs-list')]"));
     private static final String iframeSearch = "//iframe[contains(@class,'modal-iframe')]";
-
     private static final Hyperlink topicByHyperlink = new Hyperlink(By.xpath("//ul[contains(@class,'search__results')]"));
+    private static final Label topicByLabel = new Label(By.xpath("//ul[contains(@class,'search__results')]"));
+
     public NavigationScreen() {
         driver = WebDriverManager.currentSession().getWebDriver();
     }
@@ -122,8 +125,11 @@ public class NavigationScreen {
         return activeSearchTab.getText();
     }
 
-    public void navigateToTopicByNumber(int numberOfTopic){
-        topicByHyperlink.navigateToTopicByNumber(numberOfTopic);
+    public String getNameOfTopicByNumber(int numberOfTopic){
+        return topicByHyperlink.getTopicByNumber(numberOfTopic);
+    }
+    public void navigateTopicByNumber(int numberOfTopic){
+        topicByHyperlink.navigateTopicByNumber(numberOfTopic);
     }
 
 

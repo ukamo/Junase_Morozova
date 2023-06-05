@@ -18,10 +18,11 @@
      When I get name on 1 topic on screen Onliner in application Onliner
      And I navigate on 1 topic on screen Onliner in application Onliner
      Then I assert I am on 1 topic on screen Topic theme in application Onliner
-    #When I navigate to the 1 message of Автор темы on screen Topic theme in application Onliner
-    #And I click on Профиль on screen Topic theme in application Onliner
-    #Then I assert that I am on screen Профиль in application Onliner
-    #And I assert Ник и Подпись на Форуме are present on screen Профиль in application Onliner
+     When I get Id to the 1 message of Автор темы on screen Topic theme in application Onliner
+     And I navigate to the 1 message of Автор темы on screen Topic theme in application Onliner
+     Then I assert I am on screen Профиль in application Onliner
+     #And I assert ID on screen Профиль in application Onliner
+     #And I assert Ник и Подпись на Форуме are present on screen Профиль in application Onliner
 
 
 

@@ -87,12 +87,13 @@ public class NavigationScreen {
 
     public String assertSeacrhInApp() {
         String getNameOfSearch = inputSearch.getAttribute("placeholder");
-        return getNameOfSearch = getNameOfSearch.substring(0, getNameOfSearch.indexOf(" "));
+        return getNameOfSearch.substring(0, getNameOfSearch.indexOf(" "));
     }
 
     public void typeInSearch(String text) {
-        inputSearch.setText(text);
-        inputSearch.sendKeys(Keys.ENTER);
+        //inputSearch.setText(text);
+        //inputSearch.sendKeys(Keys.ENTER);
+        inputSearch.setTextAndSendKeys(text,Keys.ENTER);
     }
 
     public void swithOnIFrameFieldSearching() {

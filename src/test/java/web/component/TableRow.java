@@ -34,6 +34,14 @@ public class TableRow extends WebComponent {
         return new TableCell(getElement().findElements(By.tagName("td")).get(columnIndex));
     }
 
+    public TableCell getCellOnliner(int columnIndex) {
+        if (columnIndex >= table.getHeadersOnliner().size()) {
+            throw new IllegalStateException("Cannot find column number[" + columnIndex + "] in the table.");
+        }
+        return new TableCell(getElement().findElements(By.tagName("td")).get(columnIndex));
+    }
+
+
     /**
      * Gets cell from row by column header.
      *

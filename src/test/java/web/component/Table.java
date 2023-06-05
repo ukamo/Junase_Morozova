@@ -4,6 +4,7 @@ import eu.ibagroup.junase.web.component.WebComponent;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import web.util.Wait;
 
 import java.util.ArrayList;
@@ -26,8 +27,17 @@ public class Table extends WebComponent {
         return rows;
     }
 
+    private List<WebElement> getRowsOnliner() {
+        List<WebElement> rows = getElement().findElements(By.tagName("tr"));
+        return rows;
+    }
+
     public List<WebElement> getHeaders() {
         return Wait.functionPassed(() -> getElement().findElement(By.tagName("thead")).findElements(By.tagName("th")));
+    }
+
+    public List<WebElement> getHeadersOnliner() {
+        return Wait.functionPassed(() -> getElement().findElements(By.tagName("td")));
     }
 
     /**
@@ -96,6 +106,21 @@ public class Table extends WebComponent {
             return new TableRow(this, rows.get(row));
         });
     }
+
+    public TableRow getRowOnliner(int row) {
+        return Wait.functionPassed(() -> {
+            List<WebElement> rows = getRowsOnliner();
+            if (rows.size() == 0) {
+                throw new IllegalStateException("Row number [" + row + "] does not exist in the table. The table is empty.");
+            }
+            if (row >= rows.size()) {
+                throw new IllegalStateException("Row number [" + row + "] does not exist in the table. There are only [" + rows.size() + "] rows on the page.");
+            }
+            return new TableRow(this, rows.get(row));
+        });
+    }
+
+
 
     /**
      * Finds column index by the column name.
@@ -264,4 +289,5 @@ public class Table extends WebComponent {
         List<WebElement> rows = getRows();
         return rows.size() == 0;
     }
+
 }

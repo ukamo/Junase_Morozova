@@ -61,8 +61,8 @@ public class TableCell extends WebComponent {
 
     public Input getElementP() {
         return Wait.functionPassed(() ->
-        new Input(
-        getElement().findElement(By.xpath("//p"))));
+                new Input(
+                        getElement().findElement(By.xpath("//p"))));
     }
 
 

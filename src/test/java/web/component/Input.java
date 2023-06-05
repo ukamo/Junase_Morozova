@@ -6,8 +6,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import web.util.Wait;
 
-import java.util.List;
-
 
 /**
  * Input - a model.component for inputs and text areas. Allows to set random values.

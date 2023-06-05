@@ -4,7 +4,6 @@ import eu.ibagroup.junase.web.component.WebComponent;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import web.util.Wait;
 
 import java.util.ArrayList;
@@ -119,7 +118,6 @@ public class Table extends WebComponent {
             return new TableRow(this, rows.get(row));
         });
     }
-
 
 
     /**

@@ -1,6 +1,6 @@
 package web.component;
 
-import web.util.Wait;
+import eu.ibagroup.junase.web.util.Wait;
 
 import java.util.List;
 

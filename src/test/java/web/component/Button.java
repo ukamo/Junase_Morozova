@@ -1,9 +1,11 @@
 package web.component;
 
+import eu.ibagroup.junase.model.component.Control;
+import eu.ibagroup.junase.web.component.WebComponent;
 import eu.ibagroup.junase.web.component.WebControl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import web.util.Wait;
+import eu.ibagroup.junase.web.util.Wait;
 
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class Button extends WebControl {
     public Button scrollToElement() {
         return (Button) super.scrollToElement();
     }
+
 
     public void findOffersByName(String nameOfButton, String productName) {
         Wait.functionPassed(() -> {
@@ -39,4 +42,6 @@ public class Button extends WebControl {
             listOfElements.get(numberOfButton).click();
         });
     }
+
+
 }

@@ -12,15 +12,22 @@
      Then I assert I am on screen Каталог Onlíner in application Onliner
      When I navigate 3 sections Электроника -> Аудиотехника -> Наушники on screen Kaталог Onliner in application Onliner
      Then I assert I am on screen Наушники купить в Минске in application Onliner
+     #FIXME: follow the unified appriach: "I click button X for Y.."
      When I click on button Сравнение предложений for HONOR Choice Moecen Earbuds X3 Lite (международная версия) on screen Наушники Купить в Минске in application Onliner
      Then I assert I am on screen HONOR Choice Moecen Earbuds X3 Lite (международная версия) купить в рассрочку онлайн in application Onliner
+     #What this method does?
      When I click on expanding window on screen Наушники купить в Минске in application Onliner
+     #FIXME: move candidate step implementation to the separate Steps and Screen classes:
+     #FIXME: I store..
      And I gather price of item 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
+     #FIXME: follow the unified appriach: "I click button X for item Y.."
      And I click on button with name В корзину by item number 1 on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
+    #FIXME: follow the unified appriach: "is present like in the final step"
      Then I assert Товар добавлен в корзину is presented on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
      And I assert item price on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
      When I click button Перейти в корзину on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
      Then I assert I am on screen Корзина заказов in application Onliner
+     #FIXME: move candidate step implementation to the separate Steps and Screen classes:
      And I assert label Наушники HONOR Choice Moecen Earbuds X3 Lite (международная версия) is present on screen Корзина заказов in application Onliner
 
      Examples:

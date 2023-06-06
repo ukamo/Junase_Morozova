@@ -7,6 +7,9 @@ import io.cucumber.java.en.When;
 import web.screens.NavigationScreen;
 
 public class NavigationSteps {
+
+    //FIXME: the filed should have private final identificatior
+    //FIXME: rename NavigationScreen to Navigation (it is not the web page entity)
     NavigationScreen navigationScreen = new NavigationScreen();
 
     private static final String DELIMITER = " -> ";
@@ -17,6 +20,8 @@ public class NavigationSteps {
         Assert.assertTrue(() -> navigationScreen.getScreenTitle().contains(screen));
     }
 
+    //FIXME: remove unused exception
+    //FIXME: the arguments should be consistent in this method and in the same method at th NavigationScreen class, i.e. sectionName
     @When("I navigate to (.*) section on screen (.*) in application (.*)$")
     public void navigateSection(String section, String screen, String app) throws InterruptedException {
         navigationScreen.navigateToSection(section);
@@ -32,5 +37,5 @@ public class NavigationSteps {
 
     }
 
-
+//FIXME: remove blank rows everywhere in the project
 }

@@ -31,11 +31,16 @@ public class Table extends WebComponent {
         return rows;
     }
 
+    private List<WebElement> getRowsId() {
+        List<WebElement> rows = getElement().findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
+        return rows;
+    }
+
     public List<WebElement> getHeaders() {
         return Wait.functionPassed(() -> getElement().findElement(By.tagName("thead")).findElements(By.tagName("th")));
     }
 
-    public List<WebElement> getHeadersOnliner() {
+    public List<WebElement> getTdOnliner() {
         return Wait.functionPassed(() -> getElement().findElements(By.tagName("td")));
     }
 

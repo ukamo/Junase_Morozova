@@ -35,7 +35,7 @@ public class TableRow extends WebComponent {
     }
 
     public TableCell getCellOnliner(int columnIndex) {
-        if (columnIndex >= table.getHeadersOnliner().size()) {
+        if (columnIndex >= table.getTdOnliner().size()) {
             throw new IllegalStateException("Cannot find column number[" + columnIndex + "] in the table.");
         }
         return new TableCell(getElement().findElements(By.tagName("td")).get(columnIndex));

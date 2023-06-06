@@ -21,8 +21,8 @@
      When I get Id to the 1 message of Автор темы on screen Topic theme in application Onliner
      And I navigate to the 1 message of Автор темы on screen Topic theme in application Onliner
      Then I assert I am on screen Профиль in application Onliner
-     #And I assert ID on screen Профиль in application Onliner
-     #And I assert Ник и Подпись на Форуме are present on screen Профиль in application Onliner
+     And I assert ID on screen Профиль in application Onliner
+     And I assert Ник and Подпись на Форуме on screen Профиль in application Onliner
 
 
 

@@ -1,7 +1,7 @@
 /.idea/
 .apk
 .ipa
-/.target/
+target
 .classpath
 .project
 .settings/

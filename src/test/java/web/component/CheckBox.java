@@ -1,7 +1,6 @@
 package web.component;
 
 import eu.ibagroup.junase.web.component.WebComponent;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import web.util.Wait;
 
@@ -11,10 +10,6 @@ import web.util.Wait;
 public class CheckBox extends WebComponent {
 
     public static final String CHECKED = "checked";
-
-    public CheckBox(By locator) {
-        super(locator);
-    }
 
     public CheckBox(WebElement element) {
         super(element);

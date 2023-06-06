@@ -1,13 +1,16 @@
 package testRunner;
 
-import org.junit.runner.RunWith;
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import org.junit.platform.suite.api.*;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/resources/features"},
-        strict = true,
-        glue = {"web.steps", "testRunner"},
-        plugin = {"pretty", "html:target/selenium-report", "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"})
+import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
+import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
+
+@Suite
+@SelectClasspathResource("features")
+@IncludeTags("web")
+@ConfigurationParameters({
+        @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "web.steps , testRunner"),
+        @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/report.html, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"),
+})
 public class RunnerTest {
 }

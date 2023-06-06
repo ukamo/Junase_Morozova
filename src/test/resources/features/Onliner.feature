@@ -1,10 +1,10 @@
- #author Julia Morozova
- @web @test
+#Author Julia Morozova
+@web
+
  Feature: Add some product in Cart in application Onliner
    As a user
    I want to add a product in Cart in application Onliner
    So that the product is successfully added
-
 
    Scenario Outline: Add some product in Cart in application Onliner
      Given I am on screen Onlíner in application Onliner
@@ -22,7 +22,7 @@
      When I click button Перейти в корзину on screen Наушники HONOR Choice Moecen Earbuds in application Onliner
      Then I assert I am on screen Корзина заказов in application Onliner
      And I assert label Наушники HONOR Choice Moecen Earbuds X3 Lite (международная версия) is present on screen Корзина заказов in application Onliner
-     Examples:
 
+     Examples:
        |  |
        |  |

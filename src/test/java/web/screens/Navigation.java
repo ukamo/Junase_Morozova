@@ -9,10 +9,10 @@ import eu.ibagroup.junase.web.util.Wait;
 import java.util.List;
 
 
-public class NavigationScreen {
+public class Navigation {
     public static WebDriver driver;
 
-    public NavigationScreen() {
+    public Navigation() {
         driver = WebDriverManager.currentSession().getWebDriver();
     }
 
@@ -20,12 +20,12 @@ public class NavigationScreen {
         return driver.getTitle();
     }
 
-    //FIXME: the arguments should be consistent in this method and in the same method at th NavigationSteps class, i.e. sectionName
-    public void navigateToSection(String name) {
+    //FIXME: the arguments should be consistent in this method and in the same method at th NavigationSteps class, i.e. sectionName //+
+    public void navigateToSection(String section) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElement(By.className("b-top-navigation")).findElements(By.className("b-main-navigation__link"));
             for (WebElement item : items) {
-                if (item.getText().equals(name)) {
+                if (item.getText().equals(section)) {
                     item.click();
                     return;
                 }
@@ -33,11 +33,11 @@ public class NavigationScreen {
         });
     }
 
-    public void navigateToFirstLevel(String name) {
+    public void navigateToFirstLevel(String firstLevelName) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.xpath("//li[@class ='catalog-navigation-classifier__item ']"));
             for (WebElement item : items) {
-                if (item.getText().equals(name)) {
+                if (item.getText().equals(firstLevelName)) {
                     item.click();
                     return;
                 }
@@ -45,11 +45,11 @@ public class NavigationScreen {
         });
     }
 
-    public void navigateToSecondLevel(String name) {
+    public void navigateToSecondLevel(String secondLevelName) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.className("catalog-navigation-list__aside-item"));
             for (WebElement item : items) {
-                if (item.getText().equals(name)) {
+                if (item.getText().equals(secondLevelName)) {
                     item.click();
                     return;
                 }
@@ -57,21 +57,19 @@ public class NavigationScreen {
         });
     }
 
-    //FIXME: the xpath is good but can be shorten to "//div[contains(@class, 'aside-item_active')]//span[contains(@class, 'title')]"
+    //FIXME: the xpath is good but can be shorten to "//div[contains(@class, 'aside-item_active')]//span[contains(@class, 'title')]" //+
     // either you can use cssSelector ".catalog-navigation-list__aside-item_active .catalog-navigation-list__dropdown-title"
-    public void navigateToThirdLevel(String name) {
+    public void navigateToThirdLevel(String thirdLevelName) {
         Wait.functionPassed(() -> {
-            List<WebElement> items = driver.findElements(By.xpath("//div[contains(@class, 'aside-item_active')]//div[contains(@class, 'dropdown-list')]/a[contains(@href, 'onliner')]//span[contains(@class, 'title')]"));
+            List<WebElement> items = driver.findElements(By.xpath("//div[contains(@class, 'aside-item_active')]//span[contains(@class, 'title')]"));
             for (WebElement item : items) {
-                if (item.getText().equals(name)) {
+                if (item.getText().equals(thirdLevelName)) {
                     item.click();
                     return;
                 }
             }
         });
     }
-
-
 }
 
 

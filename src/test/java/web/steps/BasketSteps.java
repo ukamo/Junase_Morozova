@@ -1,0 +1,16 @@
+package web.steps;
+
+import eu.ibagroup.junase.model.util.Assert;
+import io.cucumber.java.en.Then;
+import web.screens.BasketScreen;
+
+public class BasketSteps {
+    private final BasketScreen basketScreen = new BasketScreen();
+
+    @Then("I assert label (.*) is present on screen (.*) in application (.*)$")
+    public void assertLabelInBasket(String label, String screen, String app) {
+        //FIXME: getLabel//+
+        Assert.assertEquals(label, basketScreen::getLabel);
+    }
+}
+

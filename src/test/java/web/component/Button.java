@@ -22,26 +22,4 @@ public class Button extends WebControl {
     public Button scrollToElement() {
         return (Button) super.scrollToElement();
     }
-
-
-    public void findOffersByName(String nameOfButton, String productName) {
-        Wait.functionPassed(() -> {
-            List<WebElement> listOfElements = getElement().findElements(By.xpath("./a"));
-            for (WebElement element : listOfElements) {
-                if (element.getAttribute("title").equals(nameOfButton + " на " + productName)) {
-                    element.click();
-                    return;
-                }
-            }
-        });
-    }
-
-    public void findPriceByNumber(int numberOfButton) {
-        Wait.functionPassed(() -> {
-            List<WebElement> listOfElements = getElement().findElements(By.xpath("//a[contains(@class,' button-style_expletive')]"));
-            listOfElements.get(numberOfButton).click();
-        });
-    }
-
-
 }

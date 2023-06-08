@@ -4,8 +4,6 @@ import eu.ibagroup.junase.web.component.WebComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 /**
  * Label - a model.component for labels.
  */

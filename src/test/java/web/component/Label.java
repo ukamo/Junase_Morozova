@@ -19,8 +19,4 @@ public class Label extends WebComponent {
         super(element);
     }
 
-    public String gatherPriceByNumber(int numberOfButton) {
-        List<WebElement> listOfElements = getElement().findElements(By.xpath("//div[contains(@class,'offers-list__description_alter-other')]"));
-        return listOfElements.get(numberOfButton - 1).getText();
-    }
 }

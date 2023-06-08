@@ -45,7 +45,7 @@ public class Hook {
                     screenshot = ((TakesScreenshot) WebDriverManager.currentSession().getWebDriver()).getScreenshotAs(OutputType.BYTES);
                     scenario.attach(screenshot, "image/png", "screenshot"); // stick it in the report
                     FileUtil.deleteTempDirectory();
-                    //WebDriverManager.closeSession();
+                    WebDriverManager.closeSession();
                 }
                 break;
             }

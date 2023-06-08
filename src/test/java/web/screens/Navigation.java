@@ -20,7 +20,6 @@ public class Navigation {
         return driver.getTitle();
     }
 
-    //FIXME: the arguments should be consistent in this method and in the same method at th NavigationSteps class, i.e. sectionName //+
     public void navigateToSection(String section) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElement(By.className("b-top-navigation")).findElements(By.className("b-main-navigation__link"));
@@ -33,11 +32,11 @@ public class Navigation {
         });
     }
 
-    public void navigateToFirstLevel(String firstLevelName) {
+    public void navigateToFirstLevel(String firstMenuItem) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.xpath("//li[@class ='catalog-navigation-classifier__item ']"));
             for (WebElement item : items) {
-                if (item.getText().equals(firstLevelName)) {
+                if (item.getText().equals(firstMenuItem)) {
                     item.click();
                     return;
                 }
@@ -45,11 +44,11 @@ public class Navigation {
         });
     }
 
-    public void navigateToSecondLevel(String secondLevelName) {
+    public void navigateToSecondLevel(String secondMenuItem) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.className("catalog-navigation-list__aside-item"));
             for (WebElement item : items) {
-                if (item.getText().equals(secondLevelName)) {
+                if (item.getText().equals(secondMenuItem)) {
                     item.click();
                     return;
                 }
@@ -57,13 +56,11 @@ public class Navigation {
         });
     }
 
-    //FIXME: the xpath is good but can be shorten to "//div[contains(@class, 'aside-item_active')]//span[contains(@class, 'title')]" //+
-    // either you can use cssSelector ".catalog-navigation-list__aside-item_active .catalog-navigation-list__dropdown-title"
-    public void navigateToThirdLevel(String thirdLevelName) {
+    public void navigateToThirdLevel(String thirdMenuItem) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.xpath("//div[contains(@class, 'aside-item_active')]//span[contains(@class, 'title')]"));
             for (WebElement item : items) {
-                if (item.getText().equals(thirdLevelName)) {
+                if (item.getText().equals(thirdMenuItem)) {
                     item.click();
                     return;
                 }

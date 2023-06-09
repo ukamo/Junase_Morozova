@@ -2,7 +2,6 @@ package web.screens;
 
 import org.openqa.selenium.By;
 import web.component.Button;
-import web.component.Dialog;
 import web.component.Label;
 import web.component.PopOver;
 

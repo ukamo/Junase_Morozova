@@ -17,6 +17,9 @@ public class Button extends WebControl {
     public Button(By locator) {
         super(locator);
     }
+    public Button(WebElement element) {
+        super(element);
+    }
 
     @Override
     public Button scrollToElement() {

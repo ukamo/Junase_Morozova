@@ -4,25 +4,22 @@ import org.openqa.selenium.By;
 import web.component.Button;
 import web.component.Dialog;
 import web.component.Label;
+import web.component.PopOver;
 
 public class PriceOffersScreen {
-    private final Dialog expandingWindow = new Dialog(By.xpath("//div[contains(@class,'popover-style__content')]//div[contains(@class,'offers-form__description')]/span"));
-    private final String EXPAND_WINDOW_CITY_XPATH = "//span[contains(@class,'offers-form__button') and contains (text(),'%s')]";
-    private final String PRICE_BYCOUNT_XPATH = "//div[contains(@class,'offers-list__group')]/div[%s]//div[contains(@class,'offers-list__description_alter-other')]";
-    private final String BUTTON_BYCOUNT_XPATH = "//div[contains(@class,'offers-list__group')]/div[%s]//div[contains(@class,'offers-list__part_action')]//a[contains(@class,' button-style_expletive')]";
+    private final PopOver popover = new PopOver(By.cssSelector(".offers-form__description_condensed"));
+    private static final String PRICE_BYCOUNT_XPATH = "(//div[contains(@class,'offers-list__description_alter-other')])[%s]";
+    private static final String BUTTON_BYCOUNT_XPATH = "(//a[contains(text(),'В корзину')])[position() mod 2= 0][%s]";
     private final Label labelMessageText = new Label(By.cssSelector(".product-recommended__subheader"));
-    private final Label labelPrice = new Label(By.xpath("//div[contains(@class,'product-recommended__link_primary')]/span"));
-    private final Button navigateToBasketButton = new Button(By.xpath("//a[contains(@class,'button-style_another button-style_base-alter product-recommended__button')]"));
+    private final Label labelPrice = new Label(By.cssSelector(".product-recommended__price > div"));
+    private static final String BUTTON_IN_BASKET = "//a[contains(text(),'%s')]";
 
     public void clickExpandingWindow(String answer) {
-        if (expandingWindow.isDisplayed()) {
-            new Button(By.xpath(String.format(EXPAND_WINDOW_CITY_XPATH, answer))).click();
-        } else {
-            return;
-        }
+        popover.isDisplayed();
+        popover.getButtonByName(answer).click();
     }
 
-    public String gatherPriceByNumber(int itemOrder) {
+    public String storePriceByNumber(int itemOrder) {
         return new Label(By.xpath(String.format(PRICE_BYCOUNT_XPATH, itemOrder))).getText();
     }
 
@@ -38,7 +35,7 @@ public class PriceOffersScreen {
         return labelPrice.getText();
     }
 
-    public void clickButtonOnBasket() {
-        navigateToBasketButton.click();
+    public void clickButtonOnBasket(String button) {
+        new Button(By.xpath(String.format(BUTTON_IN_BASKET, button))).click();
     }
 }

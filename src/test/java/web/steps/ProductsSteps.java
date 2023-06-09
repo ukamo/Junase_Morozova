@@ -6,7 +6,7 @@ import web.screens.ProductsScreen;
 public class ProductsSteps {
     private final ProductsScreen productsScreen = new ProductsScreen();
 
-    @When("^I click button ((Сравнение предложений)) for (.*) on screen (.*) in application (.*)$")
+    @When("^I click button (Сравнение предложений) for (.*) on screen (.*) in application (Onliner)$")
     public void clickCompareOrderForProduct(String buttonName, String productName, String screen, String app) {
         productsScreen.clickCompareOrderForProduct(productName);
     }

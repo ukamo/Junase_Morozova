@@ -1,7 +1,5 @@
 package web.steps;
 
-import eu.ibagroup.junase.model.util.Assert;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import web.screens.ForumScreen;
 

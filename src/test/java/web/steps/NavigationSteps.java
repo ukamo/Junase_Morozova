@@ -11,8 +11,6 @@ public class NavigationSteps {
 
     private static final String DELIMITER = " -> ";
 
-    String nameOfTopic;
-
     @Given("^I am on screen (.*) in application (.*)$")
     @Then("I assert I am on screen (.*) in application (.*)$")
     public void assertScreenInApplication(String screen, String app) {
@@ -20,7 +18,7 @@ public class NavigationSteps {
     }
 
     @When("^I navigate to (.*) section on screen (.*) in application (.*)$")
-    public void navigateSection(String section, String screen, String app) throws InterruptedException {
+    public void navigateSection(String section, String screen, String app) {
         navigationScreen.navigateToSection(section);
     }
 

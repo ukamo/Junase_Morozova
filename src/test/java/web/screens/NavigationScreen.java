@@ -2,16 +2,12 @@ package web.screens;
 
 import eu.ibagroup.junase.web.test.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import web.component.Input;
 import web.component.Label;
 import web.util.Wait;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class NavigationScreen {
 

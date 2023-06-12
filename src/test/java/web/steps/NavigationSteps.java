@@ -1,7 +1,6 @@
 package web.steps;
 
 import eu.ibagroup.junase.model.util.Assert;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -25,65 +24,34 @@ public class NavigationSteps {
         navigationScreen.navigateToSection(section);
     }
 
-
     @When("^I navigate 3 sections (.*) on screen (.*) in application (.*)$")
     public void navigateTabs(String tabs, String screen, String app) {
         String[] menuItems = tabs.split(DELIMITER);
         navigationScreen.navigateToFirstLevel(menuItems[0]);
         navigationScreen.navigateToSecondLevel(menuItems[1]);
         navigationScreen.navigateToThirdLevel(menuItems[2]);
-
     }
 
-    @When("^I navigate to (.*) search on screen (.*) in application (.*)$")
-    public void navigateToSearch(String nameOfSearch, String screen, String app) {
-        navigationScreen.navigateToSearch();
-    }
-
-
-    @Then("^I assert I am on (.*) search on screen (.*) in application (.*)$")
-    public void assertSeacrhInApp(String nameOfSearch, String screen, String app) {
-        Assert.assertEquals(nameOfSearch, navigationScreen::assertSeacrhInApp);
-    }
-
-    @When("^I type (.*) in search (.*) on screen (.*) in application (.*)$")
-    public void typeInSearch(String text, String nameOfSearch, String screen, String app) {
-        navigationScreen.typeInSearch(text);
-
-    }
-
-    @When("^I switch to iframe on screen (.*) in application (.*)$")
-    public void swithToIFrame(String screen, String app) {
-        navigationScreen.swithOnIFrameFieldSearching();
-    }
-
-    @Then("^I assert I typed (.*) on screen (.*) in application (.*)$")
-    public void assertTypedText(String text, String screen, String app) {
-        Assert.assertEquals(text, navigationScreen::assertTypedText);
-    }
-
-    @When("^I navigate (.*) section on iframe on screen (.*) in application (.*)$")
+    @When("^I switch to tab (.*) on iframe on screen (.*) in application (Onliner)$")
     public void navigateOnSectionInSearch(String section, String screen, String app) {
         navigationScreen.navigateOnSectionInSearch(section);
     }
 
-    @Then("^I assert I am on (.*) section on screen (.*) in application (.*)$")
-    public void assertCursorIsOnSection(String section, String screen, String app) {
-        Assert.assertEquals(section, navigationScreen::assertCursorIsOnSection);
+    @Then("^I assert I am on tab (на форуме) on screen (.*) in application (Onliner)$")
+    public void assertTabIsActive(String section, String screen, String app) {
+        Assert.assertEquals(section, navigationScreen::assertTabIsActive);
     }
 
 
-    @When("^I get name on (.*) topic on screen (.*) in application (.*)$")
-    public void getNameOfTopicByNumber(int numberOfTopic, String screen, String app) {
-        nameOfTopic = navigationScreen.getNameOfTopicByNumber(numberOfTopic);
-    }
-    @And("^I navigate on (.*) topic on screen (.*) in application (.*)$")
-    public void navigateTopicByNumber(int numberOfTopic, String screen, String app) {
-        navigationScreen.navigateTopicByNumber(numberOfTopic);
-    }
-    @Then("^I assert I am on (.*) topic on screen (.*) theme in application (.*)$")
-    public void iAssertIAmOnTopicOnScreenTopicThemeInApplicationOnliner(int numberOfTopic, String screen, String app) {
-        Assert.assertTrue(() -> navigationScreen.getScreenTitle().contains(nameOfTopic));
 
-    }
+
+
+
+
+
+
+
+
+
+
 }

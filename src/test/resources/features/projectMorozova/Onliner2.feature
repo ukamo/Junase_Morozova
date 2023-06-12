@@ -8,25 +8,19 @@
 
    Scenario Outline: Check Profile of Author of the most popular forum topic on Onliner
      Given I am on screen Onlíner in application Onliner
-     When I navigate to Поиск search on screen Onliner in application Onliner
+     When I click Поиск search on screen Onliner in application Onliner
      Then I assert I am on Поиск search on screen Onliner in application Onliner
-     When I type Форум in search Поиск on screen Onliner in application Onliner
-     When I switch to iframe on screen Onliner in application Onliner
-     Then I assert I typed Форум on screen Onliner in application Onliner
-     When I navigate на форуме section on iframe on screen Onliner in application Onliner
-     Then I assert I am on на форуме section on screen Onliner in application Onliner
-     When I get name on 1 topic on screen Onliner in application Onliner
-     And I navigate on 1 topic on screen Onliner in application Onliner
-     Then I assert I am on 1 topic on screen Topic theme in application Onliner
-     When I get Id to the 1 message of Автор темы on screen Topic theme in application Onliner
-     And I navigate to the 1 message of Автор темы on screen Topic theme in application Onliner
-     Then I assert I am on screen Профиль in application Onliner
-     And I assert ID on screen Профиль in application Onliner
-     And I assert Ник and Подпись на Форуме on screen Профиль in application Onliner
+     When I set Форум in search Поиск on screen Onliner in application Onliner
+     Then I assert I am on tab в каталоге on screen Onliner in application Onliner
+     When I switch to tab на форуме on iframe on screen Onliner in application Onliner
+     Then I assert I am on tab на форуме on screen Onliner in application Onliner
+     When I click on hyperlink <hyperlinkName> on screen Onliner in application Onliner
+     Then I assert I am on screen <hyperlinkName> in application Onliner
+
 
 
 
      Examples:
 
-       |  |
-       |   |
+       | hyperlinkName |
+       | Жилая недвижимость. Общие тенденции (9)  |

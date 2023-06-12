@@ -5,22 +5,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import web.component.Hyperlink;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import web.component.Input;
 import web.component.Label;
 import web.util.Wait;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 public class NavigationScreen {
+
+    private static final Label activeSearchTab = new Label(By.xpath("//div[contains(@class, 'search__tabs-item_active')]"));
+
     public static WebDriver driver;
-    private static final Input inputSearch = new Input(By.xpath("//input[contains(@class,'fast-search__input')]"));
-    private static final Input inputSearchInIframe = new Input(By.xpath("//div[contains(@class,'search__suggest-match')]/span[contains(@class,'text_match')]"));
-    private static final String iframeSearch = "//iframe[contains(@class,'modal-iframe')]";
-    private static final Hyperlink topicByHyperlink = new Hyperlink(By.xpath("//ul[contains(@class,'search__results')]"));
+
     public NavigationScreen() {
         driver = WebDriverManager.currentSession().getWebDriver();
     }
-    private static final Label activeSearchTab = new Label (By.xpath("//div[contains(@class, 'search__tabs-item_active')]"));
 
     public String getScreenTitle() {
         return driver.getTitle();
@@ -74,37 +75,7 @@ public class NavigationScreen {
         });
     }
 
-    public void navigateToSearch() {
-        inputSearch.click();
-    }
-
-    public void switchToDefaultContent() {
-        Wait.functionPassed(() -> driver.switchTo().defaultContent());
-    }
-    private void switchToIframe(String xPathFrame) {
-        Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.xpath(xPathFrame)));
-    }
-
-    public String assertSeacrhInApp() {
-        String getNameOfSearch = inputSearch.getAttribute("placeholder");
-        return getNameOfSearch.substring(0, getNameOfSearch.indexOf(" "));
-    }
-
-    public void typeInSearch(String text) {
-        //inputSearch.setText(text);
-        //inputSearch.sendKeys(Keys.ENTER);
-        inputSearch.setTextAndSendKeys(text,Keys.ENTER);
-    }
-
-    public void swithOnIFrameFieldSearching() {
-        switchToDefaultContent();
-        switchToIframe(iframeSearch);
-    }
-    public String assertTypedText(){
-        return inputSearchInIframe.getText();
-    }
-
-    public void navigateOnSectionInSearch(String section){
+    public void navigateOnSectionInSearch(String section) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.xpath("//div[contains(@class, 'search__tabs-item')]"));
             for (WebElement item : items) {
@@ -115,18 +86,9 @@ public class NavigationScreen {
             }
         });
     }
-    public String assertCursorIsOnSection(){
+    public String assertTabIsActive() {
         return activeSearchTab.getText();
     }
-
-    public String getNameOfTopicByNumber(int numberOfTopic){
-        return topicByHyperlink.getTopicByNumber(numberOfTopic);
-    }
-    public void navigateTopicByNumber(int numberOfTopic){
-        topicByHyperlink.navigateTopicByNumber(numberOfTopic);
-    }
-
-
 }
 
 

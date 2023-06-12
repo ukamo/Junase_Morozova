@@ -69,17 +69,16 @@ public class Input extends WebComponent {
         return (Input) super.scrollToElement();
     }
 
-
     public void click() {
         Wait.functionPassed(() -> {
             Wait.elementToBeClickable(getLocator());
             getElement().click();
         });
     }
-    public void setTextAndSendKeys(String value, Keys key) {
+    public void setTextAndSendKeys(String text, Keys key) {
         Wait.functionPassed(() -> {
             clear();
-            sendKeys(value);
+            setText(text);
             sendKeys(key);
         });
 

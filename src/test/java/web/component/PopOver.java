@@ -12,6 +12,8 @@ public class PopOver extends Component {
         super(locator);
     }
 
+    //FIXME: remove unused method
+    //if you would need such a method, you can use By.className("offers-form__description") here instead of By.cssSelector(".offers-form__description")
     public String getContent() {
         return getElement().findElement(By.cssSelector(".offers-form__description")).getText();
     }

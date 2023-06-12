@@ -11,5 +11,6 @@ public class OnlinerSteps {
     public void navigateSection(String section, String screen, String app) {
         onlinerScreen.navigateToSection(section);
     }
-
+//FIXME: remove blank rows everywhere in the  project
 }
+//FIXME: remove blank rows everywhere in the  project

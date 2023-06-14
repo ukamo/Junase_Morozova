@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import web.screens.BasketScreen;
 
 public class BasketSteps {
+
     private final BasketScreen basketScreen = new BasketScreen();
 
     @Then("^I assert label (.*) is present on screen (Корзина заказов) in application (Onliner)$")

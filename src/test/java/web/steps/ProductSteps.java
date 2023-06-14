@@ -1,0 +1,53 @@
+package web.steps;
+
+import eu.ibagroup.junase.model.util.Assert;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import web.screens.ProductScreen;
+
+public class ProductSteps {
+
+    private final ProductScreen productScreen = new ProductScreen();
+
+    private static String priceByNumber;
+
+    @Then("^I assert popover (.*) is displayed on screen (.*) in application (Onliner)$")
+    public void assertPopoverIsDisplayed(String popover, String screen, String app) {
+        productScreen.isPopoverIsDisplayed(popover);
+    }
+
+    @When("^I click button (.*) on popover (.*) on screen (.*) in application (Onliner)$")
+    public void clickButtonByNameOnPopover(String buttonName, String popoverTitle, String screen, String app) {
+        productScreen.clickButtonByNameOnPopover(buttonName, popoverTitle);
+    }
+
+    @Then("^I store price of item ([0-9]+) on screen (.*) in application (Onliner)$")
+    public void storePriceByItemOrder(int itemOrder, String screen, String app) {
+        priceByNumber = productScreen.getPriceByItemOrder(itemOrder);
+    }
+
+    @When("^I click button (.*) for item ([0-9]+) on screen (.*) in application (Onliner)$")
+    public void clickInBasketForItemOrder(String buttonName, int itemOrder, String screen, String app) {
+        productScreen.clickInBasketForItemOrder(itemOrder);
+    }
+
+    @Then("^I assert sidebar is opened on screen (.*) in application (Onliner)$")
+    public void assertSidebarIsOpened(String screen, String app) {
+        Assert.assertTrue(productScreen::isSidebarIsOpened);
+    }
+
+    @Then("I assert header (.*) is present on sidebar on screen (.*) in application (Onliner)$")
+    public void assertHeaderIsPresent(String header, String screen, String app) {
+        Assert.assertListContains(productScreen::getHeaderPresent, header);
+    }
+
+    @Then("^I assert item price on screen (.*) in application (Onliner)$")
+    public void assertItemPrice(String screen, String app) {
+        Assert.assertEquals(priceByNumber, productScreen::getItemPrice);
+    }
+
+    @When("^I click button ((?!.*for)(?!.*popover).*) on screen (.*) in application (Onliner)$")
+    public void clickButtonByName(String buttonName, String screen, String app) {
+        productScreen.clickButtonByName(buttonName);
+    }
+}

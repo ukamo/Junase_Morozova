@@ -16,5 +16,4 @@ public class Label extends WebComponent {
     public Label(WebElement element) {
         super(element);
     }
-
 }

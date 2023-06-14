@@ -1,15 +1,14 @@
 package web.steps;
 
 import io.cucumber.java.en.When;
-import web.screens.ProductsScreen;
+import web.screens.ProductGroupScreen;
 
-//FIXME:ProductGroupSteps
-public class ProductsSteps {
+public class ProductGroupSteps {
 
-    private final ProductsScreen productsScreen = new ProductsScreen();
+    private final ProductGroupScreen productGroupScreen = new ProductGroupScreen();
 
     @When("^I click button (Сравнение предложений) for (.*) on screen (.*) in application (Onliner)$")
     public void clickCompareOrderForProduct(String buttonName, String productName, String screen, String app) {
-        productsScreen.clickCompareOrderForProduct(productName);
+        productGroupScreen.clickCompareOrderForProduct(productName);
     }
 }

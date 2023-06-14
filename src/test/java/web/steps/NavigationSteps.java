@@ -7,7 +7,9 @@ import io.cucumber.java.en.When;
 import web.screens.Navigation;
 
 public class NavigationSteps {
+
     private final Navigation navigation = new Navigation();
+
     private static final String DELIMITER = " -> ";
 
     @Given("^I am on screen (.*) in application (Onliner)$")
@@ -16,7 +18,7 @@ public class NavigationSteps {
         Assert.assertTrue(() -> navigation.getScreenTitle().contains(screen));
     }
 
-    @When("^I navigate 3 sections (.*) on screen (.*) in application (Onliner)$")
+    @When("^I navigate ((?!.*Каталог).*) on screen (.*) in application (Onliner)$")
     public void navigateTabs(String tabs, String screen, String app) {
         String[] menuItems = tabs.split(DELIMITER);
         navigation.navigateToFirstLevel(menuItems[0]);

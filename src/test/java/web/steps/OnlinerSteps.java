@@ -7,10 +7,8 @@ public class OnlinerSteps {
 
     private final OnlinerScreen onlinerScreen = new OnlinerScreen();
 
-    @When("^I navigate (.*) section on screen (Onliner) in application (Onliner)$")
+    @When("^I navigate (Каталог) on screen (Onliner) in application (Onliner)$")
     public void navigateSection(String section, String screen, String app) {
-        onlinerScreen.navigateToSection(section);
+        onlinerScreen.navigateSection(section);
     }
-//FIXME: remove blank rows everywhere in the  project
 }
-//FIXME: remove blank rows everywhere in the  project

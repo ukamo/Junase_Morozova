@@ -10,6 +10,7 @@ import java.util.List;
 
 
 public class Navigation {
+
     public static WebDriver driver;
 
     public Navigation() {

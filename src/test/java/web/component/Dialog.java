@@ -7,8 +7,8 @@ import org.openqa.selenium.By;
  * Dialog - a class for dialogs.
  */
 public class Dialog extends WebComponent {
+
     public Dialog(By locator) {
         super(locator);
     }
-
 }

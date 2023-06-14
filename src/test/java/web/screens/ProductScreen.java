@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class ProductScreen {
 
-    private static final String POPOVER_TITLE_XPATH = "//div[@class='offers-form']/div[contains(text(),'%s')]/span[contains(text(),'%s')]";
+    private static final String POPOVER_TITLE_XPATH = "//div[@class='offers-form']/div[contains(text(),'%s')]";
 
     private static final String PRICE_BY_ITEM_ORDER_XPATH = "(//div[contains(@class,'offers-list__description_alter-other')])[%s]";
 
@@ -20,14 +20,12 @@ public class ProductScreen {
 
     private static final String BUTTON_BY_NAME = "//a[contains(text(),'%s')]";
 
-    private final Label sidebarAside = new Label(By.className("product-recommended__sidebar-aside"));
+    private final Sidebar sidebarAside = new Sidebar(By.className("product-recommended__sidebar-aside"));
 
     private final Label labelPrice = new Label(By.cssSelector(".product-recommended__price > div"));
 
     private PopOver getPopoverByTitle(String popoverTitle) {
-        String nameOfPopover = popoverTitle.split(("(—\\s)"))[0] + "—";
-        String city = popoverTitle.split(("(—\\s)"))[1];
-        return new PopOver(By.xpath(String.format(POPOVER_TITLE_XPATH, nameOfPopover, city)));
+        return new PopOver(By.xpath(String.format(POPOVER_TITLE_XPATH, popoverTitle)));
     }
 
     public boolean isPopoverDisplayed(String popoverTitle) {
@@ -51,7 +49,7 @@ public class ProductScreen {
     }
 
     public List<String> getListOfHeaders() {
-        return new Sidebar(By.className("product-recommended__sidebar-overflow")).getSubHeaders()
+        return sidebarAside.getSubHeaders()
                 .stream().map(WebElement::getText).collect(Collectors.toList());
     }
 

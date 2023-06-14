@@ -12,12 +12,14 @@ public class ProductSteps {
     private static String priceByNumber;
 
     @Then("^I assert popover (.*) is displayed on screen (.*) in application (Onliner)$")
-    public void assertPopoverIsDisplayed(String popoverTitle, String screen, String app) {
+    public void assertPopoverIsDisplayed(String popoverTitleAndCity, String screen, String app) {
+        String popoverTitle = popoverTitleAndCity.substring(0, popoverTitleAndCity.indexOf("—"));
         Assert.assertTrue(() -> productScreen.isPopoverDisplayed(popoverTitle));
     }
 
     @When("^I click button (.*) on popover (.*) on screen (.*) in application (Onliner)$")
-    public void clickButtonByNameOnPopover(String buttonName, String popoverTitle, String screen, String app) {
+    public void clickButtonByNameOnPopover(String buttonName, String popoverTitleAndCity, String screen, String app) {
+        String popoverTitle = popoverTitleAndCity.substring(0, popoverTitleAndCity.indexOf("—"));
         productScreen.clickButtonByNameOnPopover(buttonName, popoverTitle);
     }
 

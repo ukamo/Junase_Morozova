@@ -8,27 +8,28 @@ import web.component.Input;
 import web.util.Wait;
 
 public class OnlinerScreen {
-    private static final Input inputSearch = new Input(By.xpath("//input[contains(@class,'fast-search__input')]"));
+
+    public static WebDriver driver;
 
     private static final String iframeSearch = "//iframe[contains(@class,'modal-iframe')]";
 
-    private static final Input inputSearchActive = new Input(By.cssSelector(".search__tabs-item_active"));
+    private final Input inputSearch = new Input(By.xpath("//input[contains(@class,'fast-search__input')]"));
 
-    public static WebDriver driver;
+    private final Input inputSearchActive = new Input(By.cssSelector(".search__tabs-item_active"));
 
     public OnlinerScreen() {
         driver = WebDriverManager.currentSession().getWebDriver();
     }
 
-    public void clickOnSearch() {
+    public void navigateToSearch() {
         inputSearch.click();
     }
 
-    public String getCursorSeacrh() {
+    public String getSearchTab() {
         return inputSearch.getAttribute("placeholder");
     }
 
-    public void typeInSearch(String textTyped) {
+    public void setTextInSearch(String textTyped) {
         inputSearch.setTextAndSendKeys(textTyped, Keys.ENTER);
     }
 
@@ -45,7 +46,7 @@ public class OnlinerScreen {
         switchToIframe(iframeSearch);
     }
 
-    public String getTextInSearchTab() {
+    public String getTabIsActive() {
         return inputSearchActive.getText();
     }
 }

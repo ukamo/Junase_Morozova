@@ -9,24 +9,24 @@ public class OnlinerSteps {
 
     OnlinerScreen onlinerScreen = new OnlinerScreen();
 
-    @When("^I click (.*) search on screen (.*) in application (Onliner)$")
-    public void clickOnSearch(String nameOfSearch, String screen, String app) {
-        onlinerScreen.clickOnSearch();
+    @When("^I navigate search (Поиск) on screen (.*) in application (Onliner)$")
+    public void navigateToSearch(String tabName, String screen, String app) {
+        onlinerScreen.navigateToSearch();
     }
 
-    @Then("^I assert I am on (.*) search on screen (.*) in application (Onliner)$")
-    public void assertCursorSearch(String nameOfSearch, String screen, String app) {
-        Assert.assertTrue(() -> onlinerScreen.getCursorSeacrh().contains(nameOfSearch));
+    @Then("^I assert I am on search (Поиск) on screen (.*) in application (Onliner)$")
+    public void assertSearchTab(String tabName, String screen, String app) {
+        Assert.assertTrue(() -> onlinerScreen.getSearchTab().contains(tabName));
     }
 
-    @When("^I set (.*) in search (.*) on screen (.*) in application (Onliner)$")
-    public void typeInSearch(String textTyped, String nameOfSearch, String screen, String app) {
-        onlinerScreen.typeInSearch(textTyped);
+    @When("^I set (.*) on search (.*) on screen (.*) in application (Onliner)$")
+    public void setTextInSearch(String textTyped, String nameOfSearch, String screen, String app) {
+        onlinerScreen.setTextInSearch(textTyped);
     }
 
     @Then("^I assert I am on tab (в каталоге) on screen (.*) in application (Onliner)$")
-    public void assertSearchTab(String tab, String screen, String app) {
+    public void assertTab(String tab, String screen, String app) {
         onlinerScreen.swithOnIFrameFieldSearching();
-        Assert.assertEquals(tab, onlinerScreen::getTextInSearchTab);
+        Assert.assertEquals(tab, onlinerScreen::getTabIsActive);
     }
 }

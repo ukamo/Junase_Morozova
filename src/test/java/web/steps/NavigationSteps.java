@@ -30,12 +30,12 @@ public class NavigationSteps {
         navigationScreen.navigateToThirdLevel(menuItems[2]);
     }
 
-    @When("^I switch to tab (.*) on iframe on screen (.*) in application (Onliner)$")
-    public void navigateOnSectionInSearch(String section, String screen, String app) {
+    @When("^I switch to (.*) tab on screen (.*) in application (Onliner)$")
+    public void switchToTab(String section, String screen, String app) {
         navigationScreen.navigateOnSectionInSearch(section);
     }
 
-    @Then("^I assert I am on tab (на форуме) on screen (.*) in application (Onliner)$")
+    @Then("^I assert I am on (на форуме) tab on screen (.*) in application (Onliner)$")
     public void assertTabIsActive(String section, String screen, String app) {
         Assert.assertEquals(section, navigationScreen::assertTabIsActive);
     }

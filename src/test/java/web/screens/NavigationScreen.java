@@ -11,9 +11,9 @@ import java.util.List;
 
 public class NavigationScreen {
 
-    private static final Label activeSearchTab = new Label(By.xpath("//div[contains(@class, 'search__tabs-item_active')]"));
-
     public static WebDriver driver;
+
+    private static final Label activeSearchTab = new Label(By.xpath("//div[contains(@class, 'search__tabs-item_active')]"));
 
     public NavigationScreen() {
         driver = WebDriverManager.currentSession().getWebDriver();
@@ -82,6 +82,7 @@ public class NavigationScreen {
             }
         });
     }
+
     public String assertTabIsActive() {
         return activeSearchTab.getText();
     }

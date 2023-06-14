@@ -12,8 +12,8 @@ public class ProductSteps {
     private static String priceByNumber;
 
     @Then("^I assert popover (.*) is displayed on screen (.*) in application (Onliner)$")
-    public void assertPopoverIsDisplayed(String popover, String screen, String app) {
-        productScreen.isPopoverIsDisplayed(popover);
+    public void assertPopoverIsDisplayed(String popoverTitle, String screen, String app) {
+        Assert.assertTrue(() -> productScreen.isPopoverDisplayed(popoverTitle));
     }
 
     @When("^I click button (.*) on popover (.*) on screen (.*) in application (Onliner)$")
@@ -32,13 +32,13 @@ public class ProductSteps {
     }
 
     @Then("^I assert sidebar is opened on screen (.*) in application (Onliner)$")
-    public void assertSidebarIsOpened(String screen, String app) {
-        Assert.assertTrue(productScreen::isSidebarIsOpened);
+    public void assertSidebarIsDisplayed(String screen, String app) {
+        Assert.assertTrue(productScreen::isSidebarDisplayed);
     }
 
     @Then("I assert header (.*) is present on sidebar on screen (.*) in application (Onliner)$")
     public void assertHeaderIsPresent(String header, String screen, String app) {
-        Assert.assertListContains(productScreen::getHeaderPresent, header);
+        Assert.assertListContains(productScreen::getListOfHeaders, header);
     }
 
     @Then("^I assert item price on screen (.*) in application (Onliner)$")

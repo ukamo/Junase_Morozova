@@ -30,8 +30,8 @@ public class ProductScreen {
         return new PopOver(By.xpath(String.format(POPOVER_TITLE_XPATH, nameOfPopover, city)));
     }
 
-    public void isPopoverIsDisplayed(String popoverTitle) {
-        getPopoverByTitle(popoverTitle).isDisplayed();
+    public boolean isPopoverDisplayed(String popoverTitle) {
+        return getPopoverByTitle(popoverTitle).isDisplayed();
     }
 
     public void clickButtonByNameOnPopover(String buttonName, String popoverTitle) {
@@ -46,11 +46,11 @@ public class ProductScreen {
         new Button(By.xpath(String.format(IN_BUSKET_BY_ITEM_ORDER_XPATH, itemOrder))).click();
     }
 
-    public boolean isSidebarIsOpened() {
+    public boolean isSidebarDisplayed() {
         return sidebarAside.isDisplayed();
     }
 
-    public List<String> getHeaderPresent() {
+    public List<String> getListOfHeaders() {
         return new Sidebar(By.className("product-recommended__sidebar-overflow")).getSubHeaders()
                 .stream().map(WebElement::getText).collect(Collectors.toList());
     }

@@ -39,17 +39,4 @@ public class NavigationSteps {
     public void assertTabIsActive(String section, String screen, String app) {
         Assert.assertEquals(section, navigationScreen::assertTabIsActive);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

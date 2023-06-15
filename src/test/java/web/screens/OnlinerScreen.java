@@ -13,24 +13,24 @@ public class OnlinerScreen {
 
     private static final String iframeSearch = "//iframe[contains(@class,'modal-iframe')]";
 
-    private final Input inputSearch = new Input(By.xpath("//input[contains(@class,'fast-search__input')]"));
+    private final Input searchInput = new Input(By.xpath("//input[contains(@class,'fast-search__input')]"));
 
-    private final Input inputSearchActive = new Input(By.cssSelector(".search__tabs-item_active"));
+    private final Input searchActiveInput = new Input(By.className("search__tabs-item_active"));
 
     public OnlinerScreen() {
         driver = WebDriverManager.currentSession().getWebDriver();
     }
 
     public void navigateToSearch() {
-        inputSearch.click();
+        searchInput.click();
     }
 
     public String getSearchTab() {
-        return inputSearch.getAttribute("placeholder");
+        return searchInput.getAttribute("placeholder");
     }
 
-    public void setTextInSearch(String textTyped) {
-        inputSearch.setTextAndSendKeys(textTyped, Keys.ENTER);
+    public void setTextInSearch(String text) {
+        searchInput.setTextAndSendKeys(text, Keys.ENTER);
     }
 
     public void switchToDefaultContent() {
@@ -41,12 +41,12 @@ public class OnlinerScreen {
         Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.xpath(xPathFrame)));
     }
 
-    public void swithOnIFrameFieldSearching() {
+    public void swithOnIFrameField() {
         switchToDefaultContent();
         switchToIframe(iframeSearch);
     }
 
-    public String getTabIsActive() {
-        return inputSearchActive.getText();
+    public String getTextFromTab() {
+        return searchActiveInput.getText();
     }
 }

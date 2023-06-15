@@ -16,9 +16,9 @@ public class ForumScreen {
     }
 
     public void clickOnHyperlink(String hyperlinkName) {
+        Wait.visibilityOfElementLocated(By.className("forum__title"));
         Wait.functionPassed(() -> {
-            Wait.visibilityOfElementLocated(By.cssSelector(".forum__title a"));
-            List<WebElement> items = driver.findElements(By.cssSelector(".forum__title a"));
+            List<WebElement> items = driver.findElements(By.className("forum__title"));
             for (WebElement item : items) {
                 if (item.getText().equals(hyperlinkName)) {
                     item.click();

@@ -71,7 +71,7 @@ public class NavigationScreen {
         });
     }
 
-    public void navigateOnSectionInSearch(String section) {
+    public void switchToTab(String section) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.xpath("//div[contains(@class, 'search__tabs-item')]"));
             for (WebElement item : items) {
@@ -83,7 +83,7 @@ public class NavigationScreen {
         });
     }
 
-    public String assertTabIsActive() {
+    public String getTextFromTab() {
         return activeSearchTab.getText();
     }
 }

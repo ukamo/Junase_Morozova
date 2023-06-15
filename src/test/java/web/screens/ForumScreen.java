@@ -9,6 +9,7 @@ import web.util.Wait;
 import java.util.List;
 
 public class ForumScreen {
+
     public static WebDriver driver;
 
     public ForumScreen() {

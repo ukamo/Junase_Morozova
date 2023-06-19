@@ -69,13 +69,10 @@ public class Input extends WebComponent {
         return (Input) super.scrollToElement();
     }
 
-
     public void click() {
         Wait.functionPassed(() -> {
             Wait.elementToBeClickable(getLocator());
             getElement().click();
         });
     }
-
-
 }

@@ -11,26 +11,24 @@ public class ProductSteps {
 
     private static String priceByNumber;
 
-    @Then("^I assert popover (.*) is displayed on screen (.*) in application (Onliner)$")
-    public void assertPopoverIsDisplayed(String popoverTitleAndCity, String screen, String app) {
-        String popoverTitle = popoverTitleAndCity.substring(0, popoverTitleAndCity.indexOf("—"));
-        Assert.assertTrue(() -> productScreen.isPopoverDisplayed(popoverTitle));
+    @When("^I click button ((?!.*popover).*) on screen (.*) in application (Onliner)$")
+    public void clickButtonByName(String buttonName, String screen, String app) {
+        productScreen.clickButtonByName(buttonName);
     }
 
     @When("^I click button (.*) on popover (.*) on screen (.*) in application (Onliner)$")
-    public void clickButtonByNameOnPopover(String buttonName, String popoverTitleAndCity, String screen, String app) {
-        String popoverTitle = popoverTitleAndCity.substring(0, popoverTitleAndCity.indexOf("—"));
+    public void clickButtonByNameOnPopover(String buttonName, String popoverTitle, String screen, String app) {
         productScreen.clickButtonByNameOnPopover(buttonName, popoverTitle);
     }
 
-    @Then("^I store price of item ([0-9]+) on screen (.*) in application (Onliner)$")
-    public void storePriceByItemOrder(int itemOrder, String screen, String app) {
-        priceByNumber = productScreen.getPriceByItemOrder(itemOrder);
-    }
-
-    @When("^I click button (.*) for item ([0-9]+) on screen (.*) in application (Onliner)$")
+    @When("^I click button (В корзину) for item ([0-9]+) on screen (.*) in application (Onliner)$")
     public void clickInBasketForItemOrder(String buttonName, int itemOrder, String screen, String app) {
         productScreen.clickInBasketForItemOrder(itemOrder);
+    }
+
+    @Then("^I assert popover (.*) is displayed on screen (.*) in application (Onliner)$")
+    public void assertPopoverIsDisplayed(String popoverTitle, String screen, String app) {
+        Assert.assertTrue(() -> productScreen.isPopoverDisplayed(popoverTitle));
     }
 
     @Then("^I assert sidebar is opened on screen (.*) in application (Onliner)$")
@@ -43,13 +41,13 @@ public class ProductSteps {
         Assert.assertListContains(productScreen::getListOfHeaders, header);
     }
 
+    @When("^I store price of item ([0-9]+) on screen (.*) in application (Onliner)$")
+    public void storePriceByItemOrder(int itemOrder, String screen, String app) {
+        priceByNumber = productScreen.getPriceByItemOrder(itemOrder);
+    }
+
     @Then("^I assert item price on screen (.*) in application (Onliner)$")
     public void assertItemPrice(String screen, String app) {
         Assert.assertEquals(priceByNumber, productScreen::getItemPrice);
-    }
-
-    @When("^I click button ((?!.*for)(?!.*popover).*) on screen (.*) in application (Onliner)$")
-    public void clickButtonByName(String buttonName, String screen, String app) {
-        productScreen.clickButtonByName(buttonName);
     }
 }

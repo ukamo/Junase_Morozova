@@ -18,7 +18,12 @@ public class NavigationSteps {
         Assert.assertTrue(() -> navigation.getScreenTitle().contains(screen));
     }
 
-    @When("^I navigate ((?!.*Каталог).*) on screen (.*) in application (Onliner)$")
+    @When("^I navigate (.*) on screen (Onliner) in application (Onliner)$")
+    public void navigateSection(String section, String screen, String app) {
+        navigation.navigateSection(section);
+    }
+
+    @When("^I navigate (.*) on screen (Kaталог Onliner) in application (Onliner)$")
     public void navigateTabs(String tabs, String screen, String app) {
         String[] menuItems = tabs.split(DELIMITER);
         navigation.navigateToFirstLevel(menuItems[0]);

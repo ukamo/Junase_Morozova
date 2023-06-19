@@ -4,9 +4,8 @@ import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import static eu.ibagroup.junase.web.util.Wait.functionPassed;
 
 public class Sidebar extends Component {
 
@@ -14,7 +13,13 @@ public class Sidebar extends Component {
         super(locator);
     }
 
-    public List<WebElement> getSubHeaders() {
-        return Wait.functionPassed(() -> getElement().findElements(By.className("product-recommended__subheader")));
+    public List<String> getSubHeaders() {
+        return Wait.functionPassed(() -> {
+            List<String> headerNames = new ArrayList<>();
+            for (WebElement header : getElement().findElements(By.className("product-recommended__subheader"))) {
+                headerNames.add(header.getText());
+            }
+            return headerNames;
+        });
     }
 }

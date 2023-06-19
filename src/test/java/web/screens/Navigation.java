@@ -21,6 +21,18 @@ public class Navigation {
         return driver.getTitle();
     }
 
+    public void navigateSection(String section) {
+        Wait.functionPassed(() -> {
+            List<WebElement> items = WebDriverManager.currentSession().getWebDriver().findElement(By.className("b-top-navigation")).findElements(By.className("b-main-navigation__link"));
+            for (WebElement item : items) {
+                if (item.getText().equals(section)) {
+                    item.click();
+                    return;
+                }
+            }
+        });
+    }
+
     public void navigateToFirstLevel(String firstMenuItem) {
         Wait.functionPassed(() -> {
             List<WebElement> items = driver.findElements(By.xpath("//li[@class ='catalog-navigation-classifier__item ']"));

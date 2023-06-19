@@ -1,14 +1,12 @@
 package web.screens;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import web.component.Button;
 import web.component.Label;
 import web.component.PopOver;
 import web.component.Sidebar;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ProductScreen {
 
@@ -49,8 +47,7 @@ public class ProductScreen {
     }
 
     public List<String> getListOfHeaders() {
-        return sidebarAside.getSubHeaders()
-                .stream().map(WebElement::getText).collect(Collectors.toList());
+        return sidebarAside.getSubHeaders();
     }
 
     public String getItemPrice() {

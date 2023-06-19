@@ -3,7 +3,7 @@ package web.component;
 import eu.ibagroup.junase.web.component.WebComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import web.util.Wait;
+import eu.ibagroup.junase.web.util.Wait;
 
 /**
  * TabContainer - a model.component for the tabs in container.

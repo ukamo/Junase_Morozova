@@ -4,37 +4,36 @@ import eu.ibagroup.junase.model.util.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import web.screens.NavigationScreen;
+import web.screens.Navigation;
 
 public class NavigationSteps {
-    NavigationScreen navigationScreen = new NavigationScreen();
+
+    private final Navigation navigation = new Navigation();
 
     private static final String DELIMITER = " -> ";
 
-    @Given("^I am on screen (.*) in application (.*)$")
-    @Then("I assert I am on screen (.*) in application (.*)$")
+    @Given("^I am on screen (.*) in application (Onliner)$")
+    @Then("^I assert I am on screen (.*) in application (Onliner)$")
     public void assertScreenInApplication(String screen, String app) {
-        Assert.assertTrue(() -> navigationScreen.getScreenTitle().contains(screen));
+        Assert.assertTrue(() -> navigation.getScreenTitle().contains(screen));
     }
 
-    @When("^I navigate to (.*) section on screen (.*) in application (.*)$")
-    public void navigateToSection(String section, String screen, String app) {
-        navigationScreen.navigateToSection(section);
+    @When("^I navigate (.*) on screen (Onliner) in application (Onliner)$")
+    public void navigateSection(String section, String screen, String app) {
+        navigation.navigateSection(section);
     }
 
-    @When("^I navigate 3 sections (.*) on screen (.*) in application (.*)$")
+    @When("^I navigate (.*) on screen (Kaталог Onliner) in application (Onliner)$")
     public void navigateTabs(String tabs, String screen, String app) {
         String[] menuItems = tabs.split(DELIMITER);
-        navigationScreen.navigateToFirstLevel(menuItems[0]);
-        navigationScreen.navigateToSecondLevel(menuItems[1]);
-        navigationScreen.navigateToThirdLevel(menuItems[2]);
+        navigation.navigateToFirstLevel(menuItems[0]);
+        navigation.navigateToSecondLevel(menuItems[1]);
+        navigation.navigateToThirdLevel(menuItems[2]);
     }
-
     @When("^I switch to tab (.*) on screen (.*) in application (Onliner)$")
     public void switchToTab(String section, String screen, String app) {
         navigationScreen.switchToTab(section);
     }
-
     @Then("^I assert I am on tab (на форуме) on screen (.*) in application (Onliner)$")
     public void assertTabIsActive(String section, String screen, String app) {
         Assert.assertEquals(section, navigationScreen::getTextFromTab);

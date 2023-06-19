@@ -3,11 +3,6 @@ package web.component;
 import eu.ibagroup.junase.web.component.WebComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import web.util.Wait;
-
-import java.util.List;
-
-import static web.screens.NavigationScreen.driver;
 
 /**
  * Label - a model.component for labels.
@@ -26,5 +21,4 @@ public class Label extends WebComponent {
         List<WebElement> listOfElements = getElement().findElements(By.xpath("//div[contains(@class,'offers-list__description_alter-other')]"));
         return listOfElements.get(numberOfButton - 1).getText();
     }
-
 }

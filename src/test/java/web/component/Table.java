@@ -4,7 +4,7 @@ import eu.ibagroup.junase.web.component.WebComponent;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import web.util.Wait;
+import eu.ibagroup.junase.web.util.Wait;
 
 import java.util.ArrayList;
 import java.util.HashMap;

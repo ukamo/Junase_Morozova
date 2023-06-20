@@ -1,11 +1,12 @@
 package web.screens;
 
-import eu.ibagroup.junase.web.test.WebDriverManager;
+import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import web.component.Dialog;
 import web.component.Input;
-import web.util.Wait;
+import web.component.TabContainer;
 
 public class OnlinerScreen {
 
@@ -13,40 +14,44 @@ public class OnlinerScreen {
 
     private static final String iframeSearch = "//iframe[contains(@class,'modal-iframe')]";
 
-    private final Input searchInput = new Input(By.xpath("//input[contains(@class,'fast-search__input')]"));
+    private static final String searchInputXpath = "//input[contains(@placeholder,'%s')]";
 
-    private final Input searchActiveInput = new Input(By.className("search__tabs-item_active"));
+    private final Dialog dialogSearch = new Dialog(By.xpath("//div[contains(@id,'search-page')]"));
 
-    public OnlinerScreen() {
+    private final TabContainer tabContainer = new TabContainer(By.xpath("//div[@class='search__tabs']"));
+
+    /*public OnlinerScreen() {
         driver = WebDriverManager.currentSession().getWebDriver();
     }
 
-    public void navigateToSearch() {
-        searchInput.click();
-    }
-
-    public String getSearchTab() {
-        return searchInput.getAttribute("placeholder");
-    }
-
-    public void setTextInSearch(String text) {
-        searchInput.setTextAndSendKeys(text, Keys.ENTER);
-    }
-
-    public void switchToDefaultContent() {
+    /*public void switchToDefaultContent() {
         Wait.functionPassed(() -> driver.switchTo().defaultContent());
     }
+    */
 
     private void switchToIframe(String xPathFrame) {
         Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.xpath(xPathFrame)));
     }
 
-    public void swithOnIFrameField() {
-        switchToDefaultContent();
+    public void swithIFrame() {
+        //switchToDefaultContent();
         switchToIframe(iframeSearch);
     }
 
     public String getTextFromTab() {
-        return searchActiveInput.getText();
+        return tabContainer.getActiveTab();
+    }
+
+    public void setValue(String tab, String value) {
+        new Input(By.xpath(String.format(searchInputXpath, tab)))
+                .setSearchInCatalog(value, Keys.ENTER);
+    }
+
+    public boolean isDialogSearchDisplayed() {
+        return dialogSearch.isDisplayed();
+    }
+
+    public void switchToTab(String section) {
+        tabContainer.switchTo(section);
     }
 }

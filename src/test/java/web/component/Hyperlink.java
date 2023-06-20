@@ -2,16 +2,16 @@ package web.component;
 
 import eu.ibagroup.junase.model.component.Control;
 import eu.ibagroup.junase.web.component.WebComponent;
+import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import web.util.Wait;
 
 import java.util.List;
 
 /**
  * Hyperlink - a model.component for hyperlinks.
  */
-public class Hyperlink extends WebComponent implements Control {
+public class Hyperlink extends WebComponent {
 
     public Hyperlink(By locator) {
         super(locator);
@@ -22,29 +22,15 @@ public class Hyperlink extends WebComponent implements Control {
     }
 
     @Override
-    public void click() {
-        Wait.functionPassed(() -> getElement().click());
-    }
-
-    @Override
-    public void rightClick() {
-        Wait.functionPassed(() -> getActionBuilder().contextClick(getElement()).perform());
-    }
-
-    @Override
-    public void doubleClick() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void jsClick() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public Hyperlink scrollToElement() {
         return (Hyperlink) super.scrollToElement();
     }
 
+    public void click() {
+        Wait.functionPassed(() -> {
+            Wait.elementToBeClickable(getLocator());
+            getElement().click();
+        });
+    }
 
 }

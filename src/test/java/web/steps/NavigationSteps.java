@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import web.screens.Navigation;
+import web.screens.OnlinerScreen;
 
 public class NavigationSteps {
 
@@ -18,7 +19,7 @@ public class NavigationSteps {
         Assert.assertTrue(() -> navigation.getScreenTitle().contains(screen));
     }
 
-    @When("^I navigate (.*) on screen (Onliner) in application (Onliner)$")
+    @When("^I navigate ((?!.*search).*) on screen (Onliner) in application (Onliner)$")
     public void navigateSection(String section, String screen, String app) {
         navigation.navigateSection(section);
     }
@@ -30,12 +31,11 @@ public class NavigationSteps {
         navigation.navigateToSecondLevel(menuItems[1]);
         navigation.navigateToThirdLevel(menuItems[2]);
     }
-    @When("^I switch to tab (.*) on screen (.*) in application (Onliner)$")
-    public void switchToTab(String section, String screen, String app) {
-        navigationScreen.switchToTab(section);
-    }
-    @Then("^I assert I am on tab (на форуме) on screen (.*) in application (Onliner)$")
+
+    /*@Then("^I assert I am on tab (на форуме) on screen (.*) in application (Onliner)$")
     public void assertTabIsActive(String section, String screen, String app) {
-        Assert.assertEquals(section, navigationScreen::getTextFromTab);
+        Assert.assertEquals(section, navigation::getTextFromTab);
     }
+
+     */
 }

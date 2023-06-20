@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import eu.ibagroup.junase.web.util.Wait;
+import web.component.Label;
 
 import java.util.List;
 
@@ -67,22 +68,6 @@ public class Navigation {
                 }
             }
         });
-    }
-
-    public void switchToTab(String section) {
-        Wait.functionPassed(() -> {
-            List<WebElement> items = driver.findElements(By.xpath("//div[contains(@class, 'search__tabs-item')]"));
-            for (WebElement item : items) {
-                if (item.getText().equals(section)) {
-                    item.click();
-                    return;
-                }
-            }
-        });
-    }
-
-    public String getTextFromTab() {
-        return activeSearchTab.getText();
     }
 }
 

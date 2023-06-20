@@ -1,31 +1,13 @@
 package web.screens;
 
-import eu.ibagroup.junase.web.test.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import web.util.Wait;
-
-import java.util.List;
+import web.component.Hyperlink;
 
 public class ForumScreen {
 
-    public static WebDriver driver;
+    private static final String hyperlink = "//div[contains(@class,'forum__title')]/a[contains(text(),'%s')]";
 
-    public ForumScreen() {
-        driver = WebDriverManager.currentSession().getWebDriver();
-    }
-
-    public void clickOnHyperlink(String hyperlinkName) {
-        Wait.visibilityOfElementLocated(By.className("forum__title"));
-        Wait.functionPassed(() -> {
-            List<WebElement> items = driver.findElements(By.className("forum__title"));
-            for (WebElement item : items) {
-                if (item.getText().equals(hyperlinkName)) {
-                    item.click();
-                    return;
-                }
-            }
-        });
+    public void clickHyperlink(String hyperlinkName) {
+        new Hyperlink(By.xpath(String.format(hyperlink, hyperlinkName))).click();
     }
 }

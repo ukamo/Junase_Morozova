@@ -1,4 +1,4 @@
- #author Julia Morozova
+ #Author Julia Morozova
  @web @test
  Feature: Check Profile of Author of the most popular forum topic on Onliner
    As a user
@@ -8,12 +8,11 @@
 
    Scenario Outline: Check Profile of Author of the most popular forum topic on Onliner
      Given I am on screen Onlíner in application Onliner
-     When I navigate to search Поиск on screen Onliner in application Onliner
-     Then I assert I am on search Поиск on screen Onliner in application Onliner
-     When I set Форум in search Поиск on screen Onliner in application Onliner
-     Then I assert I am on tab в каталоге on screen Onliner in application Onliner
+     When I set Поиск в Каталоге value Форум on screen Onliner in application Onliner
+     Then I assert dialog Search on screen Onliner in application Onliner
+     Then I assert I am on tab в каталоге on dialog Search on screen Onliner in application Onliner
      When I switch to tab на форуме on screen Onliner in application Onliner
-     Then I assert I am on tab на форуме on screen Onliner in application Onliner
+     Then I assert I am on tab на форуме on dialog Search on screen Onliner in application Onliner
      When I click on hyperlink <hyperlinkName> on screen Onliner in application Onliner
      Then I assert I am on screen <hyperlinkName> in application Onliner
 
@@ -22,5 +21,5 @@
 
      Examples:
 
-       | hyperlinkName |
-       | Жилая недвижимость. Общие тенденции (9)  |
+       | hyperlinkName                           |
+       | Жилая недвижимость. Общие тенденции (9) |

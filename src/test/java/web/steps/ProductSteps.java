@@ -11,7 +11,7 @@ public class ProductSteps {
 
     private static String priceByNumber;
 
-    @When("^I click button ((?!.*for)(?!.*popover).*) on screen (.*) in application (Onliner)$")
+    @When("^I click button (?!.*(for|popover)) on screen (.*) in application (Onliner)$")
     public void clickButtonByName(String buttonName, String screen, String app) {
         productScreen.clickButtonByName(buttonName);
     }

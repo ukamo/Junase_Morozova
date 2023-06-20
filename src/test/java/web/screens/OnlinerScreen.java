@@ -3,7 +3,6 @@ package web.screens;
 import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import web.component.Dialog;
 import web.component.Input;
 import web.component.TabContainer;

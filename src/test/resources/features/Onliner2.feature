@@ -16,9 +16,6 @@
      When I click on hyperlink <hyperlinkName> on screen Onliner in application Onliner
      Then I assert I am on screen <hyperlinkName> in application Onliner
 
-
-
-
      Examples:
 
        | hyperlinkName                           |

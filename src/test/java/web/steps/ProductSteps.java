@@ -41,13 +41,13 @@ public class ProductSteps {
         Assert.assertListContains(productScreen::getListOfHeaders, header);
     }
 
-    @When("^I store price of item ([0-9]+) on screen (.*) in application (Onliner)$")
-    public void storePriceByItemOrder(int itemOrder, String screen, String app) {
-        priceByNumber = productScreen.getPriceByItemOrder(itemOrder);
-    }
-
     @Then("^I assert item price on screen (.*) in application (Onliner)$")
     public void assertItemPrice(String screen, String app) {
         Assert.assertEquals(priceByNumber, productScreen::getItemPrice);
+    }
+
+    @When("^I store price of item ([0-9]+) on screen (.*) in application (Onliner)$")
+    public void storePriceByItemOrder(int itemOrder, String screen, String app) {
+        priceByNumber = productScreen.getPriceByItemOrder(itemOrder);
     }
 }

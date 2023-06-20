@@ -31,11 +31,4 @@ public class NavigationSteps {
         navigation.navigateToSecondLevel(menuItems[1]);
         navigation.navigateToThirdLevel(menuItems[2]);
     }
-
-    /*@Then("^I assert I am on tab (на форуме) on screen (.*) in application (Onliner)$")
-    public void assertTabIsActive(String section, String screen, String app) {
-        Assert.assertEquals(section, navigation::getTextFromTab);
-    }
-
-     */
 }

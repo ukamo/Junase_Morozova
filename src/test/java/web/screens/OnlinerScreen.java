@@ -10,8 +10,6 @@ import web.component.TabContainer;
 
 public class OnlinerScreen {
 
-    public static WebDriver driver;
-
     private static final String iframeSearch = "//iframe[contains(@class,'modal-iframe')]";
 
     private static final String searchInputXpath = "//input[contains(@placeholder,'%s')]";
@@ -20,21 +18,11 @@ public class OnlinerScreen {
 
     private final TabContainer tabContainer = new TabContainer(By.xpath("//div[@class='search__tabs']"));
 
-    /*public OnlinerScreen() {
-        driver = WebDriverManager.currentSession().getWebDriver();
-    }
-
-    /*public void switchToDefaultContent() {
-        Wait.functionPassed(() -> driver.switchTo().defaultContent());
-    }
-    */
-
     private void switchToIframe(String xPathFrame) {
         Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.xpath(xPathFrame)));
     }
 
     public void swithIFrame() {
-        //switchToDefaultContent();
         switchToIframe(iframeSearch);
     }
 
@@ -44,7 +32,7 @@ public class OnlinerScreen {
 
     public void setValue(String tab, String value) {
         new Input(By.xpath(String.format(searchInputXpath, tab)))
-                .setSearchInCatalog(value, Keys.ENTER);
+                .setSearchCatalog(value, Keys.ENTER);
     }
 
     public boolean isDialogSearchDisplayed() {

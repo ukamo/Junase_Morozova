@@ -75,7 +75,8 @@ public class Input extends WebComponent {
             getElement().click();
         });
     }
-    public void setSearchInCatalog(String text, Keys key) {
+
+    public void setSearchCatalog(String text, Keys key) {
         Wait.functionPassed(() -> {
             click();
             clear();
@@ -84,5 +85,4 @@ public class Input extends WebComponent {
         });
 
     }
-
 }

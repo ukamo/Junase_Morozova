@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import eu.ibagroup.junase.web.util.Wait;
-import web.component.Label;
 
 import java.util.List;
 

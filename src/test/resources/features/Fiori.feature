@@ -1,5 +1,5 @@
 #Author Julia Morozova
-@web @test
+#@web @test
 
 Feature: Add some data in Quotation field in application Sap
   As a user

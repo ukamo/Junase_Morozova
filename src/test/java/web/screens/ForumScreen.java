@@ -1,4 +1,4 @@
-package web.screens.Onliner;
+package web.screens;
 
 import org.openqa.selenium.By;
 import web.component.Hyperlink;

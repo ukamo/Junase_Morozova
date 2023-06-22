@@ -1,8 +1,8 @@
-package web.steps;
+package fiori.steps;
 
 import io.cucumber.java.en.When;
 import org.json.simple.parser.ParseException;
-import web.screens.LoginScreen;
+import fiori.screens.LoginScreen;
 import web.utils.PropertiesReader;
 
 import java.io.IOException;

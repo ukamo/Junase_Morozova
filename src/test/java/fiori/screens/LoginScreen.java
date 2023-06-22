@@ -1,4 +1,4 @@
-package web.screens;
+package fiori.screens;
 
 import org.openqa.selenium.By;
 import web.component.Button;

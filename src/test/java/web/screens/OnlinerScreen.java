@@ -1,4 +1,4 @@
-package web.screens.Onliner;
+package web.screens;
 
 import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;

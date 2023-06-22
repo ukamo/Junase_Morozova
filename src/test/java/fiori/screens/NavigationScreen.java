@@ -1,9 +1,8 @@
-package web.screens;
+package fiori.screens;
 
 import eu.ibagroup.junase.web.test.WebDriverManager;
 import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import web.component.*;
 
@@ -37,8 +36,7 @@ public class NavigationScreen {
     }
 
     public void setValue(String value, String iconName) {
-        new Input(By.xpath(String.format(searchInputXpath, iconName)))
-                .setSearchCatalog(value, Keys.ENTER);
+        new Input(By.xpath(String.format(searchInputXpath, iconName))).setText(value);
     }
 
     public void clickTabByName(String tabName) {

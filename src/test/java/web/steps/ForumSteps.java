@@ -1,7 +1,7 @@
-package web.steps.Onliner;
+package web.steps;
 
 import io.cucumber.java.en.When;
-import web.screens.Onliner.ForumScreen;
+import web.screens.ForumScreen;
 
 public class ForumSteps {
 

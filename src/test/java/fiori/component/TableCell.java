@@ -2,6 +2,7 @@ package fiori.component;
 
 import eu.ibagroup.junase.web.component.WebComponent;
 import eu.ibagroup.junase.web.util.Wait;
+import onliner.component.Hyperlink;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -55,7 +56,7 @@ public class TableCell extends WebComponent {
      *
      * @return Hyperlink
      */
-    public Hyperlink getHyperlink() {
+    public onliner.component.Hyperlink getHyperlink() {
         return Wait.functionPassed(() -> new Hyperlink(getElement().findElement(By.tagName("a"))));
     }
 }

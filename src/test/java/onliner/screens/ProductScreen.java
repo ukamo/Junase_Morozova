@@ -1,4 +1,4 @@
-package onliner.screens.Onliner;
+package onliner.screens;
 
 import org.openqa.selenium.By;
 import onliner.component.Button;

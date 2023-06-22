@@ -3,7 +3,7 @@ package onliner.steps;
 import eu.ibagroup.junase.model.util.Assert;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import onliner.screens.Onliner.ProductScreen;
+import onliner.screens.ProductScreen;
 
 public class ProductSteps {
 

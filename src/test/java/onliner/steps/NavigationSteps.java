@@ -4,7 +4,7 @@ import eu.ibagroup.junase.model.util.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import onliner.screens.Onliner.Navigation;
+import onliner.screens.Navigation;
 
 public class NavigationSteps {
 

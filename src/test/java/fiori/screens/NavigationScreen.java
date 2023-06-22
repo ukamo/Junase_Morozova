@@ -2,9 +2,13 @@ package fiori.screens;
 
 import eu.ibagroup.junase.web.test.WebDriverManager;
 import eu.ibagroup.junase.web.util.Wait;
+import fiori.component.Button;
+import fiori.component.Input;
+import fiori.component.TabContainer;
+import fiori.component.Table;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import web.component.*;
+
 
 public class NavigationScreen {
 

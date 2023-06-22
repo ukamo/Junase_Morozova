@@ -3,7 +3,7 @@ package fiori.steps;
 import io.cucumber.java.en.When;
 import org.json.simple.parser.ParseException;
 import fiori.screens.LoginScreen;
-import web.utils.PropertiesReader;
+import onliner.utils.PropertiesReader;
 
 import java.io.IOException;
 

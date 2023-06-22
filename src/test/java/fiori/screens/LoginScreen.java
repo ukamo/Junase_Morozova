@@ -1,8 +1,9 @@
 package fiori.screens;
 
+import fiori.component.Button;
+import fiori.component.Input;
 import org.openqa.selenium.By;
-import web.component.Button;
-import web.component.Input;
+
 
 public class LoginScreen {
     private final Input usernameInput = new Input(By.xpath("//input[@id='USERNAME_FIELD-inner']"));

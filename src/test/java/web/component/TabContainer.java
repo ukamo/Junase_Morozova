@@ -50,4 +50,10 @@ public class TabContainer extends WebComponent {
         }
         Wait.functionPassed(tab::click);
     }
+    public void click() {
+        Wait.functionPassed(() -> {
+            Wait.elementToBeClickable(getLocator());
+            getElement().click();
+        });
+    }
 }

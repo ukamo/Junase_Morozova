@@ -1,4 +1,4 @@
-package web.screens;
+package web.screens.Onliner;
 
 import org.openqa.selenium.By;
 import web.component.Label;

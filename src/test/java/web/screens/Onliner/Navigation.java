@@ -1,4 +1,4 @@
-package web.screens;
+package web.screens.Onliner;
 
 import eu.ibagroup.junase.web.test.WebDriverManager;
 import org.openqa.selenium.By;

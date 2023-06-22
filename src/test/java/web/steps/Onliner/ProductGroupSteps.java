@@ -1,7 +1,7 @@
-package web.steps;
+package web.steps.Onliner;
 
 import io.cucumber.java.en.When;
-import web.screens.ProductGroupScreen;
+import web.screens.Onliner.ProductGroupScreen;
 
 public class ProductGroupSteps {
 

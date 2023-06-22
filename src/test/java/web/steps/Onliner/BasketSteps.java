@@ -1,8 +1,8 @@
-package web.steps;
+package web.steps.Onliner;
 
 import eu.ibagroup.junase.model.util.Assert;
 import io.cucumber.java.en.Then;
-import web.screens.BasketScreen;
+import web.screens.Onliner.BasketScreen;
 
 public class BasketSteps {
 

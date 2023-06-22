@@ -1,9 +1,9 @@
-package web.steps;
+package web.steps.Onliner;
 
 import eu.ibagroup.junase.model.util.Assert;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import web.screens.ProductScreen;
+import web.screens.Onliner.ProductScreen;
 
 public class ProductSteps {
 

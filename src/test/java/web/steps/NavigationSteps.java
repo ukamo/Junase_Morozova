@@ -4,11 +4,7 @@ import eu.ibagroup.junase.model.util.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-<<<<<<< Updated upstream
-import web.screens.Navigation;
-=======
 import web.screens.NavigationScreen;
->>>>>>> Stashed changes
 
 public class NavigationSteps {
 
@@ -20,16 +16,10 @@ public class NavigationSteps {
         Assert.assertTrue(() -> navigation.getScreenTitle().contains(screen));
     }
 
-<<<<<<< Updated upstream
-    @When("^I navigate (.*) on screen (Onliner) in application (Onliner)$")
-    public void navigateSection(String section, String screen, String app) {
-        navigation.navigateSection(section);
-=======
     @When("^I set (.*) in field (.*) on screen (.*) in application (Sap)$")
     public void setValueInField(String value, String iconName, String screen, String app) {
         navigation.clickIconByName(iconName);
         navigation.setValue(value, iconName);
->>>>>>> Stashed changes
     }
 
     @When("^I switch to (.*) on screen (.*) in application (Sap)$")

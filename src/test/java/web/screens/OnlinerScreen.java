@@ -2,43 +2,44 @@ package web.screens;
 
 import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import web.component.Dialog;
+import web.component.Hyperlink;
 import web.component.Input;
 import web.component.TabContainer;
 
 public class OnlinerScreen {
 
-    private static final String iframeSearch = "//iframe[contains(@class,'modal-iframe')]";
+    private static final String IFRAME_SEARCH = "//iframe[contains(@class,'modal-iframe')]";
 
-    private static final String searchInputXpath = "//input[contains(@placeholder,'%s')]";
+    private static final String INPUT_BY_PLACEHOLDER_XPATH = "//input[contains(@Placeholder,'%s')]";
 
-    private final Dialog dialogSearch = new Dialog(By.xpath("//div[contains(@id,'search-page')]"));
+    private static final String HYPERLINK_XPATH = "//div[@class='forum__title']/a[text()='%s']";
 
-    private final TabContainer tabContainer = new TabContainer(By.xpath("//div[@class='search__tabs']"));
+    private final Dialog dialogSearch = new Dialog(By.id("search-page"));
 
-    private void switchToIframe(String xPathFrame) {
-        Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.xpath(xPathFrame)));
+    private final TabContainer tabContainer = new TabContainer(By.className("search__tabs"));
+
+    public void switchToIFrame() {
+        Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.xpath(IFRAME_SEARCH)));
     }
 
-    public void swithIFrame() {
-        switchToIframe(iframeSearch);
-    }
-
-    public String getTextFromTab() {
+    public String getActiveTabName() {
         return tabContainer.getActiveTab();
     }
 
-    public void setValue(String tab, String value) {
-        new Input(By.xpath(String.format(searchInputXpath, tab)))
-                .setSearchCatalog(value, Keys.ENTER);
+    public void setInputByPlaceholder(String placeholder, String value) {
+        new Input(By.xpath(String.format(INPUT_BY_PLACEHOLDER_XPATH, placeholder))).setText(value);
     }
 
-    public boolean isDialogSearchDisplayed() {
+    public boolean isSearchDialogDisplayed() {
         return dialogSearch.isDisplayed();
     }
 
-    public void switchToTab(String section) {
-        tabContainer.switchTo(section);
+    public void switchToTab(String tabName) {
+        tabContainer.switchTo(tabName);
+    }
+
+    public void clickHyperlinkByName(String hyperlinkName) {
+        new Hyperlink(By.xpath(String.format(HYPERLINK_XPATH, hyperlinkName))).click();
     }
 }

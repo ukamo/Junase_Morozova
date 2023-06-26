@@ -1,5 +1,5 @@
  #Author Julia Morozova
- #@web @test
+ @web
 
  Feature: Add some product in Cart in application Onliner
    As a user

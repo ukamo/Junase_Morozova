@@ -7,26 +7,31 @@ import web.screens.OnlinerScreen;
 
 public class OnlinerSteps {
 
-    OnlinerScreen onlinerScreen = new OnlinerScreen();
+    private final OnlinerScreen onlinerScreen = new OnlinerScreen();
 
-    @Then("I assert dialog (.*) on screen (.*) in application (Onliner)$")
-    public void assertDialog(String dialog, String screen, String app) {
-        onlinerScreen.swithIFrame();
-        Assert.assertTrue(() -> onlinerScreen.isDialogSearchDisplayed());
+    @Then("I assert dialog (Search) is opened on screen (Onliner) in application (Onliner)$")
+    public void assertSearchDialogIsOpened(String dialog, String screen, String app) {
+        onlinerScreen.switchToIFrame();
+        Assert.assertTrue(() -> onlinerScreen.isSearchDialogDisplayed());
     }
 
-    @Then("^I assert I am on tab (.*) on dialog (.*) on screen (.*) in application (Onliner)$")
-    public void assertTab(String tab, String dialog, String screen, String app) {
-        Assert.assertEquals(tab, onlinerScreen::getTextFromTab);
+    @Then("^I assert I am on tab (.*) on dialog (.*) on screen (Onliner) in application (Onliner)$")
+    public void assertTab(String tabName, String dialog, String screen, String app) {
+        Assert.assertEquals(tabName, onlinerScreen::getActiveTabName);
     }
 
-    @When("^I set (Поиск в Каталоге) value (.*) on screen (.*) in application (Onliner)$")
-    public void SetValue(String tab, String value, String screen, String app) {
-        onlinerScreen.setValue(tab, value);
+    @When("^I set (.*) \"(.*)\" on screen (.*) in application (Onliner)$")
+    public void setInputByPlaceholder(String placeholder, String value, String screen, String app) {
+        onlinerScreen.setInputByPlaceholder(placeholder, value);
     }
 
     @When("^I switch to tab (.*) on screen (.*) in application (Onliner)$")
     public void switchToTab(String section, String screen, String app) {
         onlinerScreen.switchToTab(section);
+    }
+
+    @When("^I click hyperlink (.*) on screen (.*) in application (Onliner)$")
+    public void clickHyperlinkByName(String hyperlinkName, String screen, String app) {
+        onlinerScreen.clickHyperlinkByName(hyperlinkName);
     }
 }

@@ -37,7 +37,7 @@ public class TabContainer extends WebComponent {
      * Returns the name of the active tab from the tab container.
      */
     public String getActiveTab() {
-        return getElement().findElement(By.xpath("//div[contains(@class,'search__tabs-item_active')]")).getText();
+        return getElement().findElement(By.className("search__tabs-item_active")).getText();
     }
 
     /**

@@ -1,5 +1,5 @@
 #Author Julia Morozova
-@web @test
+@web
 
 Feature: Get the numbers and type of documents received in Quotation field in application Sap
   As a user

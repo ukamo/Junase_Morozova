@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 
 
 public class LoginScreen {
+
     private final Input usernameInput = new Input(By.xpath("//input[@id='USERNAME_FIELD-inner']"));
 
     private final Input passwordInput = new Input(By.xpath("//input[@id='PASSWORD_FIELD-inner']"));

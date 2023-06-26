@@ -1,21 +1,24 @@
 #Author Julia Morozova
-#@web @test
+@web @test
 
-Feature: Add some data in Quotation field in application Sap
+Feature: Get the numbers and type of documents received in Quotation field in application Sap
   As a user
   I want to add a some data in Quotation field in application Sap
   So that the data are successfully added
 
-  Scenario Outline: Add some data in Quotation field in application Sap
-    Given I am on screen Logon in application Sap
-    When I log on to application Sap with username <username>
-    Then I assert I am on screen Home in application Sap
-    When I set <service name> in field Search on screen Home in application Sap
-    When I switch to <service name> on screen Home in application Sap
-    Then I assert I am on screen <service name> in application Sap
-    And I assert modal window <modal name> is opened on screen <service name> in application Sap
-    When I navigate to type SRVP on modal window <modal name> on screen <service name> in application Sap
-    Then I assert I am on screen <service name> in application Sap
+  Scenario Outline: Get the numbers and type of documents received
+    Given I log in to application Fiori with username <username>
+    Then I assert I am on screen Home in application Fiori
+    When I set Search Create <service name> on screen Home in application Fiori
+    Then I assert I am on screen Search in application Fiori
+    And I assert container Create <service name> is displayed on screen Search in application Fiori
+    When I click container Create <service name> on screen Search in application Fiori
+    Then I assert I am on screen <service name> in application Fiori
+    And I assert dialog <dialog name> is opened on screen <service name> in application Fiori
+    And I assert table is displayed on dialog <dialog name> on screen <service name> in application Fiori
+    And I assert table has 3 rows on dialog <dialog name> on screen <service name> in application Fiori
+    When I click Transaction Type SRVP in table on dialog <dialog name> on screen <service name> in application Fiori
+    Then I assert I am on screen <service name> in application Fiori
     #Then I assert tab Solution Quotation: New is opened on screen <service name> in application Sap
     #And I set <Description value> in field Description on tab Solution Quotation: New on screen <service name> in application Sap
     #And I set <Sold-to party value> in field Sold-to party on tab Solution Quotation: New on screen <service name> in application Sap
@@ -29,6 +32,6 @@ Feature: Add some data in Quotation field in application Sap
 
 
     Examples:
-      | username  | service name                   | modal name              | Description value | Sold-to party value | Contact value | Employee value |
-      | JMikitjuk | Create Service Order Quotation | Select Transaction Type | AKU_quote_01Exa   | 10100001            | 10910005      | 9980000163     |
+      | username  | service name            | dialog name             | Description value | Sold-to party value | Contact value | Employee value |
+      | JMikitjuk | Service Order Quotation | Select Transaction Type | AKU_quote_01Exa   | 10100001            | 10910005      | 9980000163     |
 

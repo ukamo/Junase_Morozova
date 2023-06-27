@@ -12,13 +12,4 @@ public class NavigationSteps {
     public void assertScreenInApplication(String screen, String app) {
         Assert.assertTrue(() -> navigation.getScreenTitle().contains(screen));
     }
-
-
-    /*@Then("^I assert modal window (.*) is opened on screen (.*) in application (Sap)$")
-    public void assertModalWindowIsDisplayed(String modalName, String screen, String app) {
-
-        Assert.assertEquals(modalName, navigation::getModalWindowText);
-    }*/
-
-
 }

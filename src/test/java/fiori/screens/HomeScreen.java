@@ -7,19 +7,18 @@ import org.openqa.selenium.Keys;
 
 public class HomeScreen {
 
-    private static final String SEARCH_INPUT_XPATH = "//input[contains(@placeholder,'%s')]";
+    private static final String INPUT_BY_PLACEHOLDER_XPATH = "//input[contains(@Placeholder,'%s')]";
 
-    private static final String SEARCH_BUTTON = "//a[@title='%s']";
+    private static final String BUTTON_BY_TITLE = "//a[@title='%s']";
 
-    public void clickIconByName(String iconName) {
-        new Button(By.xpath(String.format(SEARCH_BUTTON, iconName))).click();
+    public void clickIconByTitle(String iconTitle) {
+        new Button(By.xpath(String.format(BUTTON_BY_TITLE, iconTitle))).click();
     }
 
-    public void setValue(String value, String iconName) {
-        Input input = new Input(By.xpath(String.format(SEARCH_INPUT_XPATH, iconName)));
+    public void setValueByPlaceholder(String value, String title) {
+        Input input = new Input(By.xpath(String.format(INPUT_BY_PLACEHOLDER_XPATH, title)));
         input.click();
         input.setText(value);
         input.sendKeys(Keys.ENTER);
-
     }
 }

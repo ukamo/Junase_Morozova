@@ -8,5 +8,4 @@ public class NavigationScreen {
     public String getScreenTitle() {
         return WebDriverManager.currentSession().getWebDriver().getTitle();
     }
-
 }

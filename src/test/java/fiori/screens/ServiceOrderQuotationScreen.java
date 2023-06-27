@@ -9,52 +9,51 @@ import org.openqa.selenium.By;
 
 public class ServiceOrderQuotationScreen {
 
-    private static final String IFRAME_COMMON = "//iframe[@title = 'Application']";
-
     private static final String DIV_BY_ROLE = "//div[@role='%s']";
-
-    private static final String DIALOG_IFRAME_1 = "//iframe[@id='thDialogIframe_1']";
-
-    private static final String SELECT_TRANSACTION_TYPE_IFRAME = "//iframe[@id='WorkAreaFrame1popup']";
 
     private static final String TITLE_BY_INPUT = "//*[@title='%s']";
 
-    private final Table tableMain = new Table(By.xpath("//div[@id='_POPUP0001']/table"));
+    private static final String APPLICATION_IFRAME_ID = "application-ServiceQuotation-create";
 
-    private final Table tableTypes = new Table(By.xpath("//table[contains(@id,'Table_TableHeader')]"));
+    private static final String DIALOG_IFRAME_ID = "thDialogIframe_1";
+
+    private static final String SELECT_TRANSACTION_TYPE_IFRAME_ID = "WorkAreaFrame1popup";
+
+    private final Table selectTransactionTypeTable = new Table(By.xpath("//div[@id='_POPUP0001']/table"));
+
+    private final Table transactionTypeTable = new Table(By.xpath("//table[contains(@id,'Table_TableHeader')]"));
 
     public void switchToDefaultContent() {
         Wait.functionPassed(() -> WebDriverManager.currentSession().getWebDriver().switchTo().defaultContent());
     }
 
     private void switchToIframe(String xPathFrame) {
-        Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.xpath(xPathFrame)));
+        Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.id(xPathFrame)));
     }
 
-    public void switchIFrameCommon() {
+    public void switchApplicationIframe() {
         switchToDefaultContent();
-        switchToIframe(IFRAME_COMMON);
+        switchToIframe(APPLICATION_IFRAME_ID);
     }
 
-    public boolean isDialogOpened(String dialogType) {
-        return new Dialog(By.xpath(String.format(DIV_BY_ROLE, dialogType))).isDisplayed();
+    public boolean isDialogOpened(String role) {
+        return new Dialog(By.xpath(String.format(DIV_BY_ROLE, role))).isDisplayed();
     }
 
-    public void switchIFrameTransactionType() {
-        switchToIframe(DIALOG_IFRAME_1);
-        switchToIframe(SELECT_TRANSACTION_TYPE_IFRAME);
+    public void switchTransactionTypeIframe() {
+        switchToIframe(DIALOG_IFRAME_ID);
+        switchToIframe(SELECT_TRANSACTION_TYPE_IFRAME_ID);
     }
 
     public boolean isTableDisplayed() {
-        return tableMain.isDisplayed() & tableTypes.isDisplayed();
+        return selectTransactionTypeTable.isDisplayed() & transactionTypeTable.isDisplayed();
     }
 
     public int getRowsNumber() {
-        return tableTypes.getRowsNumber();
+        return transactionTypeTable.getRowsNumber();
     }
 
     public void clickTransactionType(String type) {
         new Input(By.xpath(String.format(TITLE_BY_INPUT, type))).click();
     }
-
 }

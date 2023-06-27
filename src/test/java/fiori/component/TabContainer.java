@@ -46,10 +46,6 @@ public class TabContainer extends WebComponent {
      */
     public void switchTo(String tabName) {
         WebElement tab = getTab(tabName);
-        if (tab == null) {
-            throw new IllegalStateException("The tab [" + tabName + "] was not found.");
-        }
         Wait.functionPassed(tab::click);
     }
-
 }

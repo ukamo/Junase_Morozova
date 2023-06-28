@@ -26,11 +26,6 @@ public class Table extends WebComponent {
         return rows;
     }
 
-    private List<WebElement> getRowsOnliner() {
-        List<WebElement> rows = getElement().findElements(By.tagName("tr"));
-        return rows;
-    }
-
     private List<WebElement> getRowsId() {
         List<WebElement> rows = getElement().findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
         return rows;
@@ -38,10 +33,6 @@ public class Table extends WebComponent {
 
     public List<WebElement> getHeaders() {
         return Wait.functionPassed(() -> getElement().findElement(By.tagName("thead")).findElements(By.tagName("th")));
-    }
-
-    public List<WebElement> getTdOnliner() {
-        return Wait.functionPassed(() -> getElement().findElements(By.tagName("td")));
     }
 
     /**
@@ -110,20 +101,6 @@ public class Table extends WebComponent {
             return new TableRow(this, rows.get(row));
         });
     }
-
-    public TableRow getRowOnliner(int row) {
-        return Wait.functionPassed(() -> {
-            List<WebElement> rows = getRowsOnliner();
-            if (rows.size() == 0) {
-                throw new IllegalStateException("Row number [" + row + "] does not exist in the table. The table is empty.");
-            }
-            if (row >= rows.size()) {
-                throw new IllegalStateException("Row number [" + row + "] does not exist in the table. There are only [" + rows.size() + "] rows on the page.");
-            }
-            return new TableRow(this, rows.get(row));
-        });
-    }
-
 
     /**
      * Finds column index by the column name.
@@ -292,5 +269,4 @@ public class Table extends WebComponent {
         List<WebElement> rows = getRows();
         return rows.size() == 0;
     }
-
 }

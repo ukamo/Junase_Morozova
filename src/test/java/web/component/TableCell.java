@@ -58,12 +58,4 @@ public class TableCell extends WebComponent {
     public Hyperlink getHyperlink() {
         return Wait.functionPassed(() -> new Hyperlink(getElement().findElement(By.tagName("a"))));
     }
-
-    public Input getElementP() {
-        return Wait.functionPassed(() ->
-                new Input(
-                        getElement().findElement(By.xpath("//p[1]"))));
-    }
-
-
 }

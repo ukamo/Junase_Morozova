@@ -41,8 +41,8 @@ public class TableHeader extends WebComponent {
     }
 
     /**
-     *  Checks if the column sorted ascending. The method looks for the
-     *  attribute "aria-sort" and verifies if its value equals "descending".
+     * Checks if the column sorted ascending. The method looks for the
+     * attribute "aria-sort" and verifies if its value equals "descending".
      *
      * @return true if yes, false if no
      */

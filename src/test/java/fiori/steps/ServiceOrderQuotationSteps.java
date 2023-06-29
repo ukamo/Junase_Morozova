@@ -9,15 +9,15 @@ public class ServiceOrderQuotationSteps {
 
     ServiceOrderQuotationScreen serviceOrderQuotationScreen = new ServiceOrderQuotationScreen();
 
-    @Then("^I assert (dialog) (.*) is opened on screen (.*) in application (Fiori)$")
-    public void assertDialogIsOpened(String role, String dialogName, String screen, String app) {
+    @Then("^I assert dialog (.*) is opened on screen (.*) in application (Fiori)$")
+    public void assertDialogIsOpened(String dialogName, String screen, String app) {
         serviceOrderQuotationScreen.switchApplicationIframe();
-        Assert.assertTrue(() -> serviceOrderQuotationScreen.isDialogOpened(role));
+        serviceOrderQuotationScreen.switchTransactionTypeIframe();
+        Assert.assertTrue(() -> serviceOrderQuotationScreen.isDialogWithNameOpened(dialogName));
     }
 
     @Then("I assert table is displayed on dialog (.*) on screen (.*) in application (Fiori)$")
     public void assertTableIsDisplayedOnDialog(String dialogName, String screen, String app) {
-        serviceOrderQuotationScreen.switchTransactionTypeIframe();
         Assert.assertTrue(serviceOrderQuotationScreen::isTableDisplayed);
     }
 
@@ -27,7 +27,7 @@ public class ServiceOrderQuotationSteps {
     }
 
     @When("I click Transaction Type \"(.*)\" in table on dialog (.*) on screen(.*) in application (Fiori)$")
-    public void clickTransactionTypeOnDialog(String type, String modalName, String screen, String app) {
-        serviceOrderQuotationScreen.clickTransactionType(type);
+    public void clickTransactionTypeOnDialog(String typeName, String modalName, String screen, String app) {
+        serviceOrderQuotationScreen.clickTransactionType(typeName);
     }
 }

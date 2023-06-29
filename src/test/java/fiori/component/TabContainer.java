@@ -5,9 +5,6 @@ import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-/**
- * TabContainer - a model.component for the tabs in container.
- */
 public class TabContainer extends WebComponent {
 
     public TabContainer(By locator) {
@@ -36,7 +33,6 @@ public class TabContainer extends WebComponent {
     /**
      * Returns the name of the active tab from the tab container.
      */
-
     public boolean isTabDisplayed(String tabName) {
         return getTab(tabName).isDisplayed();
     }

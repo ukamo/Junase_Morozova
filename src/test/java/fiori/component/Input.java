@@ -6,10 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-
-/**
- * Input - a model.component for inputs and text areas. Allows to set random values.
- */
 public class Input extends WebComponent {
 
     public Input(By locator) {
@@ -46,22 +42,6 @@ public class Input extends WebComponent {
      */
     public void sendKeys(String value) {
         Wait.functionPassed(() -> getElement().sendKeys(value));
-    }
-
-    /**
-     * Sends the keys to the input field.
-     *
-     * @param key - keys to set
-     */
-    public void sendKeys(Keys key) {
-        getElement().sendKeys(key);
-    }
-
-    /**
-     * Checks if the input field is empty.
-     */
-    public boolean isEmpty() {
-        return getElement().getAttribute("value").isEmpty();
     }
 
     @Override

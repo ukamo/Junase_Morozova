@@ -1,6 +1,7 @@
 package fiori.screens;
 
 import eu.ibagroup.junase.web.util.Wait;
+import fiori.component.Autocomplete;
 import fiori.component.TabContainer;
 import org.openqa.selenium.By;
 
@@ -10,9 +11,5 @@ public class SearchScreen {
 
     public boolean isContainerByNameDisplayed(String containerName) {
         return Wait.functionPassed(() -> tabByRole.isTabDisplayed(containerName));
-    }
-
-    public void clickContainerByName(String containerName) {
-        Wait.functionPassed(() -> tabByRole.switchTo(containerName));
     }
 }

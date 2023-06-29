@@ -9,9 +9,9 @@ import org.openqa.selenium.By;
 
 public class ServiceOrderQuotationScreen {
 
-    private static final String DIV_BY_ROLE = "//div[@role='%s']";
+    private static final String DIV_BY_DIALOG_NAME = "//div[@id='_POPUP0001']//span[text()='%s']";
 
-    private static final String TITLE_BY_INPUT = "//*[@title='%s']";
+    private static final String TD_BY_TITLE = "//td/span[@title='%s']";
 
     private static final String APPLICATION_IFRAME_ID = "application-ServiceQuotation-create";
 
@@ -36,8 +36,8 @@ public class ServiceOrderQuotationScreen {
         switchToIframe(APPLICATION_IFRAME_ID);
     }
 
-    public boolean isDialogOpened(String role) {
-        return new Dialog(By.xpath(String.format(DIV_BY_ROLE, role))).isDisplayed();
+    public boolean isDialogWithNameOpened(String dialogName) {
+        return new Dialog(By.xpath(String.format(DIV_BY_DIALOG_NAME, dialogName))).isDisplayed();
     }
 
     public void switchTransactionTypeIframe() {
@@ -53,7 +53,7 @@ public class ServiceOrderQuotationScreen {
         return transactionTypeTable.getRowsNumber();
     }
 
-    public void clickTransactionType(String type) {
-        new Input(By.xpath(String.format(TITLE_BY_INPUT, type))).click();
+    public void clickTransactionType(String typeName) {
+        new Input(By.xpath(String.format(TD_BY_TITLE, typeName))).click();
     }
 }

@@ -9,8 +9,6 @@ import web.component.TabContainer;
 
 public class OnlinerScreen {
 
-    private static final String IFRAME_SEARCH = "//iframe[contains(@class,'modal-iframe')]";
-
     private static final String INPUT_BY_PLACEHOLDER_XPATH = "//input[contains(@Placeholder,'%s')]";
 
     private static final String HYPERLINK_XPATH = "//div[@class='forum__title']/a[text()='%s']";
@@ -18,10 +16,6 @@ public class OnlinerScreen {
     private final Dialog dialogSearch = new Dialog(By.id("search-page"));
 
     private final TabContainer tabContainer = new TabContainer(By.className("search__tabs"));
-
-    public void switchToIFrame() {
-        Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.xpath(IFRAME_SEARCH)));
-    }
 
     public String getActiveTabName() {
         return tabContainer.getActiveTab();
@@ -32,6 +26,7 @@ public class OnlinerScreen {
     }
 
     public boolean isSearchDialogDisplayed() {
+        Wait.frameAvailableAndSwitchToIt(By.className("modal-iframe"));
         return dialogSearch.isDisplayed();
     }
 

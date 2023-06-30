@@ -1,13 +1,13 @@
 package web.component;
 
 import eu.ibagroup.junase.web.test.WebDriverManager;
-import eu.ibagroup.junase.web.util.WebElementUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
 public abstract class Component {
+
     private By locator;
 
     protected Component(By locator) {

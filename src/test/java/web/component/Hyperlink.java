@@ -1,15 +1,13 @@
 package web.component;
 
-import eu.ibagroup.junase.web.component.WebComponent;
-import eu.ibagroup.junase.web.util.Wait;
+import eu.ibagroup.junase.web.component.WebControl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-
 /**
- * Hyperlink - a model.component for hyperlinks.
+ * Hyperlink - a component for hyperlinks.
  */
-public class Hyperlink extends WebComponent {
+public class Hyperlink extends WebControl {
 
     public Hyperlink(By locator) {
         super(locator);
@@ -18,17 +16,4 @@ public class Hyperlink extends WebComponent {
     public Hyperlink(WebElement element) {
         super(element);
     }
-
-    @Override
-    public Hyperlink scrollToElement() {
-        return (Hyperlink) super.scrollToElement();
-    }
-
-    public void click() {
-        Wait.functionPassed(() -> {
-            Wait.elementToBeClickable(getLocator());
-            getElement().click();
-        });
-    }
-
 }

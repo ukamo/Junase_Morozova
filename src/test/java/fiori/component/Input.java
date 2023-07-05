@@ -12,10 +12,6 @@ public class Input extends WebComponent {
         super(locator);
     }
 
-    public Input(WebElement element) {
-        super(element);
-    }
-
     /**
      * Cleans the input field and sets the text.
      *

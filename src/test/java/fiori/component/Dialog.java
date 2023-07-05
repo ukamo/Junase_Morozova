@@ -9,8 +9,4 @@ public class Dialog extends WebComponent {
     public Dialog(By locator) {
         super(locator);
     }
-
-    public Dialog(WebElement element) {
-        super(element);
-    }
 }

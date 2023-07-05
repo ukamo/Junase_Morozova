@@ -11,10 +11,6 @@ public class Autocomplete extends WebComponent {
         super(locator);
     }
 
-    public Autocomplete(WebElement element) {
-        super(element);
-    }
-
     public void selectValue(String value) {
         Wait.functionPassed(() -> {
             for (WebElement element : getElement().findElements(By.xpath("//tbody[contains(@class,'sapMListItems')]//span"))) {

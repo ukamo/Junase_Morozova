@@ -44,6 +44,10 @@ public class Input extends WebComponent {
         Wait.functionPassed(() -> getElement().sendKeys(value));
     }
 
+    public void sendKeys(Keys key) {
+        getElement().sendKeys(key);
+    }
+
     @Override
     public Input scrollToElement() {
         return (Input) super.scrollToElement();

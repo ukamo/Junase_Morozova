@@ -48,7 +48,7 @@ public class Table extends WebComponent {
      *               the value is the value.
      * @return TableRow
      */
-    private onliner.component.TableRow getRow(Map<Integer, String> values) {
+    private TableRow getRow(Map<Integer, String> values) {
         for (WebElement row : getRows()) {
             boolean flag = true;
             for (Map.Entry<Integer, String> entry : values.entrySet()) {

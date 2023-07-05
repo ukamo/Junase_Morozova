@@ -16,11 +16,7 @@ public class LoginSteps {
     @Given("^I log in to application (Fiori) with username \"(.*)\"$")
     public void logInToAppWithUsername(String app, String username) throws IOException, ParseException, InterruptedException {
         String password = PropertiesReader.parseJSONFile(CREDITS_FILE, username);
-        Thread.sleep(2000);
         loginScreen.loginToApp(username, password);
-
-
     }
-
 }
 

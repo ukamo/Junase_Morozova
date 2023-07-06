@@ -8,7 +8,6 @@ import eu.ibagroup.junase.web.util.Wait;
 
 import java.util.List;
 
-
 public class Navigation {
 
     public static WebDriver driver;

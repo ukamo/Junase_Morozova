@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Sidebar - a custom component for right-side dropout panel.
+ */
 public class Sidebar extends Component {
 
     public Sidebar(By locator) {

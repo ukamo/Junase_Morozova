@@ -1,7 +1,6 @@
-package onliner.component;
+package web.component;
 
 import eu.ibagroup.junase.web.component.WebControl;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -9,8 +8,8 @@ import org.openqa.selenium.WebElement;
  */
 public class Hyperlink extends WebControl {
 
-    public Hyperlink (By locator){
-        super (locator);
+    public Hyperlink(By locator) {
+        super(locator);
     }
 
     public Hyperlink(WebElement element) {

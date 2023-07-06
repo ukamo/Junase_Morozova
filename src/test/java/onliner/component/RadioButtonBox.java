@@ -1,3 +1,4 @@
+
 package onliner.component;
 
 import eu.ibagroup.junase.web.component.WebComponent;
@@ -10,7 +11,6 @@ import java.util.List;
  * RadioButtonBox - a model.component for a radio button box with several radio buttons {@link RadioButton}.
  */
 public class RadioButtonBox extends WebComponent {
-
     public RadioButtonBox(By locator) {
         super(locator);
     }

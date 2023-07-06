@@ -6,9 +6,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import eu.ibagroup.junase.web.util.Wait;
 
-
 /**
- * Input - a model.component for inputs and text areas. Allows to set random values.
+ * Input - a component for inputs. Allows to set random values.
  */
 public class Input extends WebComponent {
 
@@ -46,33 +45,5 @@ public class Input extends WebComponent {
      */
     public void sendKeys(String value) {
         Wait.functionPassed(() -> getElement().sendKeys(value));
-    }
-
-    /**
-     * Sends the keys to the input field.
-     *
-     * @param key - keys to set
-     */
-    public void sendKeys(Keys key) {
-        getElement().sendKeys(key);
-    }
-
-    /**
-     * Checks if the input field is empty.
-     */
-    public boolean isEmpty() {
-        return getElement().getAttribute("value").isEmpty();
-    }
-
-    @Override
-    public Input scrollToElement() {
-        return (Input) super.scrollToElement();
-    }
-
-    public void click() {
-        Wait.functionPassed(() -> {
-            Wait.elementToBeClickable(getLocator());
-            getElement().click();
-        });
     }
 }

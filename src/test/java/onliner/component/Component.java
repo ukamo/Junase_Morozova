@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public abstract class Component {
+
     private By locator;
 
     protected Component(By locator) {

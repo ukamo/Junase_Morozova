@@ -6,16 +6,12 @@ import org.openqa.selenium.WebElement;
 import eu.ibagroup.junase.web.util.Wait;
 
 /**
- * TabContainer - a model.component for the tabs in container.
+ * TabContainer - a component for the tabs in container.
  */
 public class TabContainer extends WebComponent {
 
     public TabContainer(By locator) {
         super(locator);
-    }
-
-    public TabContainer(WebElement element) {
-        super(element);
     }
 
     /**
@@ -25,7 +21,7 @@ public class TabContainer extends WebComponent {
      * @return WebElement tab
      */
     private WebElement getTab(String tabName) {
-        for (WebElement tab : getElement().findElements(By.className("tab"))) {
+        for (WebElement tab : getElement().findElements(By.className("search__tabs-item"))) {
             if (tab.getText().equals(tabName)) {
                 return tab;
             }
@@ -37,17 +33,13 @@ public class TabContainer extends WebComponent {
      * Returns the name of the active tab from the tab container.
      */
     public String getActiveTab() {
-        return getElement().findElement(By.className("active")).getText();
+        return getElement().findElement(By.className("search__tabs-item_active")).getText();
     }
 
     /**
      * Switches to the desired tab by its name, passed as a parameter.
      */
     public void switchTo(String tabName) {
-        WebElement tab = getTab(tabName);
-        if (tab == null) {
-            throw new IllegalStateException("The tab [" + tabName + "] was not found.");
-        }
-        Wait.functionPassed(tab::click);
+        Wait.functionPassed(getTab(tabName)::click);
     }
 }

@@ -18,7 +18,7 @@ public class NavigationSteps {
         Assert.assertTrue(() -> navigation.getScreenTitle().contains(screen));
     }
 
-    @When("^I navigate (.*) on screen (Onliner) in application (Onliner)$")
+    @When("^I navigate ((?!.*search).*) on screen (Onliner) in application (Onliner)$")
     public void navigateSection(String section, String screen, String app) {
         navigation.navigateSection(section);
     }

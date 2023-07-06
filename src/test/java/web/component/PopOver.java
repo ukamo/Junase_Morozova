@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-
+/**
+ * PopOver - a custom component for pop-up with question and buttons to answer.
+ */
 public class PopOver extends Component {
 
     public PopOver(By locator) {

@@ -11,7 +11,7 @@ public class ProductSteps {
 
     private static String priceByNumber;
 
-    @When("^I click button ((?!.*for)(?!.*popover).*) on screen (.*) in application (Onliner)$")
+    @When("^I click button (Перейти в корзину) on screen (.*) in application (Onliner)$")
     public void clickButtonByName(String buttonName, String screen, String app) {
         productScreen.clickButtonByName(buttonName);
     }
@@ -41,13 +41,13 @@ public class ProductSteps {
         Assert.assertListContains(productScreen::getListOfHeaders, header);
     }
 
-    @When("^I store price of item ([0-9]+) on screen (.*) in application (Onliner)$")
-    public void storePriceByItemOrder(int itemOrder, String screen, String app) {
-        priceByNumber = productScreen.getPriceByItemOrder(itemOrder);
-    }
-
     @Then("^I assert item price on screen (.*) in application (Onliner)$")
     public void assertItemPrice(String screen, String app) {
         Assert.assertEquals(priceByNumber, productScreen::getItemPrice);
+    }
+
+    @When("^I store price of item ([0-9]+) on screen (.*) in application (Onliner)$")
+    public void storePriceByItemOrder(int itemOrder, String screen, String app) {
+        priceByNumber = productScreen.getPriceByItemOrder(itemOrder);
     }
 }

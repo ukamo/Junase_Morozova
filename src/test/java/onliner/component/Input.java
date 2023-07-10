@@ -3,7 +3,6 @@ package onliner.component;
 import eu.ibagroup.junase.web.component.WebComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import eu.ibagroup.junase.web.util.Wait;
 
 /**
@@ -13,10 +12,6 @@ public class Input extends WebComponent {
 
     public Input(By locator) {
         super(locator);
-    }
-
-    public Input(WebElement element) {
-        super(element);
     }
 
     /**

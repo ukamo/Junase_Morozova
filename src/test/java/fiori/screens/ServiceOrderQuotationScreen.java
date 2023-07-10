@@ -3,49 +3,35 @@ package fiori.screens;
 import eu.ibagroup.junase.web.test.WebDriverManager;
 import eu.ibagroup.junase.web.util.Wait;
 import fiori.component.Input;
-import fiori.util.TextUtil;
+import fiori.component.TabContainer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 public class ServiceOrderQuotationScreen {
 
-    //"//div[@class='th-af-content']//input[contains(@id,'%s')]";
-    private static final String CONTENT_INPUT_XPATH = "//label[contains(text(),'%s')]//ancestor::td[@class='ch-grid-cell']//..//following-sibling::tr[1]//input";
+    private static final String INPUT_BY_LABEL_XPATH = "//label[contains(text(),'%s')]//following::input[1]";
 
-    private static final String SERVICE_QUOTATION_CREATE_ID = "application-ServiceQuotation-create";
+    private static final String APPLICATION_IFRAME_ID = "application-ServiceQuotation-create";
 
-    private final Input SolutionQuotationNewInput = new Input(By.xpath("//table[@id='th-l-table-wccontainer']//span[@title='Solution Quotation: New']"));
+    private final TabContainer tabContainer = new TabContainer(By.id("anchorBar"));
 
-    public String getTextFromTable() {
-        return SolutionQuotationNewInput.getText();
-    }
-
-    public String setRandomNumericValue(int sizeValue) {
-        return TextUtil.generateNumericString(sizeValue);
-    }
-
-    public void setValueInDescriptionField(String field) {
-        String random = setRandomNumericValue(11);
-        new Input(By.xpath(String.format(CONTENT_INPUT_XPATH, field))).setText(random);
-    }
-
-    public void setValueInputField(String value, String field) {
-        Input input = new Input(By.xpath(String.format(CONTENT_INPUT_XPATH, field)));
-        input.clear();
+    public Input setInputByLabel(String labelName, String value) {
+        Input input = new Input(By.xpath(String.format(INPUT_BY_LABEL_XPATH, labelName)));
         input.setText(value);
+        return input;
+    }
+
+    public void setInputByLabelAndClickEnter(String labelName, String value) {
+        Input input = setInputByLabel(labelName, value);
         input.sendKeys(Keys.ENTER);
     }
 
-    public void switchToDefaultContent() {
+    public void switchApplicationIframe() {
         Wait.functionPassed(() -> WebDriverManager.currentSession().getWebDriver().switchTo().defaultContent());
+        Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.id(APPLICATION_IFRAME_ID)));
     }
 
-    private void switchToIframe(String iframeID) {
-        Wait.functionPassed(() -> Wait.frameAvailableAndSwitchToIt(By.id(iframeID)));
-    }
-
-    public void switchServiceQuotationCreateIframe() {
-        switchToDefaultContent();
-        switchToIframe(SERVICE_QUOTATION_CREATE_ID);
+    public String getActiveTab() {
+        return tabContainer.getActiveStage().getText();
     }
 }

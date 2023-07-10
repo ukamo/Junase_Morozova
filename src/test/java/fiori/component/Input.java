@@ -4,8 +4,10 @@ import eu.ibagroup.junase.web.component.WebComponent;
 import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 
+/**
+ * Input - a component for inputs and text areas.
+ */
 public class Input extends WebComponent {
 
     public Input(By locator) {
@@ -47,12 +49,5 @@ public class Input extends WebComponent {
     @Override
     public Input scrollToElement() {
         return (Input) super.scrollToElement();
-    }
-
-    public void click() {
-        Wait.functionPassed(() -> {
-            Wait.elementToBeClickable(getLocator());
-            getElement().click();
-        });
     }
 }

@@ -1,4 +1,4 @@
-package onliner.component;
+package fiori.component;
 
 import eu.ibagroup.junase.web.test.WebDriverManager;
 import org.openqa.selenium.By;
@@ -17,21 +17,29 @@ public abstract class Component {
         this.locator = locator;
     }
 
+    /**
+     * Finds the element on the web page. If there are more than one element with
+     * the same locator, returns the first one.
+     * <p>
+     * Method is for inner purposes only, because otherwise NullPointerException
+     * can be thrown.
+     *
+     * @return element; if there is no element with such a locator, returns null
+     */
     private WebElement findElement() {
         List<WebElement> elements = WebDriverManager.currentSession().getWebDriver().findElements(locator);
         return elements.isEmpty() ? null : elements.get(0);
     }
 
+    /**
+     * Returns WebElement based on locator.
+     * @return element or throws IllegalStateException exception
+     */
     protected WebElement getElement() {
         WebElement element = findElement();
         if (element != null) {
             return element;
         }
         throw new IllegalStateException("The element with locator [" + locator + "] was not found.");
-    }
-
-    public boolean isDisplayed() {
-        WebElement webElement = findElement();
-        return webElement != null && webElement.isDisplayed();
     }
 }

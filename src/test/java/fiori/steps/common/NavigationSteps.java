@@ -17,7 +17,6 @@ public class NavigationSteps {
     @When("^I set search \"(.*)\" on screen (.*) in application (Fiori)$")
     public void setValueInSearch(String value, String screen, String app) {
         navigation.clickSearch();
-        navigation.setSearch(value);
         navigation.clickAutocompleteByName(value);
     }
 }

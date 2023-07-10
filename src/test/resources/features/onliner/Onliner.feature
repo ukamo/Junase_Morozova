@@ -1,5 +1,5 @@
  #Author Julia Morozova
- #@web @test
+ @onliner
 
  Feature: Add some product in Cart in application Onliner
    As a user
@@ -23,7 +23,7 @@
      And I assert item price on screen <product name> in application Onliner
      When I click button Перейти в корзину on screen <product name> in application Onliner
      Then I assert I am on screen Корзина заказов in application Onliner
-     And I assert <product name> is present on screen Корзина заказов in application Onliner
+     And I assert Наушники <product name> is present on screen Корзина заказов in application Onliner
 
      Examples:
        | product name                                               | popover name         |

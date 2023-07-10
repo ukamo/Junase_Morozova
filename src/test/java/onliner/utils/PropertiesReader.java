@@ -14,8 +14,8 @@ public class PropertiesReader {
     /**
      * The method parses JSON file and returns the value for the corresponding key.
      *
-     * @param fileName
-     * @param key
+     * @param fileName ,
+     * @param key ,
      * @return value
      */
     public static String parseJSONFile(String fileName, String key) throws IOException, ParseException {

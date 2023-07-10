@@ -2,7 +2,6 @@ package onliner.screens;
 
 import org.openqa.selenium.By;
 import onliner.component.Hyperlink;
-import org.openqa.selenium.WebElement;
 
 public class ForumScreen {
 

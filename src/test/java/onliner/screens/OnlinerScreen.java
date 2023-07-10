@@ -1,8 +1,8 @@
 package onliner.screens;
 
 import eu.ibagroup.junase.web.util.Wait;
+import onliner.component.Hyperlink;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import onliner.component.Dialog;
 import onliner.component.Input;
 import onliner.component.TabContainer;

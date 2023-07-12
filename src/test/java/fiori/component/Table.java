@@ -24,11 +24,19 @@ public class Table extends WebComponent {
         super(element);
     }
 
+
     /**
      * Returns rows in table on current page.
      */
-    private List<WebElement> getRows() {
+    public List<WebElement> getRows() {
         return getElement().findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
+    }
+
+    public List<WebElement> getRowsItemTable() {
+        return getElement().findElement(By.tagName("tbody")).findElements(By.className("th-clr-tr"));}
+
+    public WebElement getRowWithCheckedCheckbox() {
+        return getElement().findElement(By.tagName("tbody")).findElement(By.xpath("//*[@role='checkbox' and @aria-checked='true']"));
     }
 
     /**
@@ -74,6 +82,27 @@ public class Table extends WebComponent {
         throw new IllegalStateException("Cannot find row specified: [" + values + "]");
     }
 
+
+    /**
+     * The method returns the row by its index. The header row is considered.
+     * If the row index is greater than the number of rows, throws an exception.
+     *
+     * @param rowIndex - the row order (header row is considered), starts from 0
+     * @return TableRow
+     */
+    public TableRow getRow(int rowIndex) {
+        return functionPassed(() -> {
+            List<WebElement> rows = getRowsItemTable();
+            if (rows.size() == 0) {
+                throw new IllegalStateException("The row number [" + rowIndex + "] does not exist in the table. The table is empty.");
+            }
+            if (rowIndex >= rows.size()) {
+                throw new IllegalStateException("The row number [" + rowIndex + "] does not exist in the table. There are only [" + rows.size() + "] rows in the table.");
+            }
+            return new TableRow(this, rows.get(rowIndex));
+        });
+    }
+
     /**
      * Looks for a cell with text equals to value; then it returns the row
      * with this cell or throws the exception.
@@ -89,12 +118,20 @@ public class Table extends WebComponent {
     }
 
     /**
-     * The method returns all the headers in the table.
-     *
-     * @return List<WebElement> - list of headers
-     */
+         * The method returns all the headers in the table.
+         *
+         * @return List<WebElement> - list of headers
+         */
     public List<WebElement> getHeaders() {
         return functionPassed(() -> getElement().findElement(By.tagName("thead")).findElements(By.tagName("th")));
+    }
+    /**
+     * The method returns the header row with the filter
+     *
+     * @return TableHeader
+     */
+    public TableHeader getHeader() {
+        return functionPassed(() -> new TableHeader(this, getElement().findElement(By.className("th-clr-thead"))));
     }
 
     /**
@@ -102,11 +139,12 @@ public class Table extends WebComponent {
      *
      * @return the column index if the column with column name exists,
      * -1 if doesn't exist
+     * Start with 0.
      */
     private int findColumnIndex(String columnName) {
         List<WebElement> headers = getHeaders();
         for (int i = 0; i < headers.size(); i++) {
-            if (headers.get(i).getAttribute("innerText").trim().equals(columnName)) {
+            if (headers.get(i).getText().equals(columnName)) {
                 return i;
             }
         }
@@ -126,4 +164,5 @@ public class Table extends WebComponent {
         }
         return index;
     }
+
 }

@@ -49,4 +49,13 @@ public class CommonDialog {
     public void clickHyperlinkByNameInTableColumn(String dialogTitle, String titleName, String columnName) {
         getDialogByTitle(dialogTitle).getTable().getColumn(columnName).getRow(titleName).getCell(columnName).getHyperlink().click();
     }
+
+    public void clickHyperlinkFromCheckCheckboxInTableColumn(String dialogTitle, String columnName){
+        //List<WebElement> rows = getDialogByTitle(dialogTitle).getTable().getRows();
+        getDialogByTitle(dialogTitle).getTable().getRowWithCheckedCheckbox().click();
+       // getDialogByTitle(dialogTitle).getTable().getHeader().getFilterHyperlink(columnName).click();
+        //getDialogByTitle(dialogTitle).getTable().getColumn(columnName).
+        //getDialogByTitle(dialogTitle).getTable().getRow(1).getCell(columnName).getHyperlinkFromCheckedCheckbox().click();
+        //rows.forEach((row) -> getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnName).getHyperlinkFromCheckedCheckbox().click());
+        }
 }

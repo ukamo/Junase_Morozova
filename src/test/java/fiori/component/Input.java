@@ -4,6 +4,7 @@ import eu.ibagroup.junase.web.component.WebComponent;
 import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 /**
  * Input - a component for inputs and text areas.
@@ -12,6 +13,10 @@ public class Input extends WebComponent {
 
     public Input(By locator) {
         super(locator);
+    }
+
+    public Input(WebElement element) {
+        super(element);
     }
 
     /**

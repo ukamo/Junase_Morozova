@@ -23,4 +23,12 @@ public class TableCell extends WebComponent {
     public Hyperlink getHyperlink() {
         return functionPassed(() -> new Hyperlink(getElement().findElement(By.className("th-tx-value"))));
     }
+
+    public Hyperlink getHyperlinkFromCheckedCheckbox() {
+        return functionPassed(() -> new Hyperlink(getElement().findElement(By.xpath("//*[@role='checkbox' and @aria-checked='true']"))));
+    }
+
+    public Input getInput() {
+        return functionPassed(() -> new Input(getElement().findElement(By.tagName("input"))));
+    }
 }

@@ -34,15 +34,29 @@ public class TableRow extends WebComponent {
         });
     }
 
+    public TableCell getCellItem(int columnIndex) {
+        return functionPassed(() -> {
+            if (columnIndex >= table.getHeaders().size()) {
+                throw new IllegalStateException("Cannot find column index [" + columnIndex + "] in the table.");
+            }
+            return new TableCell(getElement().findElements(By.className("th-clr-td")).get(columnIndex));
+        });
+    }
+
     /**
      * The method gets the cell from the row by the column Header.
      * If there is no such a column - throws exception.
      *
-     * @param header - the column header.
+     * @param header - the column header
      * @return TableCell
      */
     public TableCell getCell(String header) {
         int columnIndex = table.getColumn(header).getColumnIndex();
         return getCell(columnIndex);
     }
+    public TableCell getCellItem(String header) {
+        int columnIndex = table.getColumn(header).getColumnIndex();
+        return getCellItem(columnIndex);
+    }
+
 }

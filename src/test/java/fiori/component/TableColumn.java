@@ -1,5 +1,6 @@
 package fiori.component;
 
+
 import static eu.ibagroup.junase.web.util.Wait.functionPassed;
 
 /**

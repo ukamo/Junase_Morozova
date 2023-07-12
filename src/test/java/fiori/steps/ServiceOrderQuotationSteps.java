@@ -1,9 +1,7 @@
 package fiori.steps;
 
-import eu.ibagroup.junase.model.util.Assert;
+import eu.ibagroup.junase.model.util.TextUtil;
 import fiori.screens.ServiceOrderQuotationScreen;
-import fiori.util.TextUtil;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ServiceOrderQuotationSteps {
@@ -18,17 +16,10 @@ public class ServiceOrderQuotationSteps {
 
     @When("^I set (.*) \"([0-9]+)\" on tab (Quotation Details) on screen (Service Order Quotations) in application (Fiori)$")
     public void setInputByLabelOnTab(String labelName, String value, String tab, String screen, String app) {
-        if (labelName.equals("Employee")){
+        if (labelName.equals("Employee")) {
             serviceOrderQuotationScreen.setInputByLabelAndClickEnter(labelName, value);
-        }
-        else {
+        } else {
             serviceOrderQuotationScreen.setInputByLabel(labelName, value);
         }
-    }
-
-    @Then("^I assert I am on tab (.*) on screen (Service Order Quotations) in application (Fiori)$")
-    public void assertTabIsActive(String tabName, String screen, String app) {
-        serviceOrderQuotationScreen.switchApplicationIframe();
-        Assert.assertEquals(tabName, serviceOrderQuotationScreen::getActiveTab);
     }
 }

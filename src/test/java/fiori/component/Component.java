@@ -17,6 +17,10 @@ public abstract class Component {
         this.locator = locator;
     }
 
+    protected By getLocator() {
+        return locator;
+    }
+
     /**
      * Finds the element on the web page. If there are more than one element with
      * the same locator, returns the first one.

@@ -2,6 +2,7 @@ package fiori.steps;
 
 import eu.ibagroup.junase.model.util.Assert;
 import fiori.screens.CommonDialog;
+import fiori.screens.common.Navigation;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -9,9 +10,11 @@ public class CommonDialogSteps {
 
     private final CommonDialog commonDialog = new CommonDialog();
 
+    private final Navigation navigation = new Navigation();
+
     @Then("^I assert dialog (.*) is opened on screen (Service Order Quotations) in application (Fiori)$")
     public void assertDialogWithTitleIsOpened(String dialogTitle, String screen, String app) {
-        commonDialog.switchPopUpIframe();
+        navigation.switchPopUpIframe();
         Assert.assertTrue(() -> commonDialog.isDialogWithTitleOpened(dialogTitle));
     }
 
@@ -31,7 +34,7 @@ public class CommonDialogSteps {
     }
 
     @When("^I click hyperlink (.*) \"(.*)\" in the table on dialog (.*) on screen (Service Order Quotations) in application (Fiori)$")
-    public void clickHyperlinkByNameInTableColumn(String columnName, String titleName, String dialogTitle, String screen, String app) {
-        commonDialog.clickHyperlinkByNameInTableColumn(dialogTitle, titleName, columnName);
+    public void clickHyperlinkByNameInTableColumn(String columnName, String hyperlinkValue, String dialogTitle, String screen, String app) {
+        commonDialog.clickHyperlinkByNameInTableColumn(dialogTitle, hyperlinkValue, columnName);
     }
 }

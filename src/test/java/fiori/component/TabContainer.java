@@ -20,7 +20,7 @@ public class TabContainer extends WebComponent {
      *
      * @return WebElement stage
      */
-    public WebElement getActiveStage() {
+    public WebElement getActiveTab() {
         return getElement().findElement(By.className("th-l-anchorNav-topAB"));
     }
 

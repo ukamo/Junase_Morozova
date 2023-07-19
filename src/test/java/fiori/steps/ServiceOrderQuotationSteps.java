@@ -1,9 +1,7 @@
 package fiori.steps;
 
-import eu.ibagroup.junase.model.util.Assert;
+import eu.ibagroup.junase.model.util.TextUtil;
 import fiori.screens.ServiceOrderQuotationScreen;
-import fiori.util.TextUtil;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -52,12 +50,12 @@ public class ServiceOrderQuotationSteps {
         serviceOrderQuotationScreen.switchToTab(tabName);
     }
 
-    @And("^I check (Select) in all rows in table on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
+    @When("^I check (Select) in all rows in table on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
     public void checkCheckboxesInAllRows(String columnHeader, String tabName, String screen, String app) {
         serviceOrderQuotationScreen.checkCheckboxesInAllRows(columnHeader);
     }
 
-    @And("^I click button (Save) on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
+    @Then("^I click button (Save) on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
     public void clickSaveButton(String buttonName, String tabName, String screen, String app) {
         serviceOrderQuotationScreen.clickSaveButton();
     }

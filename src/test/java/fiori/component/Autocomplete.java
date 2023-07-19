@@ -9,11 +9,8 @@ import org.openqa.selenium.WebElement;
  */
 public class Autocomplete extends Component {
 
-    private final By locator;
-
     public Autocomplete(By locator) {
         super(locator);
-        this.locator = locator;
     }
 
     /**
@@ -21,10 +18,10 @@ public class Autocomplete extends Component {
      * selects the element with the value
      */
     public void selectValue(String value) {
-        Wait.visibilityOfElementLocated(locator);
+        Wait.visibilityOfElementLocated(getLocator());
         getElement().sendKeys(value);
         Wait.functionPassed(() -> {
-            for (WebElement element : getElement().findElements(By.xpath("//tbody[contains(@class,'sapMListItems')]//span"))) {
+            for (WebElement element : getElement().findElements(By.xpath("//tbody[contains(@Class,'sapMListItems')]//span[contains(@Class,'sapMText')]"))) {
                 if (element.getText().contains(value)) {
                     element.click();
                     return;

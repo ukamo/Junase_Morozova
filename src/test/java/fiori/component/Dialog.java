@@ -16,6 +16,6 @@ public class Dialog extends WebComponent {
      * The method gets the table from the dialog.
      */
     public Table getTable() {
-        return new Table(getElement().findElement(By.xpath("//table[contains(@id,'TableHeader')]")));
+        return new Table(getElement().findElement(By.xpath(".//table[contains(@id,'TableHeader')]")));
     }
 }

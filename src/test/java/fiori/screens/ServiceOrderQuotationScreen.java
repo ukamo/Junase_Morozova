@@ -24,14 +24,14 @@ public class ServiceOrderQuotationScreen {
 
     private final Button saveButton = new Button(By.id("C9_W36_V39_thtmlb_button_6"));
 
-    public Input setInputByLabel(String labelName, String value) {
+   public void setInputByLabel(String labelName, String value) {
         Input input = new Input(By.xpath(String.format(INPUT_BY_LABEL_XPATH, labelName)));
         input.setText(value);
-        return input;
-    }
+       }
 
     public void setInputByLabelAndClickEnter(String labelName, String value) {
-        Input input = setInputByLabel(labelName, value);
+        Input input = new Input(By.xpath(String.format(INPUT_BY_LABEL_XPATH, labelName)));
+        input.setText(value);
         input.sendKeys(Keys.ENTER);
     }
 

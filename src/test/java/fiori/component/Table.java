@@ -29,15 +29,8 @@ public class Table extends WebComponent {
      * Returns rows in table on current page.
      */
     public List<WebElement> getRows() {
-        return getElement().findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
-    }
-
-    public List<WebElement> getRowsItemTable() {
         return getElement().findElement(By.tagName("tbody")).findElements(By.className("th-clr-tr"));}
 
-    public WebElement getRowWithCheckedCheckbox() {
-        return getElement().findElement(By.tagName("tbody")).findElement(By.xpath("//*[@role='checkbox' and @aria-checked='true']"));
-    }
 
     /**
      * Returns rows number in table.
@@ -92,7 +85,7 @@ public class Table extends WebComponent {
      */
     public TableRow getRow(int rowIndex) {
         return functionPassed(() -> {
-            List<WebElement> rows = getRowsItemTable();
+            List<WebElement> rows = getRows();
             if (rows.size() == 0) {
                 throw new IllegalStateException("The row number [" + rowIndex + "] does not exist in the table. The table is empty.");
             }
@@ -125,14 +118,6 @@ public class Table extends WebComponent {
     public List<WebElement> getHeaders() {
         return functionPassed(() -> getElement().findElement(By.tagName("thead")).findElements(By.tagName("th")));
     }
-    /**
-     * The method returns the header row with the filter
-     *
-     * @return TableHeader
-     */
-    public TableHeader getHeader() {
-        return functionPassed(() -> new TableHeader(this, getElement().findElement(By.className("th-clr-thead"))));
-    }
 
     /**
      * Finds column index by the column name.
@@ -164,5 +149,4 @@ public class Table extends WebComponent {
         }
         return index;
     }
-
 }

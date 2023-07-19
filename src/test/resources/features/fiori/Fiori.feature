@@ -30,17 +30,18 @@ Feature: Release New Service Order Quotation in application Fiori
     And I assert dialog Partner Selection Document header is opened on screen Service Order Quotations in application Fiori
     And I assert table is displayed on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
     And I assert table has 4 rows on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
-    When I click hyperlink Default checked checkbox in the table on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
+    #When I click hyperlink Name "SRV_BO" in the table on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
+    When I click hyperlink Default in row with checked checkbox in the table on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
     Then I assert dialog Partner Selection Document header is closed on screen Service Order Quotations in application Fiori
     And I assert I am on screen Service Order Quotations in application Fiori
     And I assert I am on tab Quotation Details on screen Service Order Quotations in application Fiori
     When I switch to tab Items on screen Service Order Quotations in application Fiori
     Then I assert I am on tab Items on screen Service Order Quotations in application Fiori
     And I assert table is displayed on tab Items on screen Service Order Quotations in application Fiori
-    When I set Product ID "BUND01" in row "1" in the table on tab Items on screen Service Order Quotations in application Fiori
-    And I set Quantity "1" in row "1" in the table on tab Items on screen Service Order Quotations in application Fiori
-    And I check Select unchecked checkboxes in the table on tab Items on screen Service Order Quotations in application Fiori
-    #Then I assert checkboxes are checked in the table on tab Items on screen Service Order Quotations in application Fiori
+    When I set Product ID "BUND01" in row 1 in table on tab Items on screen Service Order Quotations in application Fiori
+    And I set Quantity "1" in row 1 in table on tab Items on screen Service Order Quotations in application Fiori
+    And I check Select in all rows in table on tab Items on screen Service Order Quotations in application Fiori
+    And I click button Save on tab Items on screen Service Order Quotations in application Fiori
 
     Examples:
       | login     |

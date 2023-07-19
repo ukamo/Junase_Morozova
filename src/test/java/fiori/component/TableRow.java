@@ -34,6 +34,13 @@ public class TableRow extends WebComponent {
         });
     }
 
+    /**
+     * The method gets the cell from the row by the column index in Item table.
+     * If there is no such a column - throws exception.
+     *
+     * @param columnIndex - the column order, starts with 0.
+     * @return TableCell
+     */
     public TableCell getCellItem(int columnIndex) {
         return functionPassed(() -> {
             if (columnIndex >= table.getHeaders().size()) {
@@ -54,9 +61,16 @@ public class TableRow extends WebComponent {
         int columnIndex = table.getColumn(header).getColumnIndex();
         return getCell(columnIndex);
     }
+
+    /**
+     * The method gets the cell from the row by the column Header in Item table.
+     * If there is no such a column - throws exception.
+     *
+     * @param header - the column header
+     * @return TableCell
+     */
     public TableCell getCellItem(String header) {
         int columnIndex = table.getColumn(header).getColumnIndex();
         return getCellItem(columnIndex);
     }
-
 }

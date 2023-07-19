@@ -4,6 +4,9 @@ import eu.ibagroup.junase.web.test.WebDriverManager;
 import eu.ibagroup.junase.web.util.Wait;
 import fiori.component.Dialog;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class CommonDialog {
 
@@ -50,12 +53,15 @@ public class CommonDialog {
         getDialogByTitle(dialogTitle).getTable().getColumn(columnName).getRow(titleName).getCell(columnName).getHyperlink().click();
     }
 
-    public void clickHyperlinkFromCheckCheckboxInTableColumn(String dialogTitle, String columnName){
-        //List<WebElement> rows = getDialogByTitle(dialogTitle).getTable().getRows();
-        getDialogByTitle(dialogTitle).getTable().getRowWithCheckedCheckbox().click();
-       // getDialogByTitle(dialogTitle).getTable().getHeader().getFilterHyperlink(columnName).click();
-        //getDialogByTitle(dialogTitle).getTable().getColumn(columnName).
-        //getDialogByTitle(dialogTitle).getTable().getRow(1).getCell(columnName).getHyperlinkFromCheckedCheckbox().click();
-        //rows.forEach((row) -> getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnName).getHyperlinkFromCheckedCheckbox().click());
-        }
+    public void clickHyperlinkWithCheckedCheckbox(String columnHeader, String dialogTitle) {
+        List<WebElement> rows = getDialogByTitle(dialogTitle).getTable().getRows();
+        Wait.functionPassed(() -> {
+            for (WebElement row : rows) {
+                if (getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().isChecked()) {
+                    getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnHeader).getHyperlinkByCheckbox().click();
+                    return;
+                }
+            }
+        });
+    }
 }

@@ -23,6 +23,7 @@ public class TabContainer extends WebComponent {
     public WebElement getActiveStage() {
         return getElement().findElement(By.className("th-l-anchorNav-topAB"));
     }
+
     /**
      * The method returns the tab from the tab container by its name, passed as a parameter.
      *
@@ -37,6 +38,7 @@ public class TabContainer extends WebComponent {
         }
         return null;
     }
+
     /**
      * The method switches to the desired tab by its name, passed as a parameter.
      *

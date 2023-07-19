@@ -19,10 +19,6 @@ public abstract class Component {
         this.locator = locator;
     }
 
-    public Component(WebElement webElement) {
-        this.webElement = webElement;
-    }
-
     /**
      * Finds the element on the web page. If there are more than one element with
      * the same locator, returns the first one.

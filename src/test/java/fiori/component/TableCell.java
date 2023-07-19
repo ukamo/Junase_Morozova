@@ -24,11 +24,30 @@ public class TableCell extends WebComponent {
         return functionPassed(() -> new Hyperlink(getElement().findElement(By.className("th-tx-value"))));
     }
 
-    public Hyperlink getHyperlinkFromCheckedCheckbox() {
-        return functionPassed(() -> new Hyperlink(getElement().findElement(By.xpath("//*[@role='checkbox' and @aria-checked='true']"))));
+    /**
+     * The method gets the hyperlink by checkbox from the table cell.
+     *
+     * @return Hyperlink
+     */
+    public Hyperlink getHyperlinkByCheckbox() {
+        return functionPassed(() -> new Hyperlink(getElement().findElement(By.className("th-sapcb"))));
     }
 
+    /**
+     * The method gets the input from the table cell.
+     *
+     * @return Input
+     */
     public Input getInput() {
         return functionPassed(() -> new Input(getElement().findElement(By.tagName("input"))));
+    }
+
+    /**
+     * The method gets the checkbox from the table cell.
+     *
+     * @return CheckBox
+     */
+    public Checkbox getCheckbox() {
+        return functionPassed(() -> new Checkbox(getElement().findElement(By.className("th-sapcb-a"))));
     }
 }

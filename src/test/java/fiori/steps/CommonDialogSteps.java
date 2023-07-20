@@ -40,7 +40,6 @@ public class CommonDialogSteps {
 
     @When("^I click hyperlink (Default) in row with checked checkbox in the table on dialog (Partner Selection Document header) on screen (Service Order Quotations) in application (Fiori)$")
     public void clickHyperlinkWithCheckedCheckbox(String columnName, String dialogTitle, String screen, String app) {
-        commonDialog.clickHyperlinkWithCheckedCheckbox(columnName,dialogTitle);
-
+        commonDialog.clickHyperlinkWithCheckedCheckbox(columnName, dialogTitle);
     }
 }

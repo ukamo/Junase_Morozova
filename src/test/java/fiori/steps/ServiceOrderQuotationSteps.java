@@ -1,5 +1,6 @@
 package fiori.steps;
 
+import eu.ibagroup.junase.model.util.Assert;
 import eu.ibagroup.junase.model.util.TextUtil;
 import fiori.screens.ServiceOrderQuotationScreen;
 import io.cucumber.java.en.Then;
@@ -32,12 +33,6 @@ public class ServiceOrderQuotationSteps {
             serviceOrderQuotationScreen.setInputInRowItemsTable(columnHeader, value, rowIndex - 1);
 
         }
-    }
-
-    @Then("^I assert I am on tab (.*) on screen (Service Order Quotations) in application (Fiori)$")
-    public void assertTabIsActive(String tabName, String screen, String app) {
-        serviceOrderQuotationScreen.switchApplicationIframe();
-        Assert.assertEquals(tabName, serviceOrderQuotationScreen::getActiveTab);
     }
 
     @Then("^I assert table is displayed on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")

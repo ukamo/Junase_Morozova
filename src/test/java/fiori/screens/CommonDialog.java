@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static eu.ibagroup.junase.web.util.Wait.functionPassed;
+
 public class CommonDialog {
 
     private static final String DIALOG_XPATH = "//span[@title='%s']/ancestor::*[contains(@Class,'th-dialog') and @ROLE='main']";
@@ -32,7 +34,7 @@ public class CommonDialog {
 
     public void clickHyperlinkWithCheckedCheckbox(String columnHeader, String dialogTitle) {
         List<WebElement> rows = getDialogByTitle(dialogTitle).getTable().getRows();
-        Wait.functionPassed(() -> {
+        functionPassed(() -> {
             for (WebElement row : rows) {
                 if (getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().isChecked()) {
                     getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnHeader).getHyperlinkByCheckbox().click();

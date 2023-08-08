@@ -38,8 +38,8 @@ public class CommonDialogSteps {
         commonDialog.clickHyperlinkByNameInTableColumn(dialogTitle, hyperlinkValue, columnName);
     }
 
-    @When("^I click hyperlink (Default) in row with checked checkbox in the table on dialog (Partner Selection Document header) on screen (Service Order Quotations) in application (Fiori)$")
-    public void clickHyperlinkWithCheckedCheckbox(String columnName, String dialogTitle, String screen, String app) {
-        commonDialog.clickHyperlinkWithCheckedCheckbox(columnName, dialogTitle);
+    @When("^I select row with checked checkbox in (Default) column in table on dialog (Partner Selection Document header) on screen (Service Order Quotations) in application (Fiori)$")
+    public void selectRowWithCheckedCheckbox(String columnName, String dialogTitle, String screen, String app) {
+        commonDialog.selectRowWithCheckedCheckbox(columnName, dialogTitle);
     }
 }

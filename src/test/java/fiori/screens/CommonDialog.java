@@ -32,7 +32,7 @@ public class CommonDialog {
         getDialogByTitle(dialogTitle).getTable().getColumn(columnName).getRow(hyperlinkValue).getCell(columnName).getHyperlink().click();
     }
 
-    public void clickHyperlinkWithCheckedCheckbox(String columnHeader, String dialogTitle) {
+    public void selectRowWithCheckedCheckbox(String columnHeader, String dialogTitle) {
         List<WebElement> rows = getDialogByTitle(dialogTitle).getTable().getRows();
         functionPassed(() -> {
             for (WebElement row : rows) {

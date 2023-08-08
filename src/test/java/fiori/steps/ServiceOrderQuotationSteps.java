@@ -45,9 +45,9 @@ public class ServiceOrderQuotationSteps {
         serviceOrderQuotationScreen.switchToTab(tabName);
     }
 
-    @When("^I check (Select) in all rows in table on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
-    public void checkCheckboxesInAllRows(String columnHeader, String tabName, String screen, String app) {
-        serviceOrderQuotationScreen.checkCheckboxesInAllRows(columnHeader);
+    @When("^I check checkbox in column (Select) in table on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
+    public void checkCheckboxesInColumn(String columnHeader, String tabName, String screen, String app) {
+        serviceOrderQuotationScreen.checkCheckboxesInColumn(columnHeader);
     }
 
     @Then("^I click button (Save) on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")

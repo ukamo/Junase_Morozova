@@ -31,9 +31,9 @@ public class Checkbox extends WebComponent {
      */
     public void check() {
         functionPassed(() -> {
-            //if (!isChecked()) {
+            if (!isChecked()) {
                 getElement().click();
-            //}
+            }
         });
     }
 }

@@ -1,9 +1,7 @@
 package fiori.screens;
 
-import fiori.component.Button;
-import fiori.component.Input;
-import fiori.component.TabContainer;
-import fiori.component.Table;
+import eu.ibagroup.junase.web.util.Wait;
+import fiori.component.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -49,14 +47,14 @@ public class ServiceOrderQuotationScreen {
         input.sendKeys(Keys.ENTER);
     }
 
-    public void checkCheckboxesInAllRows(String columnHeader) {
+    public void checkCheckboxesInColumn(String columnHeader) {
         List<WebElement> rows = itemsTable.getRows();
-        rows.forEach((row) -> {
-            if (!itemsTable.getRow(rows.indexOf(row)).getCell(columnHeader).getElement().findElements(By.className("th-sapcb-a")).isEmpty()) {
-                if (!itemsTable.getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().isChecked()) {
+        Wait.functionPassed(() -> {
+            rows.forEach((row) -> {
+                if (!itemsTable.getRow(rows.indexOf(row)).getCell(columnHeader).getElement().findElements(By.className("th-sapcb-a")).isEmpty()) {
                     itemsTable.getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().check();
                 }
-            }
+            });
         });
     }
 

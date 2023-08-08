@@ -30,7 +30,7 @@ Feature: Release New Service Order Quotation in application Fiori
     And I assert dialog Partner Selection Document header is opened on screen Service Order Quotations in application Fiori
     And I assert table is displayed on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
     And I assert table has 4 rows on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
-    When I click hyperlink Default in row with checked checkbox in the table on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
+    When I select row with checked checkbox in Default column in table on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
     Then I assert dialog Partner Selection Document header is closed on screen Service Order Quotations in application Fiori
     And I assert I am on screen Service Order Quotations in application Fiori
     And I assert I am on tab Quotation Details on screen Service Order Quotations in application Fiori
@@ -39,19 +39,16 @@ Feature: Release New Service Order Quotation in application Fiori
     And I assert table is displayed on tab Items on screen Service Order Quotations in application Fiori
     When I set Product ID "BUND01" in row 1 in table on tab Items on screen Service Order Quotations in application Fiori
     And I set Quantity "1" in row 1 in table on tab Items on screen Service Order Quotations in application Fiori
-    And I check Select in all rows in table on tab Items on screen Service Order Quotations in application Fiori
+    And I check checkbox in column Select in table on tab Items on screen Service Order Quotations in application Fiori
     And I click button Save on tab Items on screen Service Order Quotations in application Fiori
     #Then I assert icon with checkbox is presented on screen Service Order Quotations in application Fiori
     #When I click icon with checkbox on screen Service Order Quotations in application Fiori
     #And I store Transaction number on screen Service Order Quotations in application Fiori
     #When I click icon Back on screen Service Order Quotations in application Fiori
     #Then I assert I am on screen Home in application Fiori
-    #When I click button More groups on screen Home in application Fiori
-    #Then I assert I am on list on screen Home in application Fiori
-    #And I click hyperlink More groups "Subscription Order Management" on list on screen Home in application Fiori
-    #Then I assert I am on tab Subscription Order Management on screen Home in application Fiori
-    #When I switch to tab Manage Solution Quotations on screen Home in application Fiori
-    #Then I assert I am on screen Manage Solution Quotations in application Fiori
+    #When I click hyperlink "Subscription Management" on list on screen Home in application Fiori
+    #And I switch to tab Manage Solution Quotations on screen Home in application Fiori
+    #Then I assert I am on screen Service Order Quotations in application Fiori
 
     Examples:
       | login     |

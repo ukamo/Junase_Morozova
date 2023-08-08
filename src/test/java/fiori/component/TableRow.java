@@ -19,7 +19,7 @@ public class TableRow extends WebComponent {
     }
 
     /**
-     * The method gets the cell from the row by the column index.
+     * The method gets the cell from the row by the column index in table.
      * If there is no such a column - throws exception.
      *
      * @param columnIndex - the column order, starts with 0.
@@ -30,28 +30,12 @@ public class TableRow extends WebComponent {
             if (columnIndex >= table.getHeaders().size()) {
                 throw new IllegalStateException("Cannot find column index [" + columnIndex + "] in the table.");
             }
-            return new TableCell(getElement().findElements(By.tagName("td")).get(columnIndex));
-        });
-    }
-
-    /**
-     * The method gets the cell from the row by the column index in Item table.
-     * If there is no such a column - throws exception.
-     *
-     * @param columnIndex - the column order, starts with 0.
-     * @return TableCell
-     */
-    public TableCell getCellItem(int columnIndex) {
-        return functionPassed(() -> {
-            if (columnIndex >= table.getHeaders().size()) {
-                throw new IllegalStateException("Cannot find column index [" + columnIndex + "] in the table.");
-            }
             return new TableCell(getElement().findElements(By.className("th-clr-td")).get(columnIndex));
         });
     }
 
     /**
-     * The method gets the cell from the row by the column Header.
+     * The method gets the cell from the row by the column Header in table.
      * If there is no such a column - throws exception.
      *
      * @param header - the column header
@@ -60,17 +44,5 @@ public class TableRow extends WebComponent {
     public TableCell getCell(String header) {
         int columnIndex = table.getColumn(header).getColumnIndex();
         return getCell(columnIndex);
-    }
-
-    /**
-     * The method gets the cell from the row by the column Header in Item table.
-     * If there is no such a column - throws exception.
-     *
-     * @param header - the column header
-     * @return TableCell
-     */
-    public TableCell getCellItem(String header) {
-        int columnIndex = table.getColumn(header).getColumnIndex();
-        return getCellItem(columnIndex);
     }
 }

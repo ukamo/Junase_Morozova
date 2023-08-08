@@ -38,11 +38,11 @@ public class ServiceOrderQuotationScreen {
     }
 
     public void setInputInRowItemsTable(String columnHeader, String value, int rowIndex) {
-        itemsTable.getRow(rowIndex).getCellItem(columnHeader).getInput().setText(value);
+        itemsTable.getRow(rowIndex).getCell(columnHeader).getInput().setText(value);
     }
 
     public void setInputInRowItemsTableAndClickEnter(String columnHeader, String value, int rowIndex) {
-        Input input = itemsTable.getRow(rowIndex).getCellItem(columnHeader).getInput();
+        Input input = itemsTable.getRow(rowIndex).getCell(columnHeader).getInput();
         input.setText(value);
         input.sendKeys(Keys.ENTER);
     }

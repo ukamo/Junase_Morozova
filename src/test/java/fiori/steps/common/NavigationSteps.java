@@ -20,9 +20,15 @@ public class NavigationSteps {
         navigation.selectAutocompete(value);
     }
 
-    @Then("^I assert I am on tab (.*) on screen (Service Order Quotations) in application (Fiori)$")
+    @Then("^I assert I am on tab ((?!.*with).*) on screen (Service Order Quotations) in application (Fiori)$")
     public void assertTabIsActive(String tabName, String screen, String app) {
         navigation.switchApplicationIframe();
+        Assert.assertEquals(tabName, navigation::getActiveTab);
+    }
+
+    @Then("^I assert I am on tab (Quotation Details) with transaction number on screen (Service Order Quotations) in application (Fiori)$")
+    public void assertTabWithTransactionNumberIsActive(String tabName, String screen, String app) {
+        navigation.switchManageIframe();
         Assert.assertEquals(tabName, navigation::getActiveTab);
     }
 }

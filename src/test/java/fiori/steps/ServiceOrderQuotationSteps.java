@@ -3,12 +3,17 @@ package fiori.steps;
 import eu.ibagroup.junase.model.util.Assert;
 import eu.ibagroup.junase.model.util.TextUtil;
 import fiori.screens.ServiceOrderQuotationScreen;
+import fiori.screens.common.Navigation;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ServiceOrderQuotationSteps {
 
     private final ServiceOrderQuotationScreen serviceOrderQuotationScreen = new ServiceOrderQuotationScreen();
+
+    private final Navigation navigation = new Navigation();
+
+    private static String transactionNumber;
 
     @When("^I set (Description) as random string on tab (Quotation Details) on screen (Service Order Quotations) in application (Fiori)$")
     public void setInputByLabelAsRandomValue(String labelName, String tab, String screen, String app) {
@@ -36,7 +41,7 @@ public class ServiceOrderQuotationSteps {
     }
 
     @Then("^I assert table is displayed on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
-    public void assertItemsTableIsDisplayed(String tabName, String screen, String app) {
+    public void isTableDisplayed(String tabName, String screen, String app) {
         Assert.assertTrue(serviceOrderQuotationScreen::isItemsTableDisplayed);
     }
 
@@ -51,7 +56,40 @@ public class ServiceOrderQuotationSteps {
     }
 
     @Then("^I click button (Save) on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
-    public void clickSaveButton(String buttonName, String tabName, String screen, String app) {
+    public void clickButton(String buttonName, String tabName, String screen, String app) {
         serviceOrderQuotationScreen.clickSaveButton();
+    }
+
+    @Then("^I assert icon with checkbox is presented on screen (Service Order Quotations) in application (Fiori)$")
+    public void assertIconIsPresent(String screen, String app) {
+        Assert.assertTrue(serviceOrderQuotationScreen::isSuccessButtonDisplayed);
+    }
+
+    @When("^I click icon with checkbox on screen (Service Order Quotations) in application (Fiori)$")
+    public void clickIconWithCheckbox(String screen, String app) {
+        serviceOrderQuotationScreen.clickSuccessButton();
+    }
+
+    @When("^I store Transaction number on screen (Service Order Quotations) in application (Fiori)$")
+    public void storeTransactionNumber(String screen, String app) {
+        String transactionText = serviceOrderQuotationScreen.getTransactionText();
+        transactionNumber = transactionText.replaceAll("[^0-9]", "");
+    }
+
+    @When("^I click icon (Back) on screen (Service Order Quotations) in application (Fiori)$")
+    public void clickIconBack(String iconName, String screen, String ap) {
+        navigation.switchToDefaultContent();
+        serviceOrderQuotationScreen.clickBackButton();
+    }
+
+    @When("^I set Transaction number on (Service Order Quotation ID) on screen (Service Order Quotations) in application (Fiori)$")
+    public void setTransactionNumber(String valueName, String screen, String ap) {
+        navigation.switchManageIframe();
+        serviceOrderQuotationScreen.setInputByValue(valueName, transactionNumber);
+    }
+
+    @When("^I click button (Search) on screen (Service Order Quotations) in application (Fiori)$")
+    public void clickSearchButton(String buttonName, String screen, String app) {
+        serviceOrderQuotationScreen.clickSearchButton();
     }
 }

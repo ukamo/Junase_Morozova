@@ -16,6 +16,8 @@ public class Navigation {
 
     private static final String POPUP_IFRAME_ID = "WorkAreaFrame1popup";
 
+    private static final String MANAGE_IFRAME_ID = "application-BusinessSolutionQuotation-manage";
+
     private final Button searchButton = new Button(By.id("sf"));
 
     private final Autocomplete searchAutocomplete = new Autocomplete(By.id("searchFieldInShell-input-inner"));
@@ -58,6 +60,11 @@ public class Navigation {
     public void switchApplicationIframe() {
         switchToDefaultContent();
         switchToIframe(APPLICATION_IFRAME_ID);
+    }
+
+    public void switchManageIframe() {
+        switchToDefaultContent();
+        switchToIframe(MANAGE_IFRAME_ID);
     }
 
     public String getActiveTab() {

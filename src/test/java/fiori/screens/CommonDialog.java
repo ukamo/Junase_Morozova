@@ -37,7 +37,8 @@ public class CommonDialog {
         functionPassed(() -> {
             for (WebElement row : rows) {
                 if (getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().isChecked()) {
-                    getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnHeader).getHyperlinkByCheckbox().click();
+                    getDialogByTitle(dialogTitle).getTable().getRowWithCheckedCheckbox(columnHeader).select();
+                    //getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnHeader).getHyperlinkByCheckbox().click();
                     return;
                 }
             }

@@ -2,6 +2,7 @@ package fiori.component;
 
 import eu.ibagroup.junase.web.component.WebComponent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import static eu.ibagroup.junase.web.util.Wait.functionPassed;
@@ -22,6 +23,7 @@ public class TableCell extends WebComponent {
      */
     public Hyperlink getHyperlink() {
         return functionPassed(() -> new Hyperlink(getElement().findElement(By.className("th-tx-value"))));
+        //return functionPassed(() -> new Hyperlink(getElement().findElement(By.className("th-clr-cel"))));
     }
 
     /**
@@ -49,5 +51,10 @@ public class TableCell extends WebComponent {
      */
     public Checkbox getCheckbox() {
         return functionPassed(() -> new Checkbox(getElement().findElement(By.className("th-sapcb-a"))));
+    }
+    public void setTextWithEnter(String value){
+        Input input = this.getInput();
+        input.setText(value);
+        input.sendKeys(Keys.ENTER);
     }
 }

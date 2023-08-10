@@ -1,6 +1,7 @@
 package fiori.component;
 
 import eu.ibagroup.junase.web.component.WebComponent;
+import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -47,6 +48,11 @@ public class Table extends WebComponent {
      */
     public TableColumn getColumn(String columnName) {
         return new TableColumn(this, columnName);
+    }
+
+    public TableRow getRowWithCheckedCheckbox(String column) {
+        int columnIndex = getColumn(column).getColumnIndex();
+        return getRow(columnIndex);
     }
 
     /**
@@ -148,5 +154,14 @@ public class Table extends WebComponent {
             throw new IllegalStateException("The column [" + columnName + "] doesn't exist in the table.");
         }
         return index;
+    }
+
+    public void checkAllCheckBoxes(String columnHeader){
+        List<WebElement> rows = this.getRows();
+        Wait.functionPassed(() -> rows.forEach((row) -> {
+            if (!this.getRow(rows.indexOf(row)).getCell(columnHeader).getElement().findElements(By.className("th-sapcb-a")).isEmpty()) {
+                this.getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().check();
+            }
+        }));
     }
 }

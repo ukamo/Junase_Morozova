@@ -1,6 +1,7 @@
 package fiori.component;
 
 import eu.ibagroup.junase.web.component.WebComponent;
+import eu.ibagroup.junase.web.util.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -44,5 +45,9 @@ public class TableRow extends WebComponent {
     public TableCell getCell(String header) {
         int columnIndex = table.getColumn(header).getColumnIndex();
         return getCell(columnIndex);
+    }
+
+    public void select() {
+        Wait.functionPassed(() -> getElement().click());
     }
 }

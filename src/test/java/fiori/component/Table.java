@@ -14,7 +14,6 @@ import static eu.ibagroup.junase.web.util.Wait.functionPassed;
 /**
  * Table - a component for tables.
  */
-
 public class Table extends WebComponent {
 
     public Table(By locator) {
@@ -25,13 +24,12 @@ public class Table extends WebComponent {
         super(element);
     }
 
-
     /**
      * Returns rows in table on current page.
      */
     public List<WebElement> getRows() {
-        return getElement().findElement(By.tagName("tbody")).findElements(By.className("th-clr-tr"));}
-
+        return getElement().findElement(By.tagName("tbody")).findElements(By.className("th-clr-tr"));
+    }
 
     /**
      * Returns rows number in table.
@@ -48,11 +46,6 @@ public class Table extends WebComponent {
      */
     public TableColumn getColumn(String columnName) {
         return new TableColumn(this, columnName);
-    }
-
-    public TableRow getRowWithCheckedCheckbox(String column) {
-        int columnIndex = getColumn(column).getColumnIndex();
-        return getRow(columnIndex);
     }
 
     /**
@@ -80,7 +73,6 @@ public class Table extends WebComponent {
         }
         throw new IllegalStateException("Cannot find row specified: [" + values + "]");
     }
-
 
     /**
      * The method returns the row by its index. The header row is considered.
@@ -116,11 +108,29 @@ public class Table extends WebComponent {
         return getRow(map);
     }
 
+
     /**
-         * The method returns all the headers in the table.
-         *
-         * @return List<WebElement> - list of headers
-         */
+     * Return row with Checked Checkbox by column header
+     *
+     * @param columnHeader ,
+     * @return TableColumn
+     *      **/
+    public TableRow getRowWithCheckedCheckbox(String columnHeader) {
+        List<WebElement> rows = this.getRows();
+        for (WebElement row : rows) {
+            if (this.getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().isChecked()) {
+                int columnIndex = getColumn(columnHeader).getColumnIndex();
+                return getRow(columnIndex);
+            }
+        }
+        throw new IllegalStateException("Cannot find row specified by columnHeader: [" + columnHeader + "]");
+    }
+
+    /**
+     * The method returns all the headers in the table.
+     *
+     * @return List<WebElement> - list of headers
+     */
     public List<WebElement> getHeaders() {
         return functionPassed(() -> getElement().findElement(By.tagName("thead")).findElements(By.tagName("th")));
     }
@@ -156,7 +166,12 @@ public class Table extends WebComponent {
         return index;
     }
 
-    public void checkAllCheckBoxes(String columnHeader){
+    /**
+     * Check All checkboxes in column.
+     *
+     * @param columnHeader - name of column with checkboxes
+     */
+    public void checkAllCheckBoxes(String columnHeader) {
         List<WebElement> rows = this.getRows();
         Wait.functionPassed(() -> rows.forEach((row) -> {
             if (!this.getRow(rows.indexOf(row)).getCell(columnHeader).getElement().findElements(By.className("th-sapcb-a")).isEmpty()) {

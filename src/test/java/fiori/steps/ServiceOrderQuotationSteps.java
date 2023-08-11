@@ -84,8 +84,8 @@ public class ServiceOrderQuotationSteps {
 
     @When("^I set Transaction number on (Service Order Quotation ID) on screen (Service Order Quotations) in application (Fiori)$")
     public void setTransactionNumber(String valueName, String screen, String ap) {
-        navigation.switchManageIframe();
-        serviceOrderQuotationScreen.setInputByValue(valueName, transactionNumber);
+        navigation.switchApplicationIframe();
+        serviceOrderQuotationScreen.setInput(valueName, transactionNumber);
     }
 
     @When("^I click button (Search) on screen (Service Order Quotations) in application (Fiori)$")

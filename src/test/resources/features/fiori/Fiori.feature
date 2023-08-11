@@ -31,8 +31,7 @@ Feature: Release New Service Order Quotation in application Fiori
     And I assert table is displayed on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
     And I assert table has 4 rows on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
     When I select row with checked checkbox in Default column in table on dialog Partner Selection Document header on screen Service Order Quotations in application Fiori
-    #Then I assert dialog Partner Selection Document header is closed on screen Service Order Quotations in application Fiori
-    And I assert I am on screen Service Order Quotations in application Fiori
+    Then I assert dialog Partner Selection Document header is closed on screen Service Order Quotations in application Fiori
     And I assert I am on tab Quotation Details on screen Service Order Quotations in application Fiori
     When I switch to tab Items on screen Service Order Quotations in application Fiori
     Then I assert I am on tab Items on screen Service Order Quotations in application Fiori
@@ -46,12 +45,13 @@ Feature: Release New Service Order Quotation in application Fiori
     And I store Transaction number on screen Service Order Quotations in application Fiori
     When I click icon Back on screen Service Order Quotations in application Fiori
     Then I assert I am on screen Home in application Fiori
-    When I click hyperlink "Subscription Management" on list on screen Home in application Fiori
-    And I switch to tab Manage Solution Quotations on screen Home in application Fiori
+    When I switch to tab Subscription Management on screen Home in application Fiori
+    And I click hyperlink Manage Solution Quotations on screen Home in application Fiori
     Then I assert I am on screen Service Order Quotations in application Fiori
     When I set Transaction number on Service Order Quotation ID on screen Service Order Quotations in application Fiori
     When I click button Search on screen Service Order Quotations in application Fiori
-    Then I assert I am on tab Quotation Details with transaction number on screen Service Order Quotations in application Fiori
+    Then I assert I am on tab Quotation Details on screen Service Order Quotations in application Fiori
+
     Examples:
       | login     |
       | JMikitjuk |

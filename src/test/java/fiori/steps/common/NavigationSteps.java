@@ -26,9 +26,4 @@ public class NavigationSteps {
         Assert.assertEquals(tabName, navigation::getActiveTab);
     }
 
-    @Then("^I assert I am on tab (Quotation Details) with transaction number on screen (Service Order Quotations) in application (Fiori)$")
-    public void assertTabWithTransactionNumberIsActive(String tabName, String screen, String app) {
-        navigation.switchManageIframe();
-        Assert.assertEquals(tabName, navigation::getActiveTab);
-    }
 }

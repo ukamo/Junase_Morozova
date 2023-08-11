@@ -47,6 +47,9 @@ public class TableRow extends WebComponent {
         return getCell(columnIndex);
     }
 
+    /**
+     * The method clicks by element.
+     */
     public void select() {
         Wait.functionPassed(() -> getElement().click());
     }

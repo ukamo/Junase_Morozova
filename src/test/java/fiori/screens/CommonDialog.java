@@ -2,11 +2,6 @@ package fiori.screens;
 
 import fiori.component.Dialog;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
-
-import static eu.ibagroup.junase.web.util.Wait.functionPassed;
 
 public class CommonDialog {
 
@@ -33,15 +28,6 @@ public class CommonDialog {
     }
 
     public void selectRowWithCheckedCheckbox(String columnHeader, String dialogTitle) {
-        List<WebElement> rows = getDialogByTitle(dialogTitle).getTable().getRows();
-        functionPassed(() -> {
-            for (WebElement row : rows) {
-                if (getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().isChecked()) {
-                    getDialogByTitle(dialogTitle).getTable().getRowWithCheckedCheckbox(columnHeader).select();
-                    //getDialogByTitle(dialogTitle).getTable().getRow(rows.indexOf(row)).getCell(columnHeader).getHyperlinkByCheckbox().click();
-                    return;
-                }
-            }
-        });
+        getDialogByTitle(dialogTitle).getTable().getRowWithCheckedCheckbox(columnHeader).select();
     }
 }

@@ -10,7 +10,7 @@ public class ServiceOrderQuotationScreen {
 
     private static final String INPUT_BY_VALUE_XPATH = "//input[contains(@value,'%s')]//following::input[4]";
 
-    private final TabContainer tabContainer = new TabContainer(By.id("anchorBar"));
+    private final TabContainer tabContainer = new TabContainer(By.id("tbOVFcontainerC9W36V39ovpAnchorNavigationBar"));
 
     private final Table itemsTable = new Table(By.id("C13_W49_V50_V54_Tree_TableHeader"));
 
@@ -48,22 +48,13 @@ public class ServiceOrderQuotationScreen {
     }
 
     public void setInputInRowItemsTableAndClickEnter(String columnHeader, String value, int rowIndex) {
-        /*Input input = itemsTable.getRow(rowIndex).getCell(columnHeader).getInput();
+        Input input = itemsTable.getRow(rowIndex).getCell(columnHeader).getInput();
         input.setText(value);
-        input.sendKeys(Keys.ENTER);*/
-        itemsTable.getRow(rowIndex).getCell(columnHeader).setTextWithEnter(value);
+        input.sendKeys(Keys.ENTER);
     }
 
     public void checkCheckboxesInColumn(String columnHeader) {
         itemsTable.checkAllCheckBoxes(columnHeader);
-        /*List<WebElement> rows = itemsTable.getRows();
-        Wait.functionPassed(() -> {
-            rows.forEach((row) -> {
-                if (!itemsTable.getRow(rows.indexOf(row)).getCell(columnHeader).getElement().findElements(By.className("th-sapcb-a")).isEmpty()) {
-                    itemsTable.getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().check();
-                }
-            });
-        });*/
     }
 
     public void clickSaveButton() {
@@ -86,7 +77,7 @@ public class ServiceOrderQuotationScreen {
         backButton.click();
     }
 
-    public void setInputByValue(String valueName, String value) {
+    public void setInput(String valueName, String value) {
         Input input = new Input(By.xpath(String.format(INPUT_BY_VALUE_XPATH, valueName)));
         input.setText(value);
     }

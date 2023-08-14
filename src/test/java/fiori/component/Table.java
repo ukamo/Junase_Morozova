@@ -31,10 +31,6 @@ public class Table extends WebComponent {
         return getElement().findElement(By.tagName("tbody")).findElements(By.className("th-clr-tr"));
     }
 
-    public List<WebElement> getCells() {
-        return getElement().findElement(By.tagName("tbody")).findElements(By.className("th-clr-td"));
-    }
-
     /**
      * Returns rows number in table.
      */

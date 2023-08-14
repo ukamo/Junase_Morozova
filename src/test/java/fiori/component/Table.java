@@ -31,6 +31,10 @@ public class Table extends WebComponent {
         return getElement().findElement(By.tagName("tbody")).findElements(By.className("th-clr-tr"));
     }
 
+    public List<WebElement> getCells() {
+        return getElement().findElement(By.tagName("tbody")).findElements(By.className("th-clr-td"));
+    }
+
     /**
      * Returns rows number in table.
      */
@@ -98,7 +102,7 @@ public class Table extends WebComponent {
      * Looks for a cell with text equals to value; then it returns the row
      * with this cell or throws the exception.
      *
-     * @param value  - value to find the cell in column.
+     * @param value- value to find the cell in column.
      * @param column - number of column, starts with 0.
      * @return TableRow
      */
@@ -108,6 +112,15 @@ public class Table extends WebComponent {
         return getRow(map);
     }
 
+    /**
+     * Return Cell column and row
+     *
+     * @param row,column
+     * @return TableCell
+     *      **/
+    private TableCell getCell(int row, int column) {
+        return new TableCell(getRow(row).getElement().findElements(By.xpath(".//td[contains(@class, 'th-clr-td')]")).get(column));
+    }
 
     /**
      * Return row with Checked Checkbox by column header
@@ -173,10 +186,13 @@ public class Table extends WebComponent {
      */
     public void checkAllCheckBoxes(String columnHeader) {
         List<WebElement> rows = this.getRows();
-        Wait.functionPassed(() -> rows.forEach((row) -> {
-            if (!this.getRow(rows.indexOf(row)).getCell(columnHeader).getElement().findElements(By.className("th-sapcb-a")).isEmpty()) {
-                this.getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().check();
+        Wait.functionPassed(() -> {
+            for (int i = 0; i <= rows.size(); i++) {
+                int column = this.getColumn(columnHeader).getColumnIndex();
+                if (this.getCell(i,column).isCheckbox()) {
+                    this.getCell(i,column).getCheckbox().check();
+                }
             }
-        }));
+        });
     }
 }

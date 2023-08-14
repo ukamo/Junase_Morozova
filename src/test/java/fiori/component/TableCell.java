@@ -41,4 +41,18 @@ public class TableCell extends WebComponent {
     public Checkbox getCheckbox() {
         return functionPassed(() -> new Checkbox(getElement().findElement(By.className("th-sapcb-a"))));
     }
+
+    /**
+     * The method check the checkbox is.
+     *
+     * @return boolean
+     */
+    public boolean isCheckbox(){
+        try {
+            new Checkbox(getElement().findElement(By.className("th-sapcb-a")));
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
 }

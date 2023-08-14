@@ -19,6 +19,7 @@ public class Checkbox extends WebComponent {
         super(element);
     }
 
+
     /**
      * The method asserts if the checkbox is checked.
      */

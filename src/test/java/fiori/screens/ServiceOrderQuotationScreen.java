@@ -61,20 +61,8 @@ public class ServiceOrderQuotationScreen {
         saveButton.click();
     }
 
-    public boolean isSuccessButtonDisplayed() {
-        return successButton.isDisplayed();
-    }
-
-    public void clickSuccessButton() {
-        successButton.click();
-    }
-
     public String getTransactionText() {
         return transactionText.getText();
-    }
-
-    public void clickBackButton() {
-        backButton.click();
     }
 
     public void setInput(String valueName, String value) {

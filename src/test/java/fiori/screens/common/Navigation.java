@@ -20,6 +20,8 @@ public class Navigation {
 
     private final Button searchButton = new Button(By.id("sf"));
 
+    private final Button backButton = new Button(By.id("backBtn"));
+
     private final Autocomplete searchAutocomplete = new Autocomplete(By.id("searchFieldInShell-input-inner"));
 
     private final TabContainer tabContainer = new TabContainer(By.id("anchorBar"));
@@ -68,5 +70,9 @@ public class Navigation {
 
     public String getActiveTab() {
         return tabContainer.getActiveTab().getText();
+    }
+
+    public void clickBackButton() {
+        backButton.click();
     }
 }

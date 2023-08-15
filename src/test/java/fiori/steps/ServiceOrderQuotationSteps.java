@@ -7,6 +7,8 @@ import fiori.screens.common.Navigation;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.regex.Pattern;
+
 public class ServiceOrderQuotationSteps {
 
     private final ServiceOrderQuotationScreen serviceOrderQuotationScreen = new ServiceOrderQuotationScreen();
@@ -60,26 +62,15 @@ public class ServiceOrderQuotationSteps {
         serviceOrderQuotationScreen.clickSaveButton();
     }
 
-    @Then("^I assert icon with checkbox is presented on screen (Service Order Quotations) in application (Fiori)$")
-    public void assertIconIsPresent(String screen, String app) {
-        Assert.assertTrue(serviceOrderQuotationScreen::isSuccessButtonDisplayed);
-    }
-
-    @When("^I click icon with checkbox on screen (Service Order Quotations) in application (Fiori)$")
-    public void clickIconWithCheckbox(String screen, String app) {
-        serviceOrderQuotationScreen.clickSuccessButton();
+    @When("^I assert message with pattern \"(.*)\" is displayed on screen (Service Order Quotations) in application (Fiori)$")
+    public void assertMessageWithPatternIsDisplayed(String messageText, String screen, String app) {
+        Assert.assertEqualsPattern(Pattern.compile(messageText), () -> serviceOrderQuotationScreen.getTransactionText());
     }
 
     @When("^I store Transaction number on screen (Service Order Quotations) in application (Fiori)$")
     public void storeTransactionNumber(String screen, String app) {
         String transactionText = serviceOrderQuotationScreen.getTransactionText();
         transactionNumber = transactionText.replaceAll("[^0-9]", "");
-    }
-
-    @When("^I click icon (Back) on screen (Service Order Quotations) in application (Fiori)$")
-    public void clickIconBack(String iconName, String screen, String ap) {
-        navigation.switchToDefaultContent();
-        serviceOrderQuotationScreen.clickBackButton();
     }
 
     @When("^I set Transaction number on (Service Order Quotation ID) on screen (Service Order Quotations) in application (Fiori)$")

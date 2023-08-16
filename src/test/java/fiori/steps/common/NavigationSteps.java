@@ -20,9 +20,15 @@ public class NavigationSteps {
         navigation.selectAutocompete(value);
     }
 
-    @Then("^I assert I am on tab (.*) on screen (Service Order Quotations) in application (Fiori)$")
+    @Then("^I assert I am on tab ((?!.*with).*) on screen (.*) in application (Fiori)$")
     public void assertTabIsActive(String tabName, String screen, String app) {
         navigation.switchApplicationIframe();
         Assert.assertEquals(tabName, navigation::getActiveTab);
+    }
+
+    @When("^I click button (Back) on screen (.*) in application (Fiori)$")
+    public void clickIconBack(String iconName, String screen, String ap) {
+        navigation.switchToDefaultContent();
+        navigation.clickBackButton();
     }
 }

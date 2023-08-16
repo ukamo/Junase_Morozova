@@ -13,6 +13,8 @@ public abstract class Component {
 
     private By locator;
 
+    private WebElement webElement;
+
     protected Component(By locator) {
         this.locator = locator;
     }
@@ -37,6 +39,7 @@ public abstract class Component {
 
     /**
      * Returns WebElement based on locator.
+     *
      * @return element or throws IllegalStateException exception
      */
     protected WebElement getElement() {

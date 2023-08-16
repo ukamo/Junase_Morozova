@@ -37,4 +37,9 @@ public class CommonDialogSteps {
     public void clickHyperlinkByNameInTableColumn(String columnName, String hyperlinkValue, String dialogTitle, String screen, String app) {
         commonDialog.clickHyperlinkByNameInTableColumn(dialogTitle, hyperlinkValue, columnName);
     }
+
+    @When("^I select row with checked checkbox in (Default) column in table on dialog (Partner Selection Document header) on screen (Service Order Quotations) in application (Fiori)$")
+    public void selectRowWithCheckedCheckbox(String columnName, String dialogTitle, String screen, String app) {
+        commonDialog.selectRowWithCheckedCheckbox(columnName, dialogTitle);
+    }
 }

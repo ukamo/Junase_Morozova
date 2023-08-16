@@ -1,5 +1,6 @@
 package fiori.component;
 
+
 import static eu.ibagroup.junase.web.util.Wait.functionPassed;
 
 /**
@@ -36,7 +37,7 @@ public class TableColumn {
      * not found.
      *
      * @param value - a map of values to find the cells, the key is the column index,
-     *               the value is the value.
+     *              the value is the value.
      * @return TableRow
      */
     public TableRow getRow(String value) {

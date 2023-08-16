@@ -26,4 +26,8 @@ public class CommonDialog {
     public void clickHyperlinkByNameInTableColumn(String dialogTitle, String hyperlinkValue, String columnName) {
         getDialogByTitle(dialogTitle).getTable().getColumn(columnName).getRow(hyperlinkValue).getCell(columnName).getHyperlink().click();
     }
+
+    public void selectRowWithCheckedCheckbox(String columnHeader, String dialogTitle) {
+        getDialogByTitle(dialogTitle).getTable().getRowWithCheckedCheckbox(columnHeader).select();
+    }
 }

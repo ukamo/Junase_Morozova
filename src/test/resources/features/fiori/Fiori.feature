@@ -52,11 +52,20 @@ Feature: Release New Service Order Quotation in application Fiori
     When I set Transaction number on Service Order Quotation ID on screen Service Order Quotations in application Fiori
     And I click button Search on screen Service Order Quotations in application Fiori
     Then I assert I am on tab Quotation Details on screen Service Order Quotations in application Fiori
-    #When I click button Edit on tab Quotation Details on screen Service Order Quotations in application Fiori
-    #And I switch to tab Items on screen Service Order Quotations in application Fiori
-    #Then I assert I am on tab Items on screen Service Order Quotations in application Fiori
-    #When I click button Release All Items on tab Items on screen Service Order Quotations in application Fiori
-    #Then I assert record with Product ID "BUND01" has Status "Released" in table on tab Items on screen Service Order Quotations in application Fiori
+    When I click button Edit on tab Quotation Details on screen Service Order Quotations in application Fiori
+    And I switch to tab Items on screen Service Order Quotations in application Fiori
+    Then I assert I am on tab Items on screen Service Order Quotations in application Fiori
+    When I click button Release All Items on tab Items on screen Service Order Quotations in application Fiori
+    Then I assert record with Product ID "BUND01" has Status "Released" in table on tab Items on screen Service Order Quotations in application Fiori
+    And I assert record with Product ID "CSSRV_01" has Status "Released" in table on tab Items on screen Service Order Quotations in application Fiori
+    And I assert record with Product ID "TG11" has Status "Released" in table on tab Items on screen Service Order Quotations in application Fiori
+    And I assert record with Product ID "SRV_CONTRACT01" has Status "Released" in table on tab Items on screen Service Order Quotations in application Fiori
+    When I click button Save on tab Items on screen Service Order Quotations in application Fiori
+    And I click button Accept on tab Items on screen Service Order Quotations in application Fiori
+    Then I assert record with Product ID "BUND01" has Status "Completed" in table on tab Items on screen Service Order Quotations in application Fiori
+    And I assert record with Product ID "CSSRV_01" has Status "Completed" in table on tab Items on screen Service Order Quotations in application Fiori
+    And I assert record with Product ID "TG11" has Status "Completed" in table on tab Items on screen Service Order Quotations in application Fiori
+    And I assert record with Product ID "SRV_CONTRACT01" has Status "Completed" in table on tab Items on screen Service Order Quotations in application Fiori
 
     Examples:
       | login     |

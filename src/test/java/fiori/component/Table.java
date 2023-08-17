@@ -58,20 +58,28 @@ public class Table extends WebComponent {
      * @return TableRow
      */
     private TableRow getRow(Map<Integer, String> values) {
-        for (WebElement row : getRows()) {
-            boolean flag = true;
-            for (Map.Entry<Integer, String> entry : values.entrySet()) {
-                WebElement cell = row.findElements(By.tagName("td")).get(entry.getKey());
-                flag = entry.getValue().equals(cell.getText());
-                if (!flag) {
-                    break;
+        return Wait.functionPassed(() -> {
+            for (WebElement row : getRows()) {
+                boolean flag = true;
+                for (Map.Entry<Integer, String> entry : values.entrySet()) {
+                    WebElement cell = row.findElements(By.cssSelector("td.th-clr-cel")).get(entry.getKey());
+                    if (cell.findElements(By.cssSelector("input")).size() > 0) {
+                        if (entry.getValue().equals(cell.findElement(By.cssSelector("input")).getAttribute("value"))) {
+                            flag = entry.getValue().equals(cell.findElement(By.cssSelector("input")).getAttribute("value"));
+                        }
+                    } else {
+                        flag = entry.getValue().equals(cell.getText());
+                    }
+                    if (!flag) {
+                        break;
+                    }
+                }
+                if (flag) {
+                    return new TableRow(this, row);
                 }
             }
-            if (flag) {
-                return new TableRow(this, row);
-            }
-        }
-        throw new IllegalStateException("Cannot find row specified: [" + values + "]");
+            throw new IllegalStateException("Cannot find row specified: [" + values + "]");
+        });
     }
 
     /**
@@ -113,7 +121,7 @@ public class Table extends WebComponent {
      *
      * @param row,column
      * @return TableCell
-     *      **/
+     **/
     private TableCell getCell(int row, int column) {
         return new TableCell(getRow(row).getElement().findElements(By.xpath(".//td[contains(@class, 'th-clr-td')]")).get(column));
     }
@@ -123,7 +131,7 @@ public class Table extends WebComponent {
      *
      * @param columnHeader ,
      * @return TableColumn
-     *      **/
+     **/
     public TableRow getRowWithCheckedCheckbox(String columnHeader) {
         List<WebElement> rows = this.getRows();
         for (WebElement row : rows) {
@@ -185,10 +193,27 @@ public class Table extends WebComponent {
         Wait.functionPassed(() -> {
             for (int i = 0; i <= rows.size(); i++) {
                 int column = this.getColumn(columnHeader).getColumnIndex();
-                if (this.getCell(i,column).isCheckbox()) {
-                    this.getCell(i,column).getCheckbox().check();
+                if (this.getCell(i, column).isCheckbox()) {
+                    this.getCell(i, column).getCheckbox().check();
                 }
             }
         });
+    }
+
+    public String getRowByValue(String columnHeader, String value, String columnStatusHeader) {
+        List<WebElement> rows = this.getRows();
+        for (WebElement row : rows) {
+            TableCell cell = this.getRow(rows.indexOf(row)).getCell(columnHeader);
+            try {
+                if (cell.getInput().getValue().equals(value)) {
+                    return this.getRow(rows.indexOf(row)).getCell(columnStatusHeader).getInput().getValue();
+                }
+            } catch (Exception e) {
+                if (cell.getText().equals(value)) {
+                    return this.getRow(rows.indexOf(row)).getCell(columnStatusHeader).getInput().getValue();
+                }
+            }
+        }
+        throw new IllegalStateException("Cannot find row specified by columnHeader: [" + columnHeader + "] or by value " + value);
     }
 }

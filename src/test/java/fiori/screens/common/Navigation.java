@@ -16,8 +16,6 @@ public class Navigation {
 
     private static final String POPUP_IFRAME_ID = "WorkAreaFrame1popup";
 
-    private static final String MANAGE_IFRAME_ID = "application-BusinessSolutionQuotation-manage";
-
     private final Button searchButton = new Button(By.id("sf"));
 
     private final Button backButton = new Button(By.id("backBtn"));
@@ -40,7 +38,7 @@ public class Navigation {
         searchButton.click();
     }
 
-    public void selectAutocompete(String value) {
+    public void selectAutocomplete(String value) {
         searchAutocomplete.selectValue(value);
     }
 

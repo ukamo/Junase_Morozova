@@ -42,8 +42,7 @@ public class TabContainer extends WebComponent {
                 if (tab.getText().replaceAll("[^a-zA-Z0-9 ]", "").equals(tabName)) {
                     return tab;
                 }
-            }}*/
-        else if ((getElement().findElements(By.xpath("//div[@id='menuBarComponentContainer']//span[@class='sapMITHTextContent']")).size() != 0)) {
+            }}*/ else if ((getElement().findElements(By.xpath("//div[@id='menuBarComponentContainer']//span[@class='sapMITHTextContent']")).size() != 0)) {
             for (WebElement tab : getElement().findElements(By.className("sapMITHTextContent"))) {
                 if (tab.getText().equals(tabName)) {
                     return tab;

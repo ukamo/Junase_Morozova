@@ -69,24 +69,19 @@ public class ServiceOrderQuotationScreen {
         searchButton.click();
     }
 
-    public void clickButtonByNameOnSubHeader(String buttonName) {
-        Wait.functionPassed(() -> {
-            subHeaderButtonsContainer.getButtonByName(buttonName).doubleClick();
-        });
+    public void clickButtonByNameInSubHeader(String buttonName) {
+        Wait.functionPassed(() -> subHeaderButtonsContainer.getButtonByName(buttonName).jsClick());
     }
 
     public void clickButtonByName(String buttonName) {
         itemsButtonsContainer.getButtonByName(buttonName).click();
     }
 
-    public String getValueInTable(String columnHeader, String value, String columnStatusHeader) {
-        return itemsTable.getRowByValue(columnHeader, value, columnStatusHeader);
-
-    }
-    public String getReleasedStatusFromTable(String columnHeader, String value, String columnStatusHeader){
+    public String getReleasedStatusFromTable(String columnHeader, String value, String columnStatusHeader) {
         return Wait.functionPassed(() -> itemsTable.getColumn(columnHeader).getRow(value).getCell(columnStatusHeader).getInput().getValue());
     }
-    public String getCompletedStatusFromTable(String columnHeader, String value, String columnStatusHeader){
-        return itemsTable.getColumn(columnHeader).getRow(value).getCell(columnStatusHeader).getText();
+
+    public String getCompletedStatusFromTable(String columnHeader, String value, String columnStatusHeader) {
+        return Wait.functionPassed(() -> itemsTable.getColumn(columnHeader).getRow(value).getCell(columnStatusHeader).getText());
     }
 }

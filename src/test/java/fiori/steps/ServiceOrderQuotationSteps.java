@@ -8,10 +8,7 @@ import fiori.screens.common.Navigation;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-
-import static fiori.screens.common.Navigation.driver;
 
 public class ServiceOrderQuotationSteps {
 
@@ -42,7 +39,6 @@ public class ServiceOrderQuotationSteps {
             serviceOrderQuotationScreen.setInputInRowItemsTableAndClickEnter(columnHeader, value, rowIndex - 1);
         } else {
             serviceOrderQuotationScreen.setInputInRowItemsTable(columnHeader, value, rowIndex - 1);
-
         }
     }
 
@@ -87,11 +83,10 @@ public class ServiceOrderQuotationSteps {
     public void clickButtonOnSubHeader(String buttonName, String tabName, String screen, String app) {
         if (buttonName.equals("Edit")) {
             navigation.switchApplicationIframe();
-            serviceOrderQuotationScreen.clickButtonByNameOnSubHeader(buttonName);
-        } else if (buttonName.equals("Accept")){
-            serviceOrderQuotationScreen.clickButtonByNameOnSubHeader(buttonName);
-            Wait.waitForLoad();
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            serviceOrderQuotationScreen.clickButtonByNameInSubHeader(buttonName);
+        } else if (buttonName.equals("Accept")) {
+            serviceOrderQuotationScreen.clickButtonByNameInSubHeader(buttonName);
+            Wait.invisibilityOfBlockUI();
         }
     }
 
@@ -102,10 +97,9 @@ public class ServiceOrderQuotationSteps {
 
     @Then("^I assert record with (.*) \"(.*)\" has (Status) \"(.*)\" in table on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
     public void assertStatus(String columnHeader, String value, String columnStatusHeader, String status, String tabName, String screen, String app) {
-        //Assert.assertEquals(status, () -> serviceOrderQuotationScreen.getValueInTable(columnHeader, value, columnStatusHeader));
         if (status.equals("Released")) {
             Assert.assertEquals(status, () -> serviceOrderQuotationScreen.getReleasedStatusFromTable(columnHeader, value, columnStatusHeader));
-        } else if (status.equals("Completed")){
+        } else if (status.equals("Completed")) {
             Assert.assertEquals(status, () -> serviceOrderQuotationScreen.getCompletedStatusFromTable(columnHeader, value, columnStatusHeader));
         }
     }

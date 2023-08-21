@@ -5,7 +5,7 @@ import fiori.component.ButtonsContainer;
 import org.openqa.selenium.By;
 
 public class Footer {
-
+    public final String savedTransactionMessage = "th-mess-cont-toast";
     private final Button detailsButton = new Button(By.id("th-mes-inf-cont"));
 
     private final ButtonsContainer footerContainer = new ButtonsContainer(By.id("tbOVFcontainerwafooter"));
@@ -18,7 +18,7 @@ public class Footer {
         return detailsButton.isDisplayed();
     }
 
-    public void clickButtonOnFooter(String buttonName) {
-        footerContainer.getButtonByName(buttonName).click();
+    public void clickButtonByNameOnFooter(String buttonName) {
+        footerContainer.getButtonByName(buttonName).jsClick();
     }
 }

@@ -18,10 +18,6 @@ public class HomeScreen {
 
     }
 
-    /*public void switchToTabTile(String tabName) {
-        Wait.functionPassed(() -> tileTabContainer.switchToTab(tabName));
-    }*/
-
     public void clickManageSolutionQuotations(){
         manageSolutionQuotationsHyperlink.click();
     }

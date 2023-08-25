@@ -58,21 +58,23 @@ public class Table extends WebComponent {
      * @return TableRow
      */
     private TableRow getRow(Map<Integer, String> values) {
-        for (WebElement row : getRows()) {
-            boolean flag = true;
-            for (Map.Entry<Integer, String> entry : values.entrySet()) {
-                WebElement cell = row.findElements(By.tagName("td")).get(entry.getKey());
-                flag = entry.getValue().equals(cell.getText());
-                if (!flag) {
-                    break;
+        return Wait.functionPassed(() -> {
+            for (WebElement row : getRows()) {
+                boolean flag = true;
+                for (Map.Entry<Integer, String> entry : values.entrySet()) {
+                    WebElement cell = row.findElements(By.tagName("td")).get(entry.getKey());
+                    flag = entry.getValue().equals(cell.getText());
+                    if (!flag) {
+                        break;
+                    }
+                }
+                if (flag) {
+                    return new TableRow(this, row);
                 }
             }
-            if (flag) {
-                return new TableRow(this, row);
-            }
-        }
         throw new IllegalStateException("Cannot find row specified: [" + values + "]");
-    }
+    });
+}
 
     /**
      * The method returns the row by its index. The header row is considered.
@@ -113,23 +115,28 @@ public class Table extends WebComponent {
      *
      * @param row,column
      * @return TableCell
-     *      **/
+     **/
     private TableCell getCell(int row, int column) {
         return new TableCell(getRow(row).getElement().findElements(By.xpath(".//td[contains(@class, 'th-clr-td')]")).get(column));
     }
 
     /**
-     * Return row with Checked Checkbox by column header
+     * Return row by column header
      *
      * @param columnHeader ,
      * @return TableColumn
-     *      **/
-    public TableRow getRowWithCheckedCheckbox(String columnHeader) {
+     **/
+    public TableRow getRowByColumnHeader(String columnHeader) {
         List<WebElement> rows = this.getRows();
         for (WebElement row : rows) {
-            if (this.getRow(rows.indexOf(row)).getCell(columnHeader).getCheckbox().isChecked()) {
+            TableCell cell = this.getRow(rows.indexOf(row)).getCell(columnHeader);
+            if (cell.isCheckbox()) {
                 int columnIndex = getColumn(columnHeader).getColumnIndex();
                 return getRow(columnIndex);
+            } else if (cell.isInput()) {
+                return new TableRow(this, row);
+            } else {
+                return new TableRow(this, row);
             }
         }
         throw new IllegalStateException("Cannot find row specified by columnHeader: [" + columnHeader + "]");
@@ -185,8 +192,8 @@ public class Table extends WebComponent {
         Wait.functionPassed(() -> {
             for (int i = 0; i <= rows.size(); i++) {
                 int column = this.getColumn(columnHeader).getColumnIndex();
-                if (this.getCell(i,column).isCheckbox()) {
-                    this.getCell(i,column).getCheckbox().check();
+                if (this.getCell(i, column).isCheckbox()) {
+                    this.getCell(i, column).getCheckbox().check();
                 }
             }
         });

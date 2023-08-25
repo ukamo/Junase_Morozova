@@ -2,6 +2,7 @@ package fiori.steps;
 
 import eu.ibagroup.junase.model.util.Assert;
 import eu.ibagroup.junase.model.util.TextUtil;
+import eu.ibagroup.junase.web.util.Wait;
 import fiori.screens.ServiceOrderQuotationScreen;
 import fiori.screens.common.Navigation;
 import io.cucumber.java.en.Then;
@@ -38,7 +39,6 @@ public class ServiceOrderQuotationSteps {
             serviceOrderQuotationScreen.setInputInRowItemsTableAndClickEnter(columnHeader, value, rowIndex - 1);
         } else {
             serviceOrderQuotationScreen.setInputInRowItemsTable(columnHeader, value, rowIndex - 1);
-
         }
     }
 
@@ -55,11 +55,6 @@ public class ServiceOrderQuotationSteps {
     @When("^I check checkbox in column (Select) in table on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
     public void checkCheckboxesInColumn(String columnHeader, String tabName, String screen, String app) {
         serviceOrderQuotationScreen.checkCheckboxesInColumn(columnHeader);
-    }
-
-    @Then("^I click button (Save) on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
-    public void clickButton(String buttonName, String tabName, String screen, String app) {
-        serviceOrderQuotationScreen.clickSaveButton();
     }
 
     @When("^I assert message with pattern \"(.*)\" is displayed on screen (Service Order Quotations) in application (Fiori)$")
@@ -82,5 +77,30 @@ public class ServiceOrderQuotationSteps {
     @When("^I click button (Search) on screen (Service Order Quotations) in application (Fiori)$")
     public void clickSearchButton(String buttonName, String screen, String app) {
         serviceOrderQuotationScreen.clickSearchButton();
+    }
+
+    @When("^I click button (Edit|Accept) on tab (Quotation Details|Items) on screen (Service Order Quotations) in application (Fiori)$")
+    public void clickButtonOnSubHeader(String buttonName, String tabName, String screen, String app) {
+        if (buttonName.equals("Edit")) {
+            navigation.switchApplicationIframe();
+            serviceOrderQuotationScreen.clickButtonByNameInSubHeader(buttonName);
+        } else if (buttonName.equals("Accept")) {
+            serviceOrderQuotationScreen.clickButtonByNameInSubHeader(buttonName);
+            Wait.invisibilityOfBlockUI();
+        }
+    }
+
+    @When("^I click button (Release All Items) on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
+    public void clickReleaseAllButton(String buttonName, String tabName, String screen, String app) {
+        serviceOrderQuotationScreen.clickButtonByName(buttonName);
+    }
+
+    @Then("^I assert record with (.*) \"(.*)\" has (Status) \"(.*)\" in table on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
+    public void assertStatus(String columnHeader, String value, String columnStatusHeader, String status, String tabName, String screen, String app) {
+        if (status.equals("Released")) {
+            Assert.assertEquals(status, () -> serviceOrderQuotationScreen.getReleasedStatusFromTable(columnHeader, columnStatusHeader));
+        } else if (status.equals("Completed")) {
+            Assert.assertEquals(status, () -> serviceOrderQuotationScreen.getCompletedStatusFromTable(columnHeader, columnStatusHeader));
+        }
     }
 }

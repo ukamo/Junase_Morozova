@@ -28,6 +28,6 @@ public class CommonDialog {
     }
 
     public void selectRowWithCheckedCheckbox(String columnHeader, String dialogTitle) {
-        getDialogByTitle(dialogTitle).getTable().getRowWithCheckedCheckbox(columnHeader).select();
+        getDialogByTitle(dialogTitle).getTable().getRowByColumnHeader(columnHeader).select();
     }
 }

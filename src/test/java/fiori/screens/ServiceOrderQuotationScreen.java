@@ -1,5 +1,6 @@
 package fiori.screens;
 
+import eu.ibagroup.junase.web.util.Wait;
 import fiori.component.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -10,15 +11,13 @@ public class ServiceOrderQuotationScreen {
 
     private static final String INPUT_BY_VALUE_XPATH = "//input[contains(@value,'%s')]//following::input[4]";
 
-    private final TabContainer tabContainer = new TabContainer(By.id("tbOVFcontainerC9W36V39ovpAnchorNavigationBar"));
+    private final TabContainer tabContainer = new TabContainer(By.id("anchorBar"));
 
-    private final Table itemsTable = new Table(By.id("C13_W49_V50_V54_Tree_TableHeader"));
+    private final ButtonsContainer subHeaderButtonsContainer = new ButtonsContainer(By.id("tbOVFcontainerC1W1V2V3watoolbar"));
 
-    private final Button saveButton = new Button(By.id("C9_W36_V39_thtmlb_button_6"));
+    private final ButtonsContainer itemsButtonsContainer = new ButtonsContainer(By.id("tbOVFcontainerC13W46V47V51Treediv"));
 
-    private final Button successButton = new Button(By.id("th-mes-inf-cont"));
-
-    private final Button backButton = new Button(By.id("backBtn"));
+    private final Table itemsTable = new Table(By.xpath("//table[contains (@id, '_Tree_TableHeader')]"));
 
     private final Button searchButton = new Button(By.id("C6_W20_V22_Searchbtn"));
 
@@ -57,10 +56,6 @@ public class ServiceOrderQuotationScreen {
         itemsTable.checkAllCheckBoxes(columnHeader);
     }
 
-    public void clickSaveButton() {
-        saveButton.click();
-    }
-
     public String getTransactionText() {
         return transactionText.getText();
     }
@@ -72,5 +67,21 @@ public class ServiceOrderQuotationScreen {
 
     public void clickSearchButton() {
         searchButton.click();
+    }
+
+    public void clickButtonByNameInSubHeader(String buttonName) {
+        Wait.functionPassed(() -> subHeaderButtonsContainer.getButtonByName(buttonName).jsClick());
+    }
+
+    public void clickButtonByName(String buttonName) {
+        itemsButtonsContainer.getButtonByName(buttonName).click();
+    }
+
+    public String getReleasedStatusFromTable(String columnHeader, String columnStatusHeader) {
+        return itemsTable.getRowByColumnHeader(columnHeader).getCell(columnStatusHeader).getInput().getValue();
+    }
+
+    public String getCompletedStatusFromTable(String columnHeader, String columnStatusHeader) {
+        return Wait.functionPassed(() -> itemsTable.getRowByColumnHeader(columnHeader).getCell(columnStatusHeader).getText());
     }
 }

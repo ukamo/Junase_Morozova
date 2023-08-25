@@ -1,15 +1,15 @@
 package fiori.steps;
 
+import fiori.screens.LoginScreen;
+import gracehill.utils.PropertiesReader;
 import io.cucumber.java.en.Given;
 import org.json.simple.parser.ParseException;
-import fiori.screens.LoginScreen;
-import onliner.utils.PropertiesReader;
 
 import java.io.IOException;
 
 public class LoginSteps {
 
-    private static final String CREDITS_FILE = "testdata/LoginCredentials.json";
+    private static final String CREDITS_FILE = "LoginCredentials.json";
 
     private final LoginScreen loginScreen = new LoginScreen();
 

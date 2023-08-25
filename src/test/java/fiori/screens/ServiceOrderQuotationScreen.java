@@ -77,11 +77,11 @@ public class ServiceOrderQuotationScreen {
         itemsButtonsContainer.getButtonByName(buttonName).click();
     }
 
-    public String getReleasedStatusFromTable(String columnHeader, String value, String columnStatusHeader) {
-        return Wait.functionPassed(() -> itemsTable.getColumn(columnHeader).getRow(value).getCell(columnStatusHeader).getInput().getValue());
+    public String getReleasedStatusFromTable(String columnHeader, String columnStatusHeader) {
+        return itemsTable.getRowByColumnHeader(columnHeader).getCell(columnStatusHeader).getInput().getValue();
     }
 
-    public String getCompletedStatusFromTable(String columnHeader, String value, String columnStatusHeader) {
-        return Wait.functionPassed(() -> itemsTable.getColumn(columnHeader).getRow(value).getCell(columnStatusHeader).getText());
+    public String getCompletedStatusFromTable(String columnHeader, String columnStatusHeader) {
+        return Wait.functionPassed(() -> itemsTable.getRowByColumnHeader(columnHeader).getCell(columnStatusHeader).getText());
     }
 }

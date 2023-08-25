@@ -98,9 +98,9 @@ public class ServiceOrderQuotationSteps {
     @Then("^I assert record with (.*) \"(.*)\" has (Status) \"(.*)\" in table on tab (Items) on screen (Service Order Quotations) in application (Fiori)$")
     public void assertStatus(String columnHeader, String value, String columnStatusHeader, String status, String tabName, String screen, String app) {
         if (status.equals("Released")) {
-            Assert.assertEquals(status, () -> serviceOrderQuotationScreen.getReleasedStatusFromTable(columnHeader, value, columnStatusHeader));
+            Assert.assertEquals(status, () -> serviceOrderQuotationScreen.getReleasedStatusFromTable(columnHeader, columnStatusHeader));
         } else if (status.equals("Completed")) {
-            Assert.assertEquals(status, () -> serviceOrderQuotationScreen.getCompletedStatusFromTable(columnHeader, value, columnStatusHeader));
+            Assert.assertEquals(status, () -> serviceOrderQuotationScreen.getCompletedStatusFromTable(columnHeader, columnStatusHeader));
         }
     }
 }

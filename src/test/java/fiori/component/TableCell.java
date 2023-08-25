@@ -55,4 +55,18 @@ public class TableCell extends WebComponent {
             return false;
         }
     }
+
+    /**
+     * The method check the Input is.
+     *
+     * @return boolean
+     */
+    public boolean isInput(){
+        try {
+            new Input (getElement().findElement(By.cssSelector("input"))).getValue();
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
 }

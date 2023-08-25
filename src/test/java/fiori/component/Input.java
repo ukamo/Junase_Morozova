@@ -31,7 +31,6 @@ public class Input extends WebComponent {
         });
     }
 
-
     /**
      * Cleans the input field.
      */

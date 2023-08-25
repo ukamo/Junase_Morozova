@@ -1,9 +1,9 @@
 package fiori.steps;
 
-import fiori.screens.LoginScreen;
-import gracehill.utils.PropertiesReader;
 import io.cucumber.java.en.Given;
 import org.json.simple.parser.ParseException;
+import fiori.screens.LoginScreen;
+import fiori.utils.PropertiesReader;
 
 import java.io.IOException;
 

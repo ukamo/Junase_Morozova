@@ -1,4 +1,4 @@
-package onliner.utils;
+package fiori.utils;
 
 import eu.ibagroup.junase.model.util.FileUtil;
 import org.json.simple.JSONObject;

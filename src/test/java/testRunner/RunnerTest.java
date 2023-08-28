@@ -7,9 +7,9 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 
 @Suite
 @SelectClasspathResource("features")
-@IncludeTags({"onliner","fiori"})
+@IncludeTags({"onliner","fiori","gracehill"})
 @ConfigurationParameters({
-        @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "onliner.steps, fiori.steps, testRunner"),
+        @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "onliner.steps, fiori.steps, gracehill.steps, testRunner"),
         @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/report.html, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"),
 })
 public class RunnerTest {

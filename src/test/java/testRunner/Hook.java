@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class Hook {
 
-    List<String> items = Arrays.asList("@onliner", "@fiori");
+    List<String> items = Arrays.asList("@onliner", "@fiori", "@gracehill");
 
     /**
      * Starts new session of the appropriate driver before execution of feature file.
@@ -25,7 +25,7 @@ public class Hook {
     public void setUp(Scenario scenario) throws Exception {
         for (String item : items) {
             if (scenario.getSourceTagNames().contains(item)) {
-                if (item.equals("@onliner") || item.equals("@fiori")) {
+                if (item.equals("@onliner") || item.equals("@fiori") || item.equals("@gracehill")) {
                     WebDriverManager.newSession();
                 }
             }
@@ -41,7 +41,7 @@ public class Hook {
         final byte[] screenshot;
         for (String item : items) {
             if (scenario.getSourceTagNames().contains(item)) {
-                if (item.equals("@onliner") || item.equals("@fiori")) {
+                if (item.equals("@onliner") || item.equals("@fiori") || item.equals("@gracehill")) {
                     screenshot = ((TakesScreenshot) WebDriverManager.currentSession().getWebDriver()).getScreenshotAs(OutputType.BYTES);
                     scenario.attach(screenshot, "image/png", "screenshot"); // stick it in the report
                     FileUtil.deleteTempDirectory();

@@ -1,10 +1,7 @@
 package gracehill.screens;
 
 import fiori.component.Button;
-import gracehill.component.Input;
-import gracehill.component.SideMenu;
-import gracehill.component.TabContainer;
-import gracehill.component.Table;
+import gracehill.component.*;
 import org.openqa.selenium.By;
 
 import java.text.SimpleDateFormat;
@@ -14,6 +11,7 @@ public class VisionLMSScreen {
 
     private static final String NEW_REPO_ITEM_XPATH = "//button[contains(@class,'MuiButton-root')and text() = '%s']";
 
+    private static final String CHECKBOX_XPATH ="//p[contains(text(),'%s')]//ancestor::label//input[@name='isQuizImport' and @type='checkbox']";
     private final SideMenu navBar = new SideMenu(By.className("css-10rj7tz"));
 
     private final Table repoTable = new Table(By.className("css-zbq2oo"));
@@ -79,5 +77,9 @@ public class VisionLMSScreen {
 
     public String getTextFromNameInput() {
         return nameInput.getValue();
+    }
+
+    public void checCheckboxByLabel(String labelName) {
+        new Checkbox(By.xpath(String.format(CHECKBOX_XPATH, labelName))).check();
     }
 }
